@@ -13,6 +13,9 @@ interface Props {
   buildSchema?: 'organization' | 'website' | 'softwareList' | 'none';
   noindex?: boolean;
   extraSchema?: any[];
+  type?: 'website' | 'article' | 'faq';
+  datePublished?: string;
+  dateModified?: string;
 }
 
 const {
@@ -23,6 +26,9 @@ const {
   buildSchema = 'website',
   noindex = false,
   extraSchema = [],
+  type = 'website',
+  datePublished,
+  dateModified,
 } = Astro.props;
 ---
 
@@ -45,6 +51,9 @@ const {
       buildSchema={buildSchema}
       noindex={noindex}
       extraSchema={extraSchema}
+      type={type}
+      datePublished={datePublished}
+      dateModified={dateModified}
     />
     <slot name="head" />
   </head>
@@ -54,5 +63,25 @@ const {
       <slot />
     </main>
     <Footer locale={locale} />
+    <script>
+      // 滚动进入视口时触发 reveal 动画
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
   </body>
 </html>

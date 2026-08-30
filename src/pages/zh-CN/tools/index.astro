@@ -1,0 +1,80 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+
+const tools = [
+  {
+    title: '号码标记自查',
+    desc: '查询手机号或座机号在 360、腾讯、华为、百度等平台的标记状态',
+    href: '/zh-CN/tools/marking-check/',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
+  },
+  {
+    title: '号码标记清除',
+    desc: '聚合中国信通院、360、腾讯、Truecaller 等官方入口，一站式清除',
+    href: '/zh-CN/tools/marking-clear/',
+    icon: 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16',
+  },
+  {
+    title: '号码归属地查询',
+    desc: '免费查询归属省份、城市、运营商、号段，支持携号转网后查询',
+    href: '/zh-CN/tools/attribution/',
+    icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z',
+  },
+  {
+    title: '法人号码核验',
+    desc: '姓名 + 身份证 + 手机号三要素一致性校验，提升标记申诉通过率',
+    href: '/zh-CN/tools/legal-number-verify/',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+  {
+    title: '号码认证服务',
+    desc: '企业号码实名认证（绿标），来电显示企业名称，从源头防标记',
+    href: '/zh-CN/tools/number-auth/',
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    title: '选号比价',
+    desc: '移动 / 联通 / 电信套餐对比与选号指南',
+    href: '/zh-CN/tools/sim-cards/',
+    icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+  },
+  {
+    title: '注册卡办理',
+    desc: '注册卡（0月租批号卡）办理渠道与使用指引',
+    href: '/zh-CN/tools/registration-card/',
+    icon: 'M3 10h18M7 15h2m4 0h4M5 6h14a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1z',
+  },
+];
+---
+<MainLayout
+  title="全部号码工具"
+  description="号码标记清除网全部在线工具：号码标记自查、号码标记清除、号码归属地查询、法人号码核验、号码认证等，免费在线使用，不存储号码数据。"
+  keywords="号码工具,号码标记查询,号码标记清除,归属地查询,法人号码核验,号码认证"
+  buildSchema="none"
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-4 py-1.5 mb-4">号码工具箱</span>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">全部号码工具</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">从查询到清除，从认证到核验，一站解决您的号码管理与防标记需求。</p>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {tools.map((t, i) => (
+        <a href={t.href} class="reveal group block p-6 bg-white neon-card shine rounded-2xl hover:shadow-2xl hover:shadow-blue-500/15 hover:-translate-y-1.5 transition-all duration-300" style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
+          <div class="flex items-start space-x-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={t.icon}></path></svg>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1">{t.title}</h2>
+              <p class="text-gray-600 text-sm">{t.desc}</p>
+              <span class="inline-flex items-center gap-1 mt-3 text-sm text-blue-600 font-medium">立即使用 <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</MainLayout>

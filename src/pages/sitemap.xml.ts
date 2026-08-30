@@ -45,6 +45,9 @@ export const GET: APIRoute = async () => {
       '2026-phone-marking-removal-complete-guide',
       '2026-phone-marking-recurrence-after-clearance',
       '2026-carrier-network-interception-guide',
+      '2026-enterprise-number-marking-prevention-guide',
+      '2026-enterprise-95-96-number-marking-clear-guide',
+      '2026-phone-marking-removal-complete-guide-newbie',
     ];
 
     for (const post of blogPosts) {
@@ -57,7 +60,7 @@ export const GET: APIRoute = async () => {
     }
 
     // Tools
-    const tools = ['marking-check', 'marking-clear', 'attribution', 'legal-number-verify'];
+    const tools = ['marking-check', 'marking-clear', 'attribution', 'legal-number-verify', 'number-auth', 'registration-card', 'sim-cards'];
     for (const tool of tools) {
       urls.push({
         loc: `${BASE_URL}/${locale}/tools/${tool}/`,

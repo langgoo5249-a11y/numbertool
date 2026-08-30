@@ -1,0 +1,46 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+
+const compares = [
+  {
+    title: '标记平台横向对比',
+    desc: '360、腾讯、华为、百度、小米等标记平台的清除时效、效果与申诉方式横向对比。',
+    href: '/zh-CN/compare/marking-platforms/',
+    icon: 'M3 6h18M6 12h12M10 18h4',
+  },
+  {
+    title: '号码认证服务商对比',
+    desc: '主流号码认证（绿标）服务商的覆盖平台、价格与服务对比，帮您选对认证渠道。',
+    href: '/zh-CN/compare/auth-providers/',
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+];
+---
+<MainLayout
+  title="号码服务对比评测"
+  description="号码标记平台与号码认证服务商横向对比，帮助您清晰了解不同平台、不同服务商的差异，选择最适合自己的清除与认证方案。"
+  keywords="号码平台对比,标记平台评测,号码认证服务商对比,清除平台对比"
+  buildSchema="none"
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-violet-600 bg-violet-50 border border-violet-100 rounded-full px-4 py-1.5 mb-4">对比评测</span>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">号码服务对比评测</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">帮您看清不同平台与服务商的差异，做出更合适的清除与认证决策。</p>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {compares.map((c, i) => (
+        <a href={c.href} class="reveal group block p-6 bg-white neon-card shine rounded-2xl hover:shadow-2xl hover:shadow-violet-500/15 hover:-translate-y-1.5 transition-all duration-300" style={{ transitionDelay: `${i * 80}ms` }}>
+          <div class="w-12 h-12 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-violet-500/20 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={c.icon}></path></svg>
+          </div>
+          <h2 class="text-lg font-semibold text-gray-900 group-hover:text-violet-600 transition-colors mb-2">{c.title}</h2>
+          <p class="text-gray-600 text-sm">{c.desc}</p>
+          <span class="inline-flex items-center gap-1 mt-3 text-sm text-violet-600 font-medium">查看对比 <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</MainLayout>

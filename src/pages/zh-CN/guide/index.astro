@@ -1,0 +1,76 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+
+const guides = [
+  {
+    title: '号码标记是什么',
+    desc: '号码标记的三大来源、显示规则与行业标准，搞懂骚扰电话标记的原理。',
+    href: '/zh-CN/guide/what-is-number-marking/',
+    tag: '基础认知',
+    color: 'from-blue-500 to-indigo-500',
+  },
+  {
+    title: '如何查询号码被标记',
+    desc: '通过哪些渠道、如何正确地查询一个号码是否被标记及各平台状态。',
+    href: '/zh-CN/guide/how-to-check-marking/',
+    tag: '查询方法',
+    color: 'from-emerald-500 to-teal-500',
+  },
+  {
+    title: '如何清除号码标记',
+    desc: '分平台申诉、材料准备、注意事项，一步步把号码标记清除干净。',
+    href: '/zh-CN/guide/how-to-clear-marking/',
+    tag: '清除教程',
+    color: 'from-violet-500 to-purple-500',
+  },
+  {
+    title: '座机号码标记清除',
+    desc: '固话专线被标记怎么清除？座机号码的申诉流程与特殊注意事项。',
+    href: '/zh-CN/guide/landline-marking-clear/',
+    tag: '座机专线',
+    color: 'from-amber-500 to-orange-500',
+  },
+  {
+    title: '号码认证是什么',
+    desc: '企业绿标来电显示解析：认证的原理、效果、流程，为何能防标记。',
+    href: '/zh-CN/guide/what-is-number-auth/',
+    tag: '认证入门',
+    color: 'from-cyan-500 to-sky-500',
+  },
+];
+---
+<MainLayout
+  title="号码标记清除指南教程"
+  description="从号码标记是什么、如何查询、如何清除到号码认证，系统化的入门到进阶教程，帮您彻底解决号码被标记的问题。"
+  keywords="号码标记教程,号码标记清除指南,号码标记查询,座机号码清除,号码认证指南"
+  buildSchema="none"
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-full px-4 py-1.5 mb-4">指南教程</span>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">号码标记清除指南</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">从入门到进阶，系统化的教程帮您彻底搞懂并解决号码被标记的问题。</p>
+    </div>
+  </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="space-y-5">
+      {guides.map((g, i) => (
+        <a href={g.href} class="reveal group block p-6 bg-white neon-card shine rounded-2xl hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-300" style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
+          <div class="flex items-center gap-4">
+            <div class={`w-12 h-12 bg-gradient-to-br ${g.color} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform`}>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-full">{g.tag}</span>
+              </div>
+              <h2 class="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors mb-1">{g.title}</h2>
+              <p class="text-gray-600 text-sm">{g.desc}</p>
+            </div>
+            <span class="text-gray-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all text-xl">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</MainLayout>

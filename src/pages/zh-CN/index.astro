@@ -127,60 +127,97 @@ const blogPosts = [
 ---
 
 <MainLayout 
-  title="号码标记清除网 - 号码标记查询/清除/认证一站式服务站"
+  title="号码标记查询/清除/认证一站式服务站"
   description="号码标记清除网提供号码标记查询、号码标记清除与号码认证服务，聚合中国信通院码号服务推进组、360、腾讯、华为、Truecaller等官方入口。手机号与座机号均支持，查询免费，不存储号码数据。"
   keywords="号码标记清除,号码标记查询,号码标记清除网,手机号码标记查询,座机号码标记清除,号码认证,号码标记自查,骚扰电话标记清除,号码归属地查询免费"
 >
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative overflow-hidden bg-gradient-to-br from-blue-700 via-indigo-700 to-violet-800 text-white">
+    <!-- 动态光斑背景 -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-24 -left-24 w-96 h-96 bg-cyan-400/30 rounded-full blur-3xl float-blob"></div>
+      <div class="absolute top-1/3 -right-20 w-80 h-80 bg-violet-400/30 rounded-full blur-3xl float-blob" style="animation-delay:-5s; animation-duration:20s"></div>
+      <div class="absolute bottom-0 left-1/3 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl float-blob" style="animation-delay:-9s"></div>
+      <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-28">
       <div class="text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
-          号码标记查询与清除服务平台
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6 text-sm">
+          <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+          <span>聚合中国信通院 · 360 · 腾讯 · Truecaller 官方入口</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+          号码标记查询与清除
+          <span class="block mt-2 bg-gradient-to-r from-cyan-300 via-white to-indigo-200 bg-clip-text text-transparent">一站式服务平台</span>
         </h1>
-        <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-          聚合中国信通院码号服务推进组、360手机卫士、腾讯手机管家等官方入口
-          <br/>
-          手机号与座机号均支持 · 查询免费 · 不存储号码数据
+        <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+          无论您的手机号、座机号被标记为骚扰电话还是推销电话，我们聚合官方渠道帮您快速查询与清除
+          <span class="block mt-3 text-blue-200 text-lg">手机号与座机号均支持 · 查询免费 · 不存储号码数据</span>
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="/zh-CN/tools/marking-clear/" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+        <div class="flex flex-wrap justify-center gap-5">
+          <a href="/zh-CN/tools/marking-clear/" class="group inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-2xl font-bold shadow-xl shadow-blue-900/30 hover:shadow-2xl hover:-translate-y-0.5 transition-all">
             立即清除标记
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
           </a>
-          <a href="/zh-CN/tools/marking-check/" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+          <a href="/zh-CN/tools/marking-check/" class="inline-flex items-center gap-2 border-2 border-white/50 text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-white/10 hover:-translate-y-0.5 transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
             号码标记自查
           </a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-12 mt-14 text-center">
+          <div>
+            <div class="text-3xl md:text-4xl font-bold">3 大渠道</div>
+            <div class="text-blue-200 text-sm mt-1">合作方+信通院+Truecaller</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold">1-3 工作日</div>
+            <div class="text-blue-200 text-sm mt-1">标记清除处理周期</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold">100% 免费</div>
+            <div class="text-blue-200 text-sm mt-1">查询与官方申诉均免费</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Tools Grid -->
-  <section class="py-16 bg-white">
+  <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-12">核心工具</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {tools.map((tool) => (
-          <a href={tool.href} class="block p-6 border border-gray-200 rounded-xl hover:shadow-lg hover:border-blue-300 transition-all group">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-4 py-1.5 mb-4">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+          号码工具箱
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold">核心工具</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {tools.map((tool, i) => (
+          <a href={tool.href} class="reveal group block p-6 bg-white neon-card shine rounded-2xl hover:shadow-2xl hover:shadow-blue-500/15 hover:-translate-y-1.5 transition-all duration-300" style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
             <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20 group-hover:scale-110 group-hover:rotate-3 group-hover:glow-pulse transition-transform">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={tool.icon}></path>
                 </svg>
               </div>
               <div class="flex-1">
-                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                  {tool.title}
-                </h3>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    {tool.title}
+                  </h3>
+                  {tool.free ? (
+                    <span class="text-[10px] font-bold text-green-600 bg-green-50 border border-green-100 px-1.5 py-0.5 rounded">免费</span>
+                  ) : (
+                    <span class="text-[10px] font-bold text-violet-600 bg-violet-50 border border-violet-100 px-1.5 py-0.5 rounded">专业</span>
+                  )}
+                </div>
                 <p class="text-gray-600 text-sm mt-1">{tool.description}</p>
                 <div class="flex flex-wrap gap-2 mt-3">
                   {tool.tags.map((tag) => (
-                    <span class="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full">{tag}</span>
+                    <span class="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">{tag}</span>
                   ))}
                 </div>
-                {tool.free && (
-                  <span class="inline-block mt-3 text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded">免费</span>
-                )}
               </div>
             </div>
           </a>
@@ -190,13 +227,17 @@ const blogPosts = [
   </section>
 
   <!-- Features -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-12">为什么选择号码标记清除网</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {features.map((feature) => (
-          <div class="text-center">
-            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+  <section class="py-20 bg-gray-50 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none tech-dots opacity-40"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-full px-4 py-1.5 mb-4">平台优势</span>
+        <h2 class="text-3xl md:text-4xl font-bold">为什么选择号码标记清除网</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {features.map((feature, i) => (
+          <div class="reveal text-center p-6 bg-white neon-card rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style={{ transitionDelay: `${(i % 4) * 80}ms` }}>
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group hover:scale-110 transition-transform">
               <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon}></path>
               </svg>
@@ -210,16 +251,19 @@ const blogPosts = [
   </section>
 
   <!-- How It Works -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-12">三步完成标记清除</h2>
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-full px-4 py-1.5 mb-4">操作流程</span>
+        <h2 class="text-3xl md:text-4xl font-bold">三步完成标记清除</h2>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {steps.map((item, index) => (
-          <div class="text-center relative">
+          <div class="reveal text-center relative" style={{ transitionDelay: `${index * 100}ms` }}>
             {index < steps.length - 1 && (
-              <div class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-blue-200 -z-10"></div>
+              <div class="hidden md:block absolute top-8 left-1/2 w-full h-px bg-gradient-to-r from-blue-200 to-indigo-200 -z-10"></div>
             )}
-            <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-2xl flex items-center justify-center text-xl font-extrabold mx-auto mb-4 shadow-lg shadow-blue-500/25 glow-pulse">
               {item.step}
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
@@ -231,24 +275,27 @@ const blogPosts = [
   </section>
 
   <!-- Blog Preview -->
-  <section class="py-16 bg-gray-50">
+  <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center mb-8">
-        <h2 class="text-3xl font-bold">号码百科</h2>
-        <a href="/zh-CN/blog/" class="text-blue-600 hover:text-blue-700 font-medium">查看全部 →</a>
+      <div class="flex justify-between items-center mb-8 reveal">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-semibold tracking-wide uppercase text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-4 py-1.5">号码百科</span>
+          <h2 class="text-3xl font-bold">最新文章</h2>
+        </div>
+        <a href="/zh-CN/blog/" class="text-blue-600 hover:text-blue-700 font-medium group inline-flex items-center gap-1">查看全部 <span class="group-hover:translate-x-1 transition-transform">→</span></a>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {blogPosts.map((post) => (
-          <a href={`/zh-CN/blog/${post.slug}/`} class="block bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {blogPosts.map((post, i) => (
+          <a href={`/zh-CN/blog/${post.slug}/`} class="reveal group block bg-white neon-card shine rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
             <div class="p-6">
               <div class="flex items-center space-x-2 text-sm text-gray-500 mb-3">
                 <time datetime={post.date}>{post.date}</time>
                 <span>·</span>
-                {post.tags.map((tag, i) => (
-                  <span key={i}>{tag}</span>
+                {post.tags.map((tag, idx) => (
+                  <span key={idx} class="text-xs px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full">{tag}</span>
                 ))}
               </div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">{post.title}</h3>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">{post.title}</h3>
               <p class="text-gray-600 text-sm line-clamp-3">{post.excerpt}</p>
             </div>
           </a>
@@ -258,25 +305,48 @@ const blogPosts = [
   </section>
 
   <!-- FAQ Preview -->
-  <section class="py-16 bg-white">
+  <section class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-12">常见问题</h2>
-      <div class="space-y-6">
-        <div class="border border-gray-200 rounded-lg p-6">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-amber-600 bg-amber-50 border border-amber-100 rounded-full px-4 py-1.5 mb-4">常见问题</span>
+        <h2 class="text-3xl md:text-4xl font-bold">您可能关心的问题</h2>
+      </div>
+      <div class="space-y-4">
+        <div class="reveal neon-card rounded-xl border border-gray-100 bg-white p-6 hover:border-blue-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
           <h3 class="font-semibold text-gray-900 mb-2">号码被标记骚扰电话怎么解除？</h3>
           <p class="text-gray-600 text-sm">号码被标记后，需到各标记平台逐一申诉清除。推荐优先使用中国信通院码号服务推进组（opene164.org.cn）进行跨平台查询与清除。</p>
         </div>
-        <div class="border border-gray-200 rounded-lg p-6">
+        <div class="reveal neon-card rounded-xl border border-gray-100 bg-white p-6 hover:border-blue-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
           <h3 class="font-semibold text-gray-900 mb-2">号码标记清除需要多长时间？</h3>
           <p class="text-gray-600 text-sm">不同平台处理时间不同：360手机卫士约1-3个工作日，腾讯手机管家约2-5个工作日，华为手机约3-7个工作日。</p>
         </div>
-        <div class="border border-gray-200 rounded-lg p-6">
+        <div class="reveal neon-card rounded-xl border border-gray-100 bg-white p-6 hover:border-blue-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
           <h3 class="font-semibold text-gray-900 mb-2">清除标记会收费吗？</h3>
           <p class="text-gray-600 text-sm">中国信通院和各官方平台申诉均免费。请谨防第三方付费加急清除骗局，我们提供的服务入口均为官方渠道。</p>
         </div>
       </div>
       <div class="text-center mt-8">
         <a href="/zh-CN/faq/" class="text-blue-600 hover:text-blue-700 font-medium">查看全部常见问题 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="relative overflow-hidden bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-800">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-16 right-1/4 w-72 h-72 bg-cyan-400/30 rounded-full blur-3xl float-blob"></div>
+      <div class="absolute bottom-0 left-1/5 w-72 h-72 bg-violet-400/25 rounded-full blur-3xl float-blob" style="animation-delay:-7s"></div>
+      <div class="absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">号码被标记了？现在开始清除</h2>
+      <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">聚合官方渠道，1-3个工作日内完成标记清除。查询免费、不存储数据、全程加密。</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/zh-CN/tools/marking-clear/" class="group inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-2xl font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all">
+          立即清除标记
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+        </a>
+        <a href="/zh-CN/tools/legal-number-verify/" class="inline-flex items-center gap-2 border-2 border-white/50 text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-white/10 hover:-translate-y-0.5 transition-all">法人号码核验</a>
       </div>
     </div>
   </section>

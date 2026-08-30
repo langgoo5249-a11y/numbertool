@@ -30,6 +30,121 @@ body {
   text-rendering: optimizeLegibility;
   font-kerning: normal;
   overflow-wrap: break-word;
+  background-image:
+    radial-gradient(640px circle at 12% 0%, rgba(59,130,246,0.05), transparent 45%),
+    radial-gradient(720px circle at 88% 8%, rgba(16,185,129,0.04), transparent 42%),
+    radial-gradient(680px circle at 6% 96%, rgba(139,92,246,0.05), transparent 45%);
+  background-attachment: fixed;
+}
+
+/* ===== 科技感通用组件 ===== */
+
+/* 渐变文字 */
+.text-gradient {
+  background: linear-gradient(120deg, #2563eb, #7c3aed 55%, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* 玻璃拟态卡片 */
+.glass {
+  background: rgba(255,255,255,0.72);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: 0 8px 32px rgba(31,38,135,0.08);
+}
+
+.glass-dark {
+  background: rgba(17,24,39,0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* 发光描边卡片 */
+.neon-card {
+  position: relative;
+  overflow: hidden;
+}
+.neon-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.6), rgba(99,102,241,0.15));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* 卡片顶部扫光 */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.6s ease;
+}
+.shine:hover::after {
+  left: 130%;
+}
+
+/* 点阵/网格背景 */
+.tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(148,163,184,0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148,163,184,0.14) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.tech-dots {
+  background-image: radial-gradient(circle at 1px 1px, rgba(120,140,168,0.28) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+/* 呼吸发光的元素 */
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.35); }
+  50% { box-shadow: 0 0 26px 3px rgba(59,130,246,0.28); }
+}
+.glow-pulse { animation: glowPulse 2.8s ease-in-out infinite; }
+
+/* 缓慢流动的动画背景 */
+@keyframes floatBlob {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(28px,-22px) scale(1.08); }
+  66% { transform: translate(-20px,18px) scale(0.94); }
+}
+.float-blob { animation: floatBlob 16s ease-in-out infinite; }
+
+/* 滚动进入淡入上移 */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .float-blob { animation: none; }
+  .glow-pulse { animation: none; }
 }
 
 /* 中英文混排优化：数字与英文使用 Inter */
