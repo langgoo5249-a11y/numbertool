@@ -1,0 +1,159 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="号码标记清除 - 官方申诉入口导航 | 号码通查"
+  description="聚合中国信通院、360手机卫士、腾讯手机管家、Truecaller等官方入口，一站式清除号码标记。手机号与座机号均支持。"
+  keywords="号码标记清除,号码标记申诉,手机号码标记清除,座机号码标记怎么清除,360标记清除,腾讯标记清除"
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
+        <a href="/" class="hover:text-gray-700">首页</a>
+        <span>/</span>
+        <a href="/tools/" class="hover:text-gray-700">核心工具</a>
+        <span>/</span>
+        <span class="text-gray-900">号码标记清除</span>
+      </nav>
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">号码标记清除</h1>
+      <p class="text-gray-600">聚合官方申诉入口，多渠道同步清除标记</p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Quick Action -->
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white mb-8">
+      <h2 class="text-2xl font-bold mb-4">快速清除入口</h2>
+      <p class="text-blue-100 mb-6">推荐优先使用中国信通院码号服务推进组，支持联通手机号和400号码一站式清除</p>
+      <a href="https://xbh5.open10086.com/#/?authorization=f91029a83a8758aa" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+        立即访问清除入口
+      </a>
+    </div>
+
+    <!-- Platform Links -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <h2 class="text-xl font-semibold mb-6">各平台申诉入口</h2>
+      <div class="space-y-4">
+        {[
+          { name: '中国信通院码号服务推进组', url: 'https://www.opene164.org.cn', desc: '国内唯一官方跨平台号码标记查询与清除入口，支持手机号与座机号', time: '3-5个工作日' },
+          { name: '360手机卫士申诉', url: 'https://haomashensu.360.cn', desc: '客服电话：010-89180702', time: '1-3个工作日' },
+          { name: '腾讯手机管家申诉', url: 'https://yun.m.qq.com', desc: '客服电话：0755-83765566', time: '2-5个工作日' },
+          { name: '百度号码认证申诉', url: 'https://haoma.baidu.com', desc: 'QQ群：910251361', time: '1-3个工作日' },
+          { name: '泰迪熊移动申诉', url: 'https://teddymobile.cn/numberComplaint', desc: '客服电话：400-825-3666', time: '3-7个工作日' },
+          { name: 'Truecaller取消列入', url: 'https://www.truecaller.com/unlisting', desc: '全球最大来电识别应用，适合有国际往来的号码', time: '24-48小时' },
+        ].map((platform) => (
+          <a href={platform.url} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all group">
+            <div>
+              <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">{platform.name}</h3>
+              <p class="text-sm text-gray-500 mt-1">{platform.desc}</p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">{platform.time}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Materials Required -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <h2 class="text-xl font-semibold mb-6">申诉材料清单</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-blue-50 rounded-lg p-6">
+          <h3 class="font-semibold text-blue-900 mb-3">个人用户</h3>
+          <ul class="space-y-2 text-sm text-blue-800">
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>身份证复印件</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>错误标记截图</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>号码归属证明</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="font-semibold text-green-900 mb-3">企业用户</h3>
+          <ul class="space-y-2 text-sm text-green-800">
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>营业执照复印件</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>经办人身份证</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>号码使用证明</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>错误标记截图</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Important Notes -->
+    <div class="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+      <div class="flex items-start space-x-3">
+        <svg class="w-6 h-6 text-yellow-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        <div>
+          <h3 class="font-semibold text-yellow-900 mb-2">注意事项</h3>
+          <ul class="space-y-2 text-sm text-yellow-800">
+            <li>• 诈骗类标记不在常规清除范围，需走反诈中心异议流程</li>
+            <li>• 建议同时向所有平台提交申诉，不同手机品牌使用不同标记数据库</li>
+            <li>• 清除后建议申请号码认证绿标，从源头预防再次被标记</li>
+            <li>• 所有官方申诉渠道均免费，谨防第三方付费清除骗局</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HowTo Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "如何清除号码标记",
+    "description": "号码标记清除分渠道申诉教程，包含材料准备和平台选择建议",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "查询标记状态",
+        "text": "通过中国信通院码号服务推进组（opene164.org.cn）进行跨平台聚合查询"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "准备申诉材料",
+        "text": "个人用户提供身份证+错误标记截图+号码归属证明；企业用户提供营业执照+经办人身份证+号码使用证明"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "提交申诉",
+        "text": "多平台同步提交申诉，联通手机号可优先使用信通院一站式清除"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "验证清除结果",
+        "text": "清除后用多品牌手机复测验证，确认标记已消除"
+      }
+    ],
+    "totalTime": "PT1H"
+  }
+  </script>
+</MainLayout>

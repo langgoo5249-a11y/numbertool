@@ -1,0 +1,23 @@
+---
+export default function generateStaticParams() {
+  return [{ locale: 'zh-CN' }, { locale: 'en-US' }];
+}
+---
+
+<script context="module" set:component>
+  export async function getStaticPaths() {
+    return [
+      { params: { locale: 'zh-CN' }, props: {} },
+      { params: { locale: 'en-US' }, props: {} },
+    ];
+  }
+</script>
+
+<MainLayout
+  title="号码通查 - 专业号码标记查询与清除服务平台"
+  description="号码通查提供号码标记查询与清除服务，聚合中国信通院、360、腾讯等官方入口。手机号与座机号均支持，查询免费，不存储号码数据。"
+  keywords="号码标记通查,号码标记查询,号码标记清除,手机号码标记,座机号码标记,号码归属地查询免费"
+>
+  <h1 class="text-4xl font-bold mb-4">欢迎来到号码通查</h1>
+  <p class="text-gray-600">这是一条测试页面。</p>
+</MainLayout>

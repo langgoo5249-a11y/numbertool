@@ -1,0 +1,142 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  locale?: string;
+}
+
+const {
+  title,
+  description,
+  keywords = '号码标记,号码标记查询,号码标记清除,手机号码标记,座机号码标记,号码归属地查询',
+  canonical = 'https://www.524900.xyz',
+  image = '/og-default.jpg',
+  type = 'website',
+  locale = 'zh_CN',
+} = Astro.props;
+
+const pageUrl = Astro.url.pathname;
+const fullCanonical = `${canonical}${pageUrl}`;
+---
+
+<title>{title} | 号码通查 - 专业号码标记查询与清除服务平台</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content="号码通查团队" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+<meta name="baiduspider" content="index, follow" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={fullCanonical} />
+
+<!--Hreflang for multi-language-->
+<link rel="alternate" hreflang="zh-CN" href={`${fullCanonical}`} />
+<link rel="alternate" hreflang="en-US" href={`/en${pageUrl}`} />
+<link rel="alternate" hreflang="x-default" href={`${fullCanonical}`} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={fullCanonical} />
+<meta property="og:image" content={image} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content="号码通查" />
+<meta property="og:locale" content={locale} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+<meta name="twitter:creator" content="@haomachat" />
+
+<!-- AI/Crawler detection -->
+<meta name="ai-bot" content="GPTBot,ClaudeBot,PerplexityBot,Bytespider,QwenBot,Kimibot,DeepSeekBot,Claude-Web" />
+<meta name="AI-security-policy" content="We welcome AI crawlers" />
+
+<!-- Structure Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "号码通查",
+  "alternateName": ["haomachat", "号码标记通查"],
+  "url": "https://www.524900.xyz",
+  "logo": "https://www.524900.xyz/og-default.jpg",
+  "description": "号码通查提供号码标记查询与清除服务，聚合中国信通院码号服务推进组、360手机卫士、腾讯手机管家等官方入口，一站式解决号码被误标记为骚扰电话的问题。",
+  "foundingDate": "2026",
+  "founder": {
+    "@type": "Organization",
+    "name": "号码通查团队"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "noreply@524900.xyz",
+    "telephone": "+86-XXX-XXXX-XXXX",
+    "availableLanguage": ["Chinese", "English"],
+    "areaServed": "CN"
+  },
+  "sameAs": [
+    "https://www.opene164.org.cn",
+    "https://www.miit.gov.cn",
+    "https://www.12321.cn",
+    "https://www.truecaller.com"
+  ],
+  "knowsAbout": [
+    "电话号码标记",
+    "号码标记清除",
+    "号码标记查询",
+    "号码认证",
+    "号码归属地查询",
+    "法人号码核验",
+    "手机卡选号",
+    "骚扰电话标记",
+    "座机号码标记",
+    "Truecaller",
+    "中国信通院码号服务推进组"
+  ]
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://www.524900.xyz/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {title},
+      "item": "${fullCanonical}"
+    }
+  ]
+}
+</script>
+
+<!-- AI Discovery: llms.txt reference -->
+<meta name="llms-txt" content="/llms.txt" />
+<meta name="llms-full-txt" content="/llms-full.txt" />
+<meta name="ai-xml" content="/ai.xml" />
+<meta name="brand-info" content="/brand-info.json" />
+
+<!-- AI Crawler Directives (embedded in page for redundancy) -->
+<meta name="robots" content={type === 'article' ? 'index, follow, max-image-preview:large' : 'index, follow'} />
+
+<slot name="head" />

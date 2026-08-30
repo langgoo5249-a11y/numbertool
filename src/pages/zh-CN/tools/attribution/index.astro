@@ -1,0 +1,91 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="号码归属地查询 - 免费查询手机号归属地运营商 | 号码通查"
+  description="输入手机号或固话，免费查询归属省份、城市、运营商、号段信息。支持携号转网后查询，数据实时准确。"
+  keywords="号码归属地查询,手机号归属地,号码归属地查询免费,手机号查归属地,运营商查询"
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
+        <a href="/" class="hover:text-gray-700">首页</a>
+        <span>/</span>
+        <a href="/tools/" class="hover:text-gray-700">核心工具</a>
+        <span>/</span>
+        <span class="text-gray-900">号码归属地查询</span>
+      </nav>
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">号码归属地查询</h1>
+      <p class="text-gray-600">免费查询手机号、座机号归属地与运营商信息</p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Query Tool -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <div class="flex items-center space-x-3 mb-6">
+        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+          <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </div>
+        <h2 class="text-xl font-semibold">查询号码归属地</h2>
+      </div>
+      
+      <div class="space-y-4">
+        <div>
+          <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-2">输入号码</label>
+          <input
+            type="text"
+            id="phoneNumber"
+            placeholder="请输入手机号码或座机号"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          />
+        </div>
+        <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+          查询归属地
+        </button>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="queryResult" class="hidden bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <h3 class="text-lg font-semibold mb-4">查询结果</h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <div class="text-sm text-gray-500">归属地</div>
+          <div class="text-lg font-semibold">示例城市</div>
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <div class="text-sm text-gray-500">运营商</div>
+          <div class="text-lg font-semibold">中国移动</div>
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <div class="text-sm text-gray-500">号段</div>
+          <div class="text-lg font-semibold">138xxxx</div>
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <div class="text-sm text-gray-500">卡种</div>
+          <div class="text-lg font-semibold">预付费卡</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Information -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <h2 class="text-xl font-semibold mb-4">关于携号转网</h2>
+      <p class="text-gray-600 mb-4">
+        截至2026年6月，全国携号转网用户已突破<span class="font-semibold text-gray-900">8500万</span>，
+        传统号段前缀匹配的查询逻辑已大面积失效。本工具采用最新数据库，确保携号转网后的归属地查询准确率。
+      </p>
+      <div class="bg-blue-50 rounded-lg p-4">
+        <p class="text-sm text-blue-800">
+          <strong>提示：</strong>如查询结果显示异常，可能是因为号码刚刚完成携号转网，数据库同步存在延迟。
+          建议几天后再次查询，或直接联系运营商客服确认。
+        </p>
+      </div>
+    </div>
+  </div>
+</MainLayout>

@@ -1,0 +1,154 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { SITE_URL } from '../../lib/seo';
+---
+
+<MainLayout
+  title="号码标记自查 - 全平台标记状态查询 | 号码通查"
+  description="输入手机号或座机号，一键查询360、腾讯、华为、百度、泰迪熊、Truecaller等平台的标记状态。查询免费，不存储数据。"
+  keywords="号码标记自查,号码标记查询,手机号码标记,座机号码标记,360标记,腾讯标记,华为标记"
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
+        <a href="/" class="hover:text-gray-700">首页</a>
+        <span>/</span>
+        <a href="/tools/" class="hover:text-gray-700">核心工具</a>
+        <span>/</span>
+        <span class="text-gray-900">号码标记自查</span>
+      </nav>
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">号码标记自查</h1>
+      <p class="text-gray-600">查询您的手机号码或座机号在各大平台的标记状态</p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Tool Section -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <div class="flex items-center space-x-3 mb-6">
+        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <h2 class="text-xl font-semibold">输入号码进行查询</h2>
+      </div>
+      
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">
+            选择号码类型
+          </label>
+          <div class="flex space-x-4">
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="numberType" value="mobile" checked class="text-blue-600 focus:ring-blue-500" />
+              <span class="text-gray-700">手机号码</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="numberType" value="landline" class="text-blue-600 focus:ring-blue-500" />
+              <span class="text-gray-700">座机号码</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-2">
+            输入号码
+          </label>
+          <input
+            type="text"
+            id="phoneNumber"
+            placeholder="请输入手机号码或座机号"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <p class="mt-2 text-sm text-gray-500">
+            座机号码查询时请带区号，如：010-xxxxxxxx
+          </p>
+        </div>
+
+        <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+          开始查询
+        </button>
+      </div>
+    </div>
+
+    <!-- Supported Platforms -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <h2 class="text-xl font-semibold mb-6">支持查询的平台</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {['360手机卫士', '腾讯手机管家', '华为终端', '百度号码认证', '泰迪熊移动', 'Truecaller'].map((platform) => (
+          <div class="flex items-center space-x-2 p-3 bg-gray-50 rounded-lg">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm text-gray-700">{platform}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <div class="bg-blue-50 rounded-xl border border-blue-100 p-8 mb-8">
+      <h2 class="text-xl font-semibold text-gray-900 mb-4">使用说明</h2>
+      <ol class="space-y-3 text-gray-700">
+        <li class="flex items-start space-x-3">
+          <span class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium">1</span>
+          <span>选择号码类型（手机或座机）</span>
+        </li>
+        <li class="flex items-start space-x-3">
+          <span class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium">2</span>
+          <span>输入完整的手机号码或带区号的座机号</span>
+        </li>
+        <li class="flex items-start space-x-3">
+          <span class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium">3</span>
+          <span>点击查询，系统将聚合展示各平台标记状态</span>
+        </li>
+        <li class="flex items-start space-x-3">
+          <span class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium">4</span>
+          <span>根据查询结果，选择对应平台的清除入口进行申诉</span>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-green-50 rounded-xl border border-green-100 p-6">
+      <div class="flex items-start space-x-3">
+        <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+        <div>
+          <h3 class="font-semibold text-green-900 mb-1">隐私保护声明</h3>
+          <p class="text-sm text-green-800">
+            本站不会存储您输入的号码信息，所有查询请求仅在浏览器端处理。我们建议您通过官方渠道进行查询和申诉，以确保个人信息安全。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "如何查询号码被标记？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "号码标记查询可通过号码通查的号码标记自查工具完成。输入手机号码后，系统会聚合展示该号码在360手机卫士、腾讯手机管家、华为手机、搜狗号码通、百度号码认证等平台上的标记状态。您可以看到号码是否被标记为骚扰电话、推销、诈骗等类别。查询完全免费，无需注册。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "号码标记查询需要收费吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "号码标记查询完全免费。中国信通院码号服务推进组（opene164.org.cn）和各官方平台的申诉流程均不收取费用。请谨防第三方付费查询骗局。"
+        }
+      }
+    ]
+  }
+  </script>
+</MainLayout>

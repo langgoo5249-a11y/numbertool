@@ -1,0 +1,283 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { SITE_URL, buildOgImage } from '../../lib/seo';
+
+interface Tool {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  href: string;
+  tags: string[];
+  free: boolean;
+}
+
+const tools: Tool[] = [
+  {
+    id: 'marking-check',
+    title: '号码标记自查',
+    description: '查询手机号或座机号在各平台的标记状态，支持360、腾讯、华为、百度等主流平台。',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
+    href: '/zh-CN/tools/marking-check/',
+    tags: ['手机号码', '座机号码', '多平台查询'],
+    free: true,
+  },
+  {
+    id: 'marking-clear',
+    title: '号码标记清除',
+    description: '聚合中国信通院、360、腾讯、Truecaller等官方入口，一站式清除号码标记。',
+    icon: 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16',
+    href: '/zh-CN/tools/marking-clear/',
+    tags: ['清除申诉', '官方入口', '授权合作'],
+    free: true,
+  },
+  {
+    id: 'attribution',
+    title: '号码归属地查询',
+    description: '输入手机号或固话，免费查询归属省份、城市、运营商、号段信息，支持携号转网后查询。',
+    icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z',
+    href: '/zh-CN/tools/attribution/',
+    tags: ['归属地', '运营商', '号段'],
+    free: true,
+  },
+  {
+    id: 'legal-number-verify',
+    title: '法人号码核验',
+    description: '企业法人手机号实名认证，姓名+身份证+手机号三要素一致性校验，提升号码标记申诉通过率。',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    href: '/zh-CN/tools/legal-number-verify/',
+    tags: ['企业核验', '实名认证', '三要素'],
+    free: false,
+  },
+  {
+    id: 'sim-cards',
+    title: '手机卡选号比价',
+    description: '移动/联通/电信套餐对比与选号指南，助您选择最适合的号码和套餐。',
+    icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+    href: '/zh-CN/tools/sim-cards/',
+    tags: ['套餐对比', '选号指南', '靓号'],
+    free: true,
+  },
+];
+
+const features = [
+  {
+    title: '多渠道覆盖',
+    description: '合作方+信通院+Truecaller三渠道，覆盖国内与国际标记平台',
+    icon: 'M3.055 11h5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064',
+  },
+  {
+    title: '安全隐私',
+    description: '全程加密传输，本站不存储您输入的任何号码信息',
+    icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
+  },
+  {
+    title: '官方数据源',
+    description: '数据来源包括中国信通院码号服务推进组、Truecaller官方',
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    title: '快速响应',
+    description: '高效处理您的查询请求，最快1分钟完成全网标记检测',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+];
+
+const steps = [
+  {
+    step: '01',
+    title: '查询标记',
+    description: '输入手机号或座机号，查询各平台标记情况',
+  },
+  {
+    step: '02',
+    title: '选择渠道',
+    description: '根据标记平台，选择清除服务或信通院官方入口',
+  },
+  {
+    step: '03',
+    title: '清除完成',
+    description: '提交申诉后1-3个工作日完成清除，来电恢复正常',
+  },
+];
+
+const blogPosts = [
+  {
+    slug: '2026-number-false-marking-guide',
+    title: '没打过电话却被标成骚扰电话？号码误标真相与清除指南',
+    date: '2026-08-28',
+    excerpt: '号码误标三大来源、YD/T 4980-2024申诉依据与清除顺序，公安热线被误标真实案例。',
+    tags: ['号码误标', '申诉指南'],
+  },
+  {
+    slug: '2026-phone-manufacturer-local-marking-database-clear-guide',
+    title: '手机厂商隐藏标记系统清除全攻略',
+    date: '2026-08-12',
+    excerpt: '平台申诉清除后手机仍显示骚扰电话？华为/小米/OPPO/vivo/荣耀五大厂商独立本地标记库的清除方法。',
+    tags: ['手机厂商', '本地标记库'],
+  },
+  {
+    slug: '2026-ai-marking-algorithm-rules-guide',
+    title: '号码为什么被AI自动标记？2026年标记算法规则',
+    date: '2026-08-19',
+    excerpt: '标记背后的AI判定逻辑，为什么号码"莫名其妙"被标记。',
+    tags: ['AI标记', '算法规则'],
+  },
+];
+---
+
+<MainLayout 
+  title="号码通查 - 专业号码标记查询与清除服务平台"
+  description="号码通查提供号码标记查询与清除服务，聚合中国信通院、360、腾讯等官方入口。手机号与座机号均支持，查询免费，不存储号码数据。"
+  keywords="号码标记通查,号码标记查询,号码标记清除,手机号码标记,座机号码标记,号码归属地查询免费,号码标记自查,号码标记申诉"
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          号码标记查询与清除服务平台
+        </h1>
+        <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+          聚合中国信通院码号服务推进组、360手机卫士、腾讯手机管家等官方入口
+          <br/>
+          手机号与座机号均支持 · 查询免费 · 不存储号码数据
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/zh-CN/tools/marking-clear/" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+            立即清除标记
+          </a>
+          <a href="/zh-CN/tools/marking-check/" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+            号码标记自查
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Grid -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">核心工具</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {tools.map((tool) => (
+          <a href={tool.href} class="block p-6 border border-gray-200 rounded-xl hover:shadow-lg hover:border-blue-300 transition-all group">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={tool.icon}></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  {tool.title}
+                </h3>
+                <p class="text-gray-600 text-sm mt-1">{tool.description}</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  {tool.tags.map((tag) => (
+                    <span class="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full">{tag}</span>
+                  ))}
+                </div>
+                {tool.free && (
+                  <span class="inline-block mt-3 text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded">免费</span>
+                )}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">为什么选择号码通查</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {features.map((feature) => (
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon}></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
+            <p class="text-gray-600 text-sm">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">三步完成标记清除</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {steps.map((item, index) => (
+          <div class="text-center relative">
+            {index < steps.length - 1 && (
+              <div class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-blue-200 -z-10"></div>
+            )}
+            <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+              {item.step}
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-gray-600">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl font-bold">号码百科</h2>
+        <a href="/zh-CN/blog/" class="text-blue-600 hover:text-blue-700 font-medium">查看全部 →</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {blogPosts.map((post) => (
+          <a href={`/zh-CN/blog/${post.slug}/`} class="block bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+            <div class="p-6">
+              <div class="flex items-center space-x-2 text-sm text-gray-500 mb-3">
+                <time datetime={post.date}>{post.date}</time>
+                <span>·</span>
+                {post.tags.map((tag, i) => (
+                  <span key={i}>{tag}</span>
+                ))}
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">{post.title}</h3>
+              <p class="text-gray-600 text-sm line-clamp-3">{post.excerpt}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Preview -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">常见问题</h2>
+      <div class="space-y-6">
+        <div class="border border-gray-200 rounded-lg p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">号码被标记骚扰电话怎么解除？</h3>
+          <p class="text-gray-600 text-sm">号码被标记后，需到各标记平台逐一申诉清除。推荐优先使用中国信通院码号服务推进组（opene164.org.cn）进行跨平台查询与清除。</p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">号码标记清除需要多长时间？</h3>
+          <p class="text-gray-600 text-sm">不同平台处理时间不同：360手机卫士约1-3个工作日，腾讯手机管家约2-5个工作日，华为手机约3-7个工作日。</p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">清除标记会收费吗？</h3>
+          <p class="text-gray-600 text-sm">中国信通院和各官方平台申诉均免费。请谨防第三方付费加急清除骗局，我们提供的服务入口均为官方渠道。</p>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a href="/zh-CN/faq/" class="text-blue-600 hover:text-blue-700 font-medium">查看全部常见问题 →</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

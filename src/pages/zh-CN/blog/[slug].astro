@@ -1,0 +1,186 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { SITE_URL } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: '2026-number-false-marking-guide' } },
+    { params: { slug: '2026-phone-manufacturer-local-marking-database-clear-guide' } },
+    { params: { slug: '2026-ai-marking-algorithm-rules-guide' } },
+    { params: { slug: '2026-recycled-number-false-marking-guide' } },
+    { params: { slug: '2026-enterprise-400-number-marking-clear-guide' } },
+    { params: { slug: '2026-high-frequency-outbound-number-marking-solution' } },
+    { params: { slug: '2026-number-marking-appeal-rejected-solutions' } },
+    { params: { slug: '2026-phone-marking-removal-complete-guide' } },
+    { params: { slug: '2026-phone-marking-recurrence-after-clearance' } },
+    { params: { slug: '2026-carrier-network-interception-guide' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+const posts: Record<string, { title: string; date: string; author: string; tags: string[]; excerpt: string; content: string }> = {
+  '2026-number-false-marking-guide': {
+    title: '没打过电话却被标成骚扰电话？号码误标真相与清除指南',
+    date: '2026-08-28',
+    author: 'langood',
+    tags: ['号码误标', '申诉指南', 'YD/T 4980-2024'],
+    excerpt: '号码误标三大来源、YD/T 4980-2024申诉依据与清除顺序，公安热线被误标真实案例。',
+    content: `
+## 问题描述
+
+您是否遇到过这样的情况：明明没有打过骚扰电话，甚至刚办的新号，却在手机来电显示上被标记为"骚扰电话"或"推销电话"？这种情况被称为"号码误标"，近年来随着AI标记系统的普及，误标率呈上升趋势。
+
+## 号码误标的三大来源
+
+### 1. 二次号码继承前主人标记
+
+这是最常见的误标原因。当运营商回收一个号码并重新发放后，新用户可以享受到该号码之前的全部通讯记录，但同时也继承了前主人的所有标记。
+
+**真实案例**：张先生购买了一个新的手机号，结果发现每次打电话都被对方标记为"骚扰电话"。经查询发现，前任机主是一名房产中介，频繁使用该号码进行外呼，导致该号码在多个平台被标记。
+
+### 2. 被恶意标记
+
+部分竞争对手或个人可能出于恶意目的，对特定号码进行批量标记。这种行为虽然违法，但由于标记平台通常以用户投票为准，恶意标记往往难以完全避免。
+
+### 3. AI算法误判
+
+2026年，各平台全面升级了AI标记系统。根据工信部发布的信息，360手机卫士的AI大模型项目成功入选"2025年度信息通信服务创优典型案例"，标志着AI驱动的号码标记已经从辅助手段变成了官方认可的行业标准。
+
+AI系统基于以下特征进行自动判定：
+- 新号高频外呼（单日拨打陌生号码超过30通）
+- 低接通率（呼出接通率低于25%）
+- 短通话时长（平均通话时长低于30秒）
+- 被叫多样性（短时间内拨打大量不同号码，无重复通话）
+
+## 申诉依据：YD/T 4980-2024
+
+《YD/T 4980-2024 电信网号码标记管理规范》是手机号码标记领域的第一部行业标准，于2024年发布实施。该标准明确规定：
+
+1. 标记主体应当建立投诉处理机制，在收到投诉后及时处理
+2. 用户有权查询自己被标记的情况
+3. 标记应当基于准确、客观的数据，不得滥用
+
+根据该标准，当号码被误标时，用户可以依据此规范向标记平台提出申诉。
+
+## 清除顺序建议
+
+1. **优先查询**：使用号码通查的号码标记自查工具，一站式查询所有平台的标记状态
+2. **信通院优先**：联通手机号和400号码优先通过中国信通院码号服务推进组（opene164.org.cn）进行跨平台查询与清除
+3. **多平台同步**：其他运营商号码需同时向多个平台提交申诉，不要串行等待
+4. **材料准备**：
+   - 个人用户：身份证+错误标记截图+号码归属证明
+   - 企业用户：营业执照+经办人身份证+号码使用证明+错误标记截图
+5. **验证结果**：清除后用多品牌手机复测验证
+
+## 预防措施
+
+清除标记后，建议采取以下措施防止再次被标记：
+
+- 控制外呼频次，单日拨打陌生号码不超过30通
+- 保证接通率高于25%，避免秒挂行为
+- 新号先使用7-14天积累正常通话记录
+- 企业号码申请号码认证绿标
+- 定期用不同品牌手机实测自己的号码
+
+---
+
+*本文数据来源：工信部《YD/T 4980-2024 电信网号码标记管理规范》、360手机卫士官方文档、腾讯手机管家公开资料*
+    `,
+  },
+  '2026-phone-manufacturer-local-marking-database-clear-guide': {
+    title: '手机厂商隐藏标记系统清除全攻略',
+    date: '2026-08-12',
+    author: 'langood',
+    tags: ['手机厂商', '本地标记库', '华为', '小米', 'OPPO', 'vivo'],
+    excerpt: '平台申诉清除后手机仍显示骚扰电话？华为/小米/OPPO/vivo/荣耀五大厂商独立本地标记库的清除方法。',
+    content: '完整文章...',
+  },
+  '2026-ai-marking-algorithm-rules-guide': {
+    title: '号码为什么被AI自动标记？2026年标记算法规则',
+    date: '2026-08-19',
+    author: 'langood',
+    tags: ['AI标记', '算法规则', '骚扰电话自动标记'],
+    excerpt: '标记背后的AI判定逻辑，为什么号码"莫名其妙"被标记。',
+    content: '完整文章...',
+  },
+};
+
+const post = posts[slug] || posts['2026-number-false-marking-guide'];
+---
+
+<MainLayout
+  title={`${post.title} | 号码通查`}
+  description={post.excerpt}
+  keywords={post.tags.join(',')}
+>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-8">
+      <a href="/" class="hover:text-gray-700">首页</a>
+      <span>/</span>
+      <a href="/blog/" class="hover:text-gray-700">号码百科</a>
+      <span>/</span>
+      <span class="text-gray-900">{post.title}</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="mb-8">
+      <div class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
+        <time datetime={post.date}>{post.date}</time>
+        <span>·</span>
+        <span>作者：{post.author}</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
+      <div class="flex flex-wrap gap-2">
+        {post.tags.map((tag) => (
+          <span class="text-xs px-3 py-1 bg-blue-100 text-blue-700 rounded-full">{tag}</span>
+        ))}
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="prose prose-lg max-w-none prose-blue prose-headings:font-semibold prose-a:text-blue-600 hover:prose-a:text-blue-700">
+      <div innerHTML={post.content}></div>
+    </div>
+
+    <!-- Author Box -->
+    <div class="mt-12 p-6 bg-gray-50 rounded-xl">
+      <div class="flex items-start space-x-4">
+        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+          {post.author[0].toUpperCase()}
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900">{post.author}</h3>
+          <p class="text-sm text-gray-600 mt-1">号码标记治理顾问，长期跟踪工信部与信通院号码标记政策，专注申诉流程与防复标实操。</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "${post.title}",
+    "description": "${post.excerpt}",
+    "image": "${SITE_URL}/og-default.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "${post.author}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "号码通查",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "${SITE_URL}/logo.png"
+      }
+    },
+    "datePublished": "${post.date}",
+    "dateModified": "${post.date}",
+    "keywords": ${JSON.stringify(post.tags)}
+  }
+  </script>
+</MainLayout>

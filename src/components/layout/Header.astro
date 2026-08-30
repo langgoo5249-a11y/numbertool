@@ -1,0 +1,45 @@
+---
+interface Props {
+  links: Array<{ href: string; label: string; external?: boolean }>;
+  logo?: string;
+}
+
+const { links = [], logo = '/logo.png' } = Astro.props;
+---
+
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-2">
+        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+          <span class="text-white font-bold text-sm">号</span>
+        </div>
+        <span class="text-xl font-bold text-gray-900">号码通查</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="/tools/" class="text-gray-600 hover:text-blue-600 transition-colors">核心工具</a>
+        <a href="/guide/" class="text-gray-600 hover:text-blue-600 transition-colors">指南教程</a>
+        <a href="/compare/" class="text-gray-600 hover:text-blue-600 transition-colors">对比评测</a>
+        <a href="/blog/" class="text-gray-600 hover:text-blue-600 transition-colors">号码百科</a>
+        <a href="/faq/" class="text-gray-600 hover:text-blue-600 transition-colors">常见问题</a>
+        <a href="/contact/" class="text-gray-600 hover:text-blue-600 transition-colors">联系我们</a>
+        
+        <!-- Language Switcher -->
+        <div class="flex items-center space-x-2 border-l pl-6 ml-2">
+          <a href="/zh-CN/" class="px-2 py-1 text-sm font-medium text-blue-600 bg-blue-50 rounded">中文</a>
+          <a href="/en/" class="px-2 py-1 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded">EN</a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden p-2" aria-label="打开菜单">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>

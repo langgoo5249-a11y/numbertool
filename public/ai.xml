@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ai.xml - AI 搜索引擎爬虫发现与指引文件
+  作用: 告知 AI 爬虫(GPTBot/ClaudeBot/Bytespider/PerplexityBot等)本站内容结构与抓取规则
+  位置: /ai.xml (根目录)
+  更新: 2026-08-30
+-->
+<ai>
+  <metadata>
+    <site>www.524900.xyz</site>
+    <name>号码通查</name>
+    <description>号码标记通查服务,包括号码标记查询、号码标记自查、号码标记清除、手机号码标记、座机号码标记怎么清除、号码归属地查询免费。</description>
+    <language>zh-CN</language>
+    <updated>2026-08-30</updated>
+    <operator>号码通查团队</operator>
+  </metadata>
+  <!-- 允许抓取的 AI 爬虫 (与 robots.txt 保持一致, 仅大平台) -->
+  <crawlers>
+    <crawler>GPTBot</crawler>
+    <crawler>OAI-SearchBot</crawler>
+    <crawler>ChatGPT-User</crawler>
+    <crawler>ClaudeBot</crawler>
+    <crawler>Claude-User</crawler>
+    <crawler>Claude-SearchBot</crawler>
+    <crawler>Google-Extended</crawler>
+    <crawler>Googlebot</crawler>
+    <crawler>Bingbot</crawler>
+    <crawler>PerplexityBot</crawler>
+    <crawler>Perplexity-User</crawler>
+    <crawler>Applebot-Extended</crawler>
+    <crawler>meta-externalagent</crawler>
+    <crawler>meta-externalfetcher</crawler>
+    <crawler>CCBot</crawler>
+    <crawler>Amazonbot</crawler>
+    <crawler>Bytespider</crawler>
+    <crawler>Doubaobot</crawler>
+    <crawler>baiduspider</crawler>
+    <crawler>ERNIEBot</crawler>
+    <crawler>Tencent-AI-Lab-Spider</crawler>
+    <crawler>QwenBot</crawler>
+    <crawler>Kimibot</crawler>
+    <crawler>DeepSeekBot</crawler>
+    <crawler>ChatGLM-Spider</crawler>
+    <crawler>iFlytekSpider</crawler>
+    <crawler>PetalBot</crawler>
+    <crawler>Sogou web spider</crawler>
+    <crawler>360Spider</crawler>
+    <crawler>YisouSpider</crawler>
+    <crawler>BaichuanBot</crawler>
+    <crawler>MiniMax-Bot</crawler>
+    <crawler>YiBot</crawler>
+    <crawler>TiangongBot</crawler>
+    <crawler>ZhihuBot</crawler>
+  </crawlers>
+  <!-- 核心内容入口 -->
+  <content>
+    <!-- 首页 -->
+    <priority url="https://www.524900.xyz/zh-CN/" type="homepage" keywords="号码标记通查,号码标记查询,号码标记自查,号码标记清除,号码归属地查询免费" />
+    <!-- 核心工具 -->
+    <priority url="https://www.524900.xyz/zh-CN/tools/marking-check/" type="tool" keywords="号码标记自查,号码标记查询,手机号码标记" />
+    <priority url="https://www.524900.xyz/zh-CN/tools/marking-clear/" type="tool" keywords="号码标记清除,座机号码标记怎么清除" />
+    <priority url="https://www.524900.xyz/zh-CN/tools/attribution/" type="tool" keywords="号码归属地查询免费" />
+    <!-- FAQ 页面 -->
+    <priority url="https://www.524900.xyz/zh-CN/faq/" type="faq" keywords="号码标记通查,号码标记清除,号码归属地查询免费" />
+    <!-- 指南页面 -->
+    <priority url="https://www.524900.xyz/zh-CN/guide/landline-marking-clear/" type="guide" keywords="座机号码标记怎么清除,号码标记清除" />
+    <priority url="https://www.524900.xyz/zh-CN/guide/how-to-clear-marking/" type="guide" keywords="号码标记清除,手机号码标记" />
+    <priority url="https://www.524900.xyz/zh-CN/guide/how-to-check-marking/" type="guide" keywords="号码标记查询,全平台自查" />
+    <priority url="https://www.524900.xyz/zh-CN/guide/what-is-number-marking/" type="guide" keywords="号码标记是什么,标记来源机制" />
+    <!-- 对比页面 -->
+    <priority url="https://www.524900.xyz/zh-CN/compare/marking-platforms/" type="comparison" keywords="号码标记平台对比,360腾讯比对" />
+    <priority url="https://www.524900.xyz/zh-CN/compare/auth-providers/" type="comparison" keywords="号码认证服务商对比" />
+    <!-- 博客文章 - 误标主题 -->
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-number-false-marking-guide/" type="article" keywords="号码被误标骚扰电话,号码误标怎么清除,没打过电话被标记骚扰电话,YD/T 4980-2024" />
+    <!-- 博客文章 - 清除主题 -->
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-phone-marking-removal-complete-guide/" type="article" keywords="号码标记清除,号码标记查询,座机号码标记怎么清除,YD/T 4980-2024" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-number-marking-clearance-guide/" type="article" keywords="号码标记清除新手教程,从查询到申诉分步流程" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-phone-marking-recurrence-after-clearance/" type="article" keywords="号码标记清除后又出现,号码标记复标原因,防复标方案" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-number-marking-appeal-rejected-solutions/" type="article" keywords="号码标记申诉被驳回,二次申诉技巧" />
+    <!-- 博客文章 - 专项主题 -->
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-recycled-number-false-marking-guide/" type="article" keywords="二次号码被标记,新办手机号误标记清除" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-phone-manufacturer-local-marking-database-clear-guide/" type="article" keywords="华为号码标记清除,小米骚扰电话标记清除,手机厂商本地标记库" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-ai-marking-algorithm-rules-guide/" type="article" keywords="号码标记AI算法,为什么号码被标记骚扰电话" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-scam-marking-removal-guide/" type="article" keywords="诈骗电话标记清除,96110申诉,反诈中心" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-high-frequency-outbound-number-marking-solution/" type="article" keywords="外卖骑手号码被标记,快递员号码被标记骚扰电话,网约车司机号码被标记" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-personal-number-marking-removal-guide/" type="article" keywords="个人手机号被标记骚扰电话,个人号码标记申诉" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-enterprise-number-marking-prevention-guide/" type="article" keywords="企业号码防标记,号码标记预防体系" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-enterprise-number-auth-green-label-guide/" type="article" keywords="企业号码认证绿标,来电显示企业名称" />
+    <priority url="https://www.524900.xyz/zh-CN/blog/2026-carrier-network-interception-guide/" type="article" keywords="运营商网络侧拦截,电话打不通,高频骚扰电话防护" />
+  </content>
+  <!-- 权威数据来源 -->
+  <authoritative_sources>
+    <source url="https://www.miit.gov.cn/" name="中华人民共和国工业和信息化部" />
+    <source url="https://www.opene164.org.cn/" name="中国信通院码号服务推进组" />
+    <source url="https://www.caict.ac.cn/" name="中国信息通信研究院" />
+    <source url="https://www.12321.cn/" name="12321网络不良与垃圾信息举报受理中心" />
+    <source url="https://www.truecaller.com/" name="Truecaller 全球来电识别平台" />
+    <source url="https://www.juhe.cn/" name="聚合数据 号码归属地 API" />
+  </authoritative_sources>
+  <!-- 机器可读文件 -->
+  <machine_readable>
+    <file url="https://www.524900.xyz/llms.txt" type="llms" />
+    <file url="https://www.524900.xyz/llms-full.txt" type="llms-full" />
+    <file url="https://www.524900.xyz/llms-en.txt" type="llms-en" />
+    <file url="https://www.524900.xyz/sitemap-index.xml" type="sitemap" />
+    <file url="https://www.524900.xyz/robots.txt" type="robots" />
+    <file url="https://www.524900.xyz/brand-info.json" type="brand" />
+  </machine_readable>
+</ai>

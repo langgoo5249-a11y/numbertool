@@ -1,0 +1,12 @@
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+
+export default function Layout({ children, ...props }) {
+  return (
+    <BaseLayout {...props}>
+      <MainLayout {...props}>
+        {children}
+      </MainLayout>
+    </BaseLayout>
+  );
+}

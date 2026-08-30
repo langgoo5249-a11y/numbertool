@@ -1,0 +1,19 @@
+{
+  "name": "号码通查",
+  "version": "2.0.0",
+  "description": "号码通查提供号码标记查询与清除服务，聚合中国信通院、360、腾讯等官方入口。",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.0",
+    "@astrojs/sitemap": "^3.2.0",
+    "@astrojs/vue": "^4.0.0",
+    "vue": "^3.5.13"
+  }
+}
