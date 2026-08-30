@@ -12,6 +12,7 @@ interface Props {
   locale?: 'zh-CN' | 'en-US';
   buildSchema?: 'organization' | 'website' | 'softwareList' | 'none';
   noindex?: boolean;
+  extraSchema?: any[];
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   locale = 'zh-CN',
   buildSchema = 'website',
   noindex = false,
+  extraSchema = [],
 } = Astro.props;
 ---
 
@@ -42,6 +44,7 @@ const {
       locale={locale}
       buildSchema={buildSchema}
       noindex={noindex}
+      extraSchema={extraSchema}
     />
     <slot name="head" />
   </head>
