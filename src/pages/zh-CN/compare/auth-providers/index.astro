@@ -1,0 +1,147 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+---
+<MainLayout
+  title="号码认证服务商对比 | 号码标记清除网"
+  description="网易易盾、极光、移动认证、联通沃认证、电信天翼、阿里、腾讯等号码认证服务商的接入方式、识别时延与计费模式全面对比，帮助企业选择最合适的号码认证渠道。"
+  keywords="号码认证,号码认证服务商,网易易盾,极光认证,移动认证,沃认证,天翼认证,阿里认证,腾讯认证,号码认证对比"
+  buildSchema="none"
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">号码认证服务商对比</h1>
+      <p class="text-gray-600 max-w-3xl mx-auto">从接入、时延到计费，帮企业选最合适的号码认证与来电标识渠道，从源头降低误标风险。</p>
+    </div>
+  </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="space-y-10">
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">为什么企业需要号码认证</h2>
+        <p class="text-gray-600 mb-4">
+          号码认证（来电标识/企业名片）让企业号码在接通界面直接显示单位名称与认证标识，是一种"正向背书"，能从源头降低被陌生用户标注为骚扰电话的概率。对于被误标过的号码，认证与清除配合使用效果最佳。
+        </p>
+        <p class="text-gray-600">不同服务商的接入深度、识别时延与计费模式差异明显，选择前应对比权衡。</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">号码认证服务商对比表</h2>
+        <p class="text-gray-600 mb-5">以下为各服务商在号码认证场景的大致对比，仅供参考，具体以服务商最新方案为准。</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left border-collapse">
+            <thead>
+              <tr class="border-b-2 border-gray-200 bg-gray-50">
+                <th class="py-3 px-3 font-semibold text-gray-900">服务商</th>
+                <th class="py-3 px-3 font-semibold text-gray-900">接入方式</th>
+                <th class="py-3 px-3 font-semibold text-gray-900">识别时延</th>
+                <th class="py-3 px-3 font-semibold text-gray-900">计费模式</th>
+                <th class="py-3 px-3 font-semibold text-gray-900">适合场景</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600">
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-3 font-medium text-gray-900">网易易盾</td>
+                <td class="py-3 px-3">SDK/API 接入，号码认证+风控一体</td>
+                <td class="py-3 px-3">毫秒级</td>
+                <td class="py-3 px-3">按调用量计费，套餐制</td>
+                <td class="py-3 px-3">对安全与风控要求高的企业</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-3 font-medium text-gray-900">极光</td>
+                <td class="py-3 px-3">SDK 封装，开发便捷</td>
+                <td class="py-3 px-3">毫秒级</td>
+                <td class="py-3 px-3">按认证成功次数计费</td>
+                <td class="py-3 px-3">移动 App 登录/认证场景</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-3 font-medium text-gray-900">移动认证</td>
+                <td class="py-3 px-3">移动运营商能力，三要素/本机校验</td>
+                <td class="py-3 px-3">毫秒级（运营商网络）</td>
+                <td class="py-3 px-3">按次计费，量大可谈</td>
+                <td class="py-3 px-3">移动号码为主的用户群体</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-3 font-medium text-gray-900">联通沃认证</td>
+                <td class="py-3 px-3">联通运营商能力，免密登录+三要素</td>
+                <td class="py-3 px-3">毫秒级</td>
+                <td class="py-3 px-3">按次计费</td>
+                <td class="py-3 px-3">联通号码为主的场景</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-3 font-medium text-gray-900">电信天翼</td>
+                <td class="py-3 px-3">电信运营商能力，天翼账号认证</td>
+                <td class="py-3 px-3">毫秒级</td>
+                <td class="py-3 px-3">按次计费</td>
+                <td class="py-3 px-3">电信号码为主的场景</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-3 font-medium text-gray-900">阿里</td>
+                <td class="py-3 px-3">阿里云号码认证服务，API 开放</td>
+                <td class="py-3 px-3">毫秒级</td>
+                <td class="py-3 px-3">按量计费，阶梯定价</td>
+                <td class="py-3 px-3">云上架构成熟的企业</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 font-medium text-gray-900">腾讯</td>
+                <td class="py-3 px-3">腾讯云短信/认证能力，生态整合</td>
+                <td class="py-3 px-3">毫秒级</td>
+                <td class="py-3 px-3">按量计费</td>
+                <td class="py-3 px-3">微信/QQ 生态企业的首选</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">如何选择号码认证服务商</h2>
+        <div class="space-y-4">
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-1">按号码归属运营商优先</h3>
+            <p class="text-gray-600 text-sm">若目标号码集中在某一家运营商（如移动），优先选对应的移动认证等运营商原厂通道，识别成功率高、覆盖完整。</p>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-1">按用户生态匹配</h3>
+            <p class="text-gray-600 text-sm">App 用户多为微信/QQ 用户可选腾讯；业务已跑在云上可选阿里；强调批发/合规可选网易易盾或极光的一体化方案。</p>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-1">关注时延与稳定性</h3>
+            <p class="text-gray-600 text-sm">认证服务多为毫秒级识别，但需重点评估高峰期成功率、异常率与可用性 SLA，避免影响正常登录或来电显示。</p>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-1">算清成本</h3>
+            <p class="text-gray-600 text-sm">按成功认证次数计费是行业主流，量大企业可谈判阶梯价或年框；运营商直连通常比聚合平台更省一次中间成本。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">号码认证 vs 标记清除</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-2">标记清除（事后）</h3>
+            <p class="text-gray-600 text-sm">移除已产生的骚扰/营销标记，免费为主，处理有周期，易复标。</p>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-2">号码认证（事前）</h3>
+            <p class="text-gray-600 text-sm">主动展示企业信息，正向背书，付费为主，从源头降低误标概率。</p>
+          </div>
+        </div>
+        <p class="text-gray-600 mt-4">两者配合：已被标记的号码先做<a href="/zh-CN/guide/how-to-clear-marking/" class="text-blue-600 hover:underline">分渠道清除</a>，再做认证防复标，效果最佳。清除渠道的处理对比请参考<a href="/zh-CN/compare/marking-platforms/" class="text-blue-600 hover:underline">号码标记清除渠道对比</a>。</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">常见问题</h2>
+        <div class="space-y-4">
+          <div class="border border-gray-200 rounded-lg p-5">
+            <h3 class="font-semibold text-gray-900 mb-1">号码认证能彻底替代标记清除吗？</h3>
+            <p class="text-gray-600 text-sm">不能。两者机制完全不同，认证是正向背书防误标，清除是移除既有标记，建议按场景配合使用。</p>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-5">
+            <h3 class="font-semibold text-gray-900 mb-1">座机号码可以做认证吗？</h3>
+            <p class="text-gray-600 text-sm">可以。企业座机认证可显示单位名称，建议结合<a href="/zh-CN/guide/landline-marking-clear/" class="text-blue-600 hover:underline">座机专清指南</a>同步处理既有标记。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

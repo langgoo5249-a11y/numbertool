@@ -1,0 +1,139 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+---
+<MainLayout
+  title="手机卡选号比价 - 移动/联通/电信套餐对比 | 号码标记清除网"
+  description="移动、联通、电信三大运营商主流手机卡套餐对比与选号指南，含套餐资费、流量语音、选号建议及号码与标记风险的关系说明，帮助您选到合适的手机卡。"
+  keywords="手机卡选号,手机卡比价,移动联通电信套餐对比,办手机卡推荐,选号办卡,手机卡资费套餐,号码与标记风险"
+  buildSchema="none"
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">手机卡选号比价指南</h1>
+      <p class="text-gray-600 max-w-3xl mx-auto">对比移动、联通、电信主流套餐，掌握选号要点与号码标记风险的关系</p>
+    </div>
+  </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- 三大运营商套餐对比表 -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">移动 / 联通 / 电信主流套餐对比</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left border-collapse">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="px-4 py-3 font-semibold text-gray-900">项目</th>
+              <th class="px-4 py-3 font-semibold text-gray-900">中国移动</th>
+              <th class="px-4 py-3 font-semibold text-gray-900">中国联通</th>
+              <th class="px-4 py-3 font-semibold text-gray-900">中国电信</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="px-4 py-3 font-medium text-gray-900">主流月租</td>
+              <td class="px-4 py-3 text-gray-600">约 19 - 89 元</td>
+              <td class="px-4 py-3 text-gray-600">约 19 - 79 元</td>
+              <td class="px-4 py-3 text-gray-600">约 19 - 89 元</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-gray-900">流量</td>
+              <td class="px-4 py-3 text-gray-600">多为大流量或定向+通用组合</td>
+              <td class="px-4 py-3 text-gray-600">主打性价比较高的流量套餐</td>
+              <td class="px-4 py-3 text-gray-600">流量+语音均衡</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-gray-900">语音时长</td>
+              <td class="px-4 py-3 text-gray-600">可选含语音套餐</td>
+              <td class="px-4 py-3 text-gray-600">可选含语音套餐</td>
+              <td class="px-4 py-3 text-gray-600">可选含语音套餐</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-gray-900">适合人群</td>
+              <td class="px-4 py-3 text-gray-600">移动信号覆盖广、商务办公人群</td>
+              <td class="px-4 py-3 text-gray-600">追求流量性价比的年轻用户</td>
+              <td class="px-4 py-3 text-gray-600">宽带+手机号融合用户</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-gray-900">选号资源</td>
+              <td class="px-4 py-3 text-gray-600">靓号资源相对丰富</td>
+              <td class="px-4 py-3 text-gray-600">可选优惠号段较多</td>
+              <td class="px-4 py-3 text-gray-600">融合套餐选号灵活</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs text-gray-400">
+        注：以上为基础对比参考，实际套餐资费与活动以后运营商官方实时公布为准。
+      </p>
+    </div>
+
+    <!-- 选号指南 -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">手机卡选号指南</h2>
+      <div class="space-y-4">
+        <div class="border border-gray-200 rounded-lg p-5">
+          <h3 class="font-semibold text-gray-900 mb-2">按使用需求选</h3>
+          <p class="text-sm text-gray-600">流量大户优先大流量套餐；外呼/商务通信需求优先含语音时长的套餐</p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-5">
+          <h3 class="font-semibold text-gray-900 mb-2">按覆盖网络选</h3>
+          <p class="text-sm text-gray-600">根据常驻地区的信号覆盖选择运营商，避免出现通话不稳</p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-5">
+          <h3 class="font-semibold text-gray-900 mb-2">按融合优惠选</h3>
+          <p class="text-sm text-gray-600">有宽带需求可考虑移动/联通/电信的宽带+手机号融合套餐</p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-5">
+          <h3 class="font-semibold text-gray-900 mb-2">按号段吉祥度选</h3>
+          <p class="text-sm text-gray-600">对号码有偏好可选对应号段，但需留意靓号可能附带月最低消费</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 号码与标记风险的关系 -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">号码与标记风险的关系</h2>
+      <p class="text-gray-600 mb-4">
+        新办理的手机卡并非一定安全，号码被标记与以下因素密切相关：
+      </p>
+      <div class="space-y-4">
+        <div class="bg-blue-50 rounded-lg p-5">
+          <h3 class="font-semibold text-blue-900 mb-2">回收号码风险</h3>
+          <p class="text-sm text-blue-800">运营商回收号码若前任机主有过标记记录，办理后可能继承原标记，需及时申诉清除</p>
+        </div>
+        <div class="bg-blue-50 rounded-lg p-5">
+          <h3 class="font-semibold text-blue-900 mb-2">高频外呼风险</h3>
+          <p class="text-sm text-blue-800">新卡若进行高频外呼，可能很快被安全软件标记为推销或骚扰</p>
+        </div>
+        <div class="bg-blue-50 rounded-lg p-5">
+          <h3 class="font-semibold text-blue-900 mb-2">建议及时自查</h3>
+          <p class="text-sm text-blue-800">新卡入网后建议做一次号码标记查询，发现异常立即走官方渠道清除</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 注意 -->
+    <div class="bg-yellow-50 rounded-xl border border-yellow-200 p-6 mb-8">
+      <div class="flex items-start space-x-3">
+        <svg class="w-6 h-6 text-yellow-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <div>
+          <h3 class="font-semibold text-yellow-900 mb-2">温馨提示</h3>
+          <p class="text-sm text-yellow-800">
+            办理手机卡请务必通过运营商官方或授权渠道并进行本人实名登记。选号与换号前，可先查询目标号码是否存有历史标记记录，避免因回收号导致的无谓麻烦。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 行动按钮 -->
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white text-center">
+      <h2 class="text-2xl font-bold mb-3">办理新卡前先查标记？</h2>
+      <p class="text-blue-100 mb-6">查询号码是否存有历史标记，避开回收号与标记风险号码</p>
+      <a
+        href="https://www.524900.xyz/zh-CN/tools/marking-check/"
+        class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+      >
+        去查询号码标记
+      </a>
+    </div>
+  </div>
+</MainLayout>

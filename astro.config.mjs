@@ -1,6 +1,7 @@
 /** @type {import('astro').AstroConfig} */
 import { defineConfig } from 'astro/config';
 import vue from '@astrojs/vue';
+import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
@@ -18,6 +19,7 @@ export default defineConfig({
   },
   integrations: [vue()],
   vite: {
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         '@': join(__dirname, 'src'),

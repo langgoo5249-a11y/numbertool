@@ -1,22 +1,55 @@
 ---
+import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import Meta from '../components/seo/Meta.astro';
+import { SITE_NAME, SITE_DESCRIPTION } from '../lib/seo';
 
-const { title = '号码通查 - 专业号码标记查询与清除服务平台', description = '号码通查提供号码标记查询与清除服务，聚合中国信通院、360、腾讯等官方入口。手机号与座机号均支持，查询免费，不存储号码数据。', keywords = '号码标记,号码标记查询,号码标记清除,手机号码标记,座机号码标记,号码归属地查询' } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  locale?: 'zh-CN' | 'en-US';
+  buildSchema?: 'organization' | 'website' | 'softwareList' | 'none';
+  noindex?: boolean;
+}
+
+const {
+  title = SITE_NAME,
+  description = SITE_DESCRIPTION,
+  keywords = '号码标记清除,号码标记查询,号码标记清除网,号码认证,骚扰电话标记,号码归属地查询',
+  locale = 'zh-CN',
+  buildSchema = 'website',
+  noindex = false,
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={locale}>
   <head>
-    <Meta title={title} description={description} keywords={keywords} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <Meta
+      title={title}
+      description={description}
+      keywords={keywords}
+      locale={locale}
+      buildSchema={buildSchema}
+      noindex={noindex}
+    />
     <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col bg-gray-50">
-    <Header />
+    <Header locale={locale} />
     <main class="flex-1">
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
   </body>
 </html>

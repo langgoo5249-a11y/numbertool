@@ -1,0 +1,123 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+---
+<MainLayout
+  title="号码标记是什么 - 骚扰电话标记机制解析 | 号码标记清除网"
+  description="全面解析号码标记的定义、三大来源（用户手动标记/AI算法/第三方号码库）、显示规则及与YD/T 4980-2024行业标准的关系，帮您彻底搞懂骚扰电话标记背后的原理。"
+  keywords="号码标记,骚扰电话标记,号码标记来源,AI标记,号码误标,YD/T 4980-2024,号码标记机制,标记显示规则"
+  buildSchema="none"
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">号码标记是什么？</h1>
+      <p class="text-gray-600 max-w-3xl mx-auto">从定义、来源到显示规则，一次看懂骚扰电话标记的完整机制，助您判断号码为何被标、如何清除。</p>
+    </div>
+  </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="space-y-10">
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">一、什么是号码标记</h2>
+        <p class="text-gray-600 mb-4">
+          号码标记（也称号码标注、来电标记）是安全软件、运营商终端及号码服务企业对来电号码进行的分类标注行为。当来电接通或呼出界面显示"骚扰电话""广告推销""诈骗电话""房产中介""外卖快递"等标签时，就意味着该号码已经被标记。
+        </p>
+        <p class="text-gray-600">
+          号码标记的实质，是一种基于群体行为特征与人工反馈的号码声誉体系。它依托于海量用户的标记反馈、通话行为数据与第三方号码库，对陌生来电进行风险分级，帮助用户识别骚扰与诈骗电话，是国内手机防骚扰体系中最重要的识别手段之一。
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">二、号码标记的三大来源</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-2">1. 用户手动标记</h3>
+            <p class="text-gray-600 text-sm">
+              用户在手机安全软件（360、腾讯手机管家、华为、小米等）中手动点击"标记为骚扰""标记为诈骗"，是最直接、最快速的标记来源。单一用户标记即可触发，多人重复标记会显著提高标记权重。
+            </p>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-2">2. AI算法判定</h3>
+            <p class="text-gray-600 text-sm">
+              基于呼叫频次、外呼时段、通话时长、接通率、被叫拒绝率等行为特征，AI模型会自动对异常号码进行打标。这也是"没打过电话却被标记"的常见原因，属于统计学上的误判。
+            </p>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-2">3. 第三方号码库</h3>
+            <p class="text-gray-600 text-sm">
+              各标记平台之间会进行号码库数据联动与共享，一个平台产生的标记会同步扩散到其他平台。此外还有公开的投诉号码、涉案号码库与商业号码库作为补充来源。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">三、号码标记的显示规则</h2>
+        <p class="text-gray-600 mb-4">不同的号码标记在用户端显示的形式有所不同，主要分为以下几类：</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left border-collapse">
+            <thead>
+              <tr class="border-b border-gray-200">
+                <th class="py-3 pr-4 font-semibold text-gray-900">标记类别</th>
+                <th class="py-3 pr-4 font-semibold text-gray-900">常见标签</th>
+                <th class="py-3 font-semibold text-gray-900">显示方式</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600">
+              <tr class="border-b border-gray-100">
+                <td class="py-3 pr-4">风险提示类</td>
+                <td class="py-3 pr-4">骚扰电话、诈骗电话、疑似诈骗</td>
+                <td class="py-3">来电全屏弹窗预警、拒绝接听</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 pr-4">骚扰识别类</td>
+                <td class="py-3 pr-4">广告推销、房产中介、贷款推销</td>
+                <td class="py-3">来电浮窗提示、标记来源显示</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 pr-4">服务属性类</td>
+                <td class="py-3 pr-4">外卖快递、游戏客服、弱信号</td>
+                <td class="py-3">可折叠提示，不影响接听</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-3 pr-4">认证背书类</td>
+                <td class="py-3 pr-4">企业名称、单位名称、黄色/蓝色认证标识</td>
+                <td class="py-3">正面展示企业信息，反向降低误标</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-gray-600 mt-4 text-sm">
+          不同标记类别对用户的接听行为影响差异很大。风险提示类标记权重最高、影响最大，也是最需要优先清除的类型。
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">四、号码标记与 YD/T 4980-2024 标准</h2>
+        <p class="text-gray-600 mb-4">
+          YD/T 4980-2024《骚扰电话治理能力评估方法》是我国工业和信息化部发布的信息通信行业标准，对骚扰电话的定义、治理机制与能力评估进行了规范，是我国治理电话骚扰问题的顶层技术依据。
+        </p>
+        <p class="text-gray-600 mb-4">
+          该标准与号码标记的关系主要体现在三个方面：标准中对"骚扰电话"的界定，为各平台如何做标记提供了统一口径；标准明确了用户申诉与号码误标纠错的治理闭环，是号码被误标后要求清除的制度依据；标准推动各平台规范数据共享，使号码标记是在统一规则下产生，而非各平台"随意乱标"。
+        </p>
+        <div class="bg-gray-50 rounded-xl p-5">
+          <p class="text-gray-600 text-sm mb-2"><strong class="text-gray-900">实用提示</strong></p>
+          <p class="text-gray-600 text-sm">
+            当您的号码被误标并向平台申诉时，可结合 YD/T 4980-2024 对骚扰电话的界定据理力争，同时通过中国信通院码号服务推进组（opene164.org.cn）走跨平台统一申诉通道，处理更有依据、通过率更高。
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">五、号码被标记后怎么办</h2>
+        <p class="text-gray-600 mb-4">了解标记机制后，处理就变得有章可循：</p>
+        <ul class="list-disc pl-5 text-gray-600 space-y-2">
+          <li>先确认标记源头：可以查询各平台标记状态，排查是哪个渠道产生的标记。</li>
+          <li>再针对性清除：骚扰/营销类标记走常规申诉，诈骗类走反诈异议流程。</li>
+          <li>最后防止复标：控制外呼频次，企业号码可做号码认证从源头背书。</li>
+        </ul>
+        <p class="text-gray-600 mt-6">
+          想要深入掌握清除方法，可阅读本站的<a href="/zh-CN/guide/how-to-clear-marking/" class="text-blue-600 hover:underline">分渠道清除标记完整教程</a>与<a href="/zh-CN/guide/how-to-check-marking/" class="text-blue-600 hover:underline">全平台自查指南</a>。
+        </p>
+      </div>
+    </div>
+  </div>
+</MainLayout>

@@ -8,11 +8,11 @@
 <ai>
   <metadata>
     <site>www.524900.xyz</site>
-    <name>号码通查</name>
-    <description>号码标记通查服务,包括号码标记查询、号码标记自查、号码标记清除、手机号码标记、座机号码标记怎么清除、号码归属地查询免费。</description>
+    <name>号码标记清除网</name>
+    <description>提供号码标记查询、号码标记清除与号码认证服务,聚合中国信通院码号服务推进组、360手机卫士、腾讯手机管家、华为、Truecaller等官方入口,手机号码与座机(固话)号码均支持,查询免费、不存储号码数据。</description>
     <language>zh-CN</language>
     <updated>2026-08-30</updated>
-    <operator>号码通查团队</operator>
+    <operator>号码标记清除网团队</operator>
   </metadata>
   <!-- 允许抓取的 AI 爬虫 (与 robots.txt 保持一致, 仅大平台) -->
   <crawlers>

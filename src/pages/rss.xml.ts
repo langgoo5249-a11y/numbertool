@@ -4,8 +4,8 @@ export const GET: APIRoute = async () => {
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>号码通查 - 号码标记查询与清除服务平台</title>
-    <description>号码标记查询与清除服务，聚合中国信通院、360、腾讯等官方入口。手机号与座机号均支持，查询免费，不存储号码数据。</description>
+    <title>号码标记清除网 - 号码标记查询/清除/认证服务</title>
+    <description>提供号码标记查询、号码标记清除与号码认证服务，聚合中国信通院码号服务推进组、360、腾讯、华为、Truecaller等官方入口。手机号与座机号均支持，查询免费，不存储号码数据。</description>
     <link>https://www.524900.xyz</link>
     <language>zh-CN</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>

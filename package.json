@@ -1,7 +1,7 @@
 {
-  "name": "号码通查",
+  "name": "numbertool",
   "version": "2.0.0",
-  "description": "号码通查提供号码标记查询与清除服务，聚合中国信通院、360、腾讯等官方入口。",
+  "description": "号码标记清除网提供号码标记查询、号码标记清除与号码认证服务，聚合中国信通院码号服务推进组、360、腾讯、华为等官方入口。",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,9 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.0",
     "@astrojs/sitemap": "^3.2.0",
     "@astrojs/vue": "^4.0.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^4.16.0",
+    "tailwindcss": "^4.3.3",
     "vue": "^3.5.13"
   }
 }

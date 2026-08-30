@@ -1,0 +1,101 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import { SITE_URL } from '@lib/seo';
+
+const faqs = [
+  {
+    q: '手机号码被标记为骚扰电话怎么解除？',
+    a: '号码被标记后需到各标记平台逐一申诉清除，或使用号码标记清除工具聚合官方入口。推荐优先使用中国信通院码号服务推进组（opene164.org.cn）进行跨平台查询与清除，联通手机号和400号支持一站式清除。清除材料一般需要身份证、入网时间证明和错误标记截图。',
+  },
+  {
+    q: '座机号码被标记骚扰电话怎么清除？',
+    a: '座机号码查询时必须带区号（如010-xxxxxxxx）。清除方式：通过中国信通院码号服务推进组提交申诉，并分别到360、腾讯、华为、搜狗等平台的座机标记申诉页面提交。企业座机可申请企业号码认证（来电显示企业名称），认证后标记自动清除。',
+  },
+  {
+    q: '清除号码标记需要多长时间？',
+    a: '不同平台处理时间不同：360手机卫士约1-3个工作日，腾讯手机管家约2-5个工作日，华为等终端厂商约3-7个工作日，中国信通院官方渠道相对较快。建议多平台同时提交，不要依次等待。',
+  },
+  {
+    q: '号码标记清除会收费吗？',
+    a: '中国信通院和各官方平台申诉均免费，不收取任何费用。请谨防第三方"付费加急清除"骗局，本站提供的服务入口均为官方渠道，建议优先使用官方免费申诉。',
+  },
+  {
+    q: '号码为什么没打过电话却被标记了？',
+    a: '主要有三类原因：一是其他用户手动误标记；二是AI算法基于通话频次、时段、时长等行为特征误判；三是二次放号，新号主继承了前任号主的历史标记。工商、公安等特殊号码被误标可走官方证明通道快速处理。',
+  },
+  {
+    q: '清除标记后为什么又会被标上？',
+    a: '清除不等于一劳永逸。若清除后立即高频外呼，或在复标数据更新周期内行为特征异常，号码会被重新标记。建议清除后保留低外呼缓冲期、控制外呼频次，企业号码可做号码认证以显著降低复标概率。',
+  },
+  {
+    q: '号码认证是什么？和标记清除有什么区别？',
+    a: '号码认证（如企业名片/绿标）是主动让来电界面显示企业名称，属于"正向背书"，能从源头降低被误标概率；标记清除是事后申诉移除已产生的逆向标记。两者可配合使用：已标记号码先清除，再做认证防止复标。',
+  },
+  {
+    q: '企业400号码被标记怎么清除？',
+    a: '400号码支持在中国信通院码号服务推进组（opene164.org.cn）一站式清除。企业需准备营业执照、法人/经办人身份证、号码入网协议、业务说明和错误标记截图。清除后建议做号码认证防止复标。',
+  },
+  {
+    q: '号码归属地查询免费吗？准确吗？',
+    a: '是的，号码归属地查询完全免费。本站工具采用最新号段数据库，支持携号转网后查询（2019年携号转网普及后，传统按号段查询前缀匹配已不准确，需结合运营商实时数据）。',
+  },
+  {
+    q: '诈骗电话标记可以清除吗？',
+    a: '普通骚扰/营销/推销类标记可通过常规申诉清除。诈骗电话标记属于安全高优类别，不在常规清除范围，若确因误标需走反诈中心异议处理流程并提供充分证明。',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<MainLayout
+  title="常见问题 FAQ | 号码标记清除网"
+  description="号码被标记怎么解除？座机号码标记怎么清除？清除要多久、要不要收费、为何会复标？号码标记清除网常见问题一站式解答。"
+  keywords="号码标记清除常见问题,手机号码被标记怎么解除,座机号码标记怎么清除,号码标记清除收费吗,号码认证是什么,号码为什么被标记,标记清除后复标"
+  buildSchema="none"
+  extraSchema={[schema]}
+>
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">常见问题 FAQ</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">关于号码标记查询、清除、认证等高频问题的一站式解答。</p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="space-y-4">
+      {faqs.map((f, i) => (
+        <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-start justify-between gap-4 cursor-pointer p-5 font-medium text-gray-900 hover:bg-gray-50 list-none">
+            <span class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold">{i + 1}</span>
+              <span>{f.q}</span>
+            </span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-5 pb-5 pl-15 text-gray-600 leading-relaxed text-sm">
+            <p class="pl-10">{f.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="mt-10 bg-blue-50 rounded-xl p-6 text-center">
+      <p class="text-gray-700 mb-4">还有疑问？查看我们的完整指南或直接使用在线工具。</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="/zh-CN/guide/how-to-clear-marking/" class="px-5 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700">标记清除教程</a>
+        <a href="/zh-CN/tools/marking-check/" class="px-5 py-2.5 bg-white text-blue-600 border border-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50">号码标记自查</a>
+      </div>
+    </div>
+  </div>
+</MainLayout>
