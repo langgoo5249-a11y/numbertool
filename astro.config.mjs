@@ -1,6 +1,5 @@
 /** @type {import('astro').AstroConfig} */
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
 import vue from '@astrojs/vue';
 
 export default defineConfig({
@@ -12,14 +11,7 @@ export default defineConfig({
     defaultLocale: 'zh-CN',
     locales: ['zh-CN', 'en-US'],
   },
-  integrations: [
-    vue(),
-    sitemap({
-      filter: (page) => {
-        return !page.includes('/admin/') && !page.includes('/404/');
-      },
-    }),
-  ],
+  integrations: [vue()],
   vite: {
     build: {
       minify: true,

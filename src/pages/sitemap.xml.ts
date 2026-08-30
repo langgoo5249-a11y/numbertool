@@ -1,7 +1,6 @@
 import type { APIRoute } from 'astro';
-import { SITE_URL } from '../../lib/seo';
 
-const BASE_URL = SITE_URL;
+const BASE_URL = 'https://www.524900.xyz';
 const LOCALES = ['zh-CN', 'en-US'] as const;
 const TODAY = new Date().toISOString().split('T')[0];
 
@@ -20,8 +19,8 @@ const STATIC_PAGES = [
 ];
 
 export const GET: APIRoute = async () => {
-  const urls: string[] = [];
-  
+  const urls: { loc: string; lastmod: string; changefreq: string; priority: number }[] = [];
+
   // Add locale-based pages
   for (const locale of LOCALES) {
     for (const page of STATIC_PAGES) {
@@ -33,7 +32,7 @@ export const GET: APIRoute = async () => {
         priority: page === '' ? 1.0 : 0.8,
       });
     }
-    
+
     // Blog posts
     const blogPosts = [
       '2026-number-false-marking-guide',
@@ -47,7 +46,7 @@ export const GET: APIRoute = async () => {
       '2026-phone-marking-recurrence-after-clearance',
       '2026-carrier-network-interception-guide',
     ];
-    
+
     for (const post of blogPosts) {
       urls.push({
         loc: `${BASE_URL}/${locale}/blog/${post}/`,
@@ -56,7 +55,7 @@ export const GET: APIRoute = async () => {
         priority: 0.7,
       });
     }
-    
+
     // Tools
     const tools = ['marking-check', 'marking-clear', 'attribution', 'legal-number-verify'];
     for (const tool of tools) {
@@ -67,7 +66,7 @@ export const GET: APIRoute = async () => {
         priority: 0.9,
       });
     }
-    
+
     // Guides
     const guides = [
       'what-is-number-marking',
@@ -85,7 +84,7 @@ export const GET: APIRoute = async () => {
       });
     }
   }
-  
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(url => `  <url>
@@ -95,7 +94,7 @@ ${urls.map(url => `  <url>
     <priority>${url.priority}</priority>
   </url>`).join('\n')}
 </urlset>`;
-  
+
   return new Response(sitemap, {
     headers: {
       'Content-Type': 'application/xml',
