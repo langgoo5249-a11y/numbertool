@@ -1,17 +1,13 @@
 ---
-export default function generateStaticParams() {
-  return [{ locale: 'zh-CN' }, { locale: 'en-US' }];
+export async function getStaticPaths() {
+  return [
+    { params: { locale: 'zh-CN' }, props: {} },
+    { params: { locale: 'en-US' }, props: {} },
+  ];
 }
----
 
-<script context="module" set:component>
-  export async function getStaticPaths() {
-    return [
-      { params: { locale: 'zh-CN' }, props: {} },
-      { params: { locale: 'en-US' }, props: {} },
-    ];
-  }
-</script>
+import MainLayout from '../../layouts/MainLayout.astro';
+---
 
 <MainLayout
   title="号码通查 - 专业号码标记查询与清除服务平台"
