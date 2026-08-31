@@ -1,6 +1,5 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
-import { SITE_URL } from '@lib/seo';
 ---
 
 <MainLayout
@@ -10,10 +9,10 @@ import { SITE_URL } from '@lib/seo';
 >
   <div class="bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-        <a href="/" class="hover:text-gray-700">首页</a>
+      <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-4" aria-label="面包屑导航">
+        <a href="/zh-CN/" class="hover:text-gray-700">首页</a>
         <span>/</span>
-        <a href="/tools/" class="hover:text-gray-700">核心工具</a>
+        <a href="/zh-CN/tools/" class="hover:text-gray-700">核心工具</a>
         <span>/</span>
         <span class="text-gray-900">号码归属地查询</span>
       </nav>

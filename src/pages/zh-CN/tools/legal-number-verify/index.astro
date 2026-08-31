@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import { CLEAR_LINK, VERIFY_LINK, EXTERNAL_PROPS } from '@lib/links';
 ---
 <MainLayout
   title="法人号码核验 - 企业法人手机号三要素校验"
@@ -11,6 +12,10 @@ import MainLayout from '@layouts/MainLayout.astro';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
       <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">法人号码核验服务</h1>
       <p class="text-gray-600 max-w-3xl mx-auto">企业法人手机号三要素一致性校验，为号码申诉提供主体核验依据，提高申诉通过率</p>
+      <a href={VERIFY_LINK} {...EXTERNAL_PROPS} class="group inline-flex items-center gap-2 mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3.5 rounded-xl font-bold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:-translate-y-0.5 transition-all">
+        进入号码核验
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+      </a>
     </div>
   </div>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -101,15 +106,27 @@ import MainLayout from '@layouts/MainLayout.astro';
     </div>
 
     <!-- 行动按钮 -->
-    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white text-center">
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white text-center shadow-xl shadow-blue-500/20 relative overflow-hidden">
+      <div class="absolute -top-16 -right-16 w-48 h-48 bg-cyan-400/25 rounded-full blur-3xl pointer-events-none"></div>
       <h2 class="text-2xl font-bold mb-3">需要法人号码核验？</h2>
       <p class="text-blue-100 mb-6">为您的号码申诉补齐主体核验材料，提升通过率</p>
-      <a
-        href="https://www.524900.xyz/zh-CN/tools/marking-clear/"
-        class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-      >
-        前往号码标记清除申诉
-      </a>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href={VERIFY_LINK}
+          {...EXTERNAL_PROPS}
+          class="group inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all"
+        >
+          立即进行三要素核验
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+        </a>
+        <a
+          href={CLEAR_LINK}
+          {...EXTERNAL_PROPS}
+          class="inline-flex items-center gap-2 border-2 border-white/50 text-white px-8 py-3 rounded-xl font-semibold hover:bg-white/10 hover:border-white/70 transition-all"
+        >
+          前往号码标记清除
+        </a>
+      </div>
     </div>
   </div>
 </MainLayout>

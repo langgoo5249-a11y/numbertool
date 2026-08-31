@@ -48,7 +48,13 @@ const ogTypeMap = {
   faq: 'website',
 };
 const ogTypeFinal = ogType === 'website' ? ogTypeMap[type] : ogType;
-const ogTitle = ogTypeFinal === 'article' ? title : `${title} | ${SITE_NAME}`;
+// 首页若已使用站点名作为标题则不再拼接，避免"站点名 | 站点名"重复
+const ogTitle =
+  ogTypeFinal === 'article' || title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+// 站点为单语言（zh-CN），en-US 页面不存在，不再输出 en-US hreflang（避免指向 404）
+const hreflangEntries = Object.entries(alternates.languages).filter(
+  ([lang]) => lang !== 'en-US'
+);
 
 // ============ Schema 生成 ============
 const schemas: any[] = [];
@@ -60,7 +66,7 @@ if (buildSchema === 'organization' || buildSchema === 'website') {
     name: SITE_NAME,
     alternateName: ['号码标记清除', '号码标记清除平台', '号码标记清除服务'],
     url: SITE_URL,
-    logo: `${SITE_URL}/favicon.svg`,
+    logo: `${SITE_URL}/og-default.png`,
     description: SITE_DESCRIPTION,
     foundingDate: '2026',
     contactPoint: {
@@ -138,17 +144,15 @@ if (buildSchema === 'softwareList') {
 <!-- Canonical URL -->
 <link rel="canonical" href={fullCanonical} />
 
-<!-- Hreflang for multi-language (自动消除 /en/zh-CN/ 重复bug) -->
-<link rel="alternate" hreflang="zh-CN" href={alternates.languages['zh-CN']} />
-<link rel="alternate" hreflang="en-US" href={alternates.languages['en-US']} />
-<link rel="alternate" hreflang="x-default" href={alternates.languages['x-default']} />
+<!-- Hreflang（单语言站点：zh-CN 自引用 + x-default） -->
+{hreflangEntries.map(([lang, href]) => <link rel="alternate" hreflang={lang} href={href} />)}
 
 <!-- Open Graph -->
 <meta property="og:title" content={ogTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content={ogTypeFinal} />
 <meta property="og:url" content={fullCanonical} />
-<meta property="og:image" content={image || `${SITE_URL}/favicon.svg`} />
+<meta property="og:image" content={image || `${SITE_URL}/og-default.png`} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content={title} />
@@ -162,7 +166,7 @@ if (buildSchema === 'softwareList') {
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={ogTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={image || `${SITE_URL}/favicon.svg`} />
+<meta name="twitter:image" content={image || `${SITE_URL}/og-default.png`} />
 <meta name="twitter:image:alt" content={title} />
 
 <!-- ===== GEO: AI 搜索引擎优化 ===== -->

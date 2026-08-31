@@ -1,6 +1,6 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
-import { SITE_URL } from '@lib/seo';
+import { CLEAR_LINK, VERIFY_LINK, EXTERNAL_PROPS } from '@lib/links';
 ---
 
 <MainLayout
@@ -10,10 +10,10 @@ import { SITE_URL } from '@lib/seo';
 >
   <div class="bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-        <a href="/" class="hover:text-gray-700">首页</a>
+      <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-4" aria-label="面包屑导航">
+        <a href="/zh-CN/" class="hover:text-gray-700">首页</a>
         <span>/</span>
-        <a href="/tools/" class="hover:text-gray-700">核心工具</a>
+        <a href="/zh-CN/tools/" class="hover:text-gray-700">核心工具</a>
         <span>/</span>
         <span class="text-gray-900">号码标记清除</span>
       </nav>
@@ -24,16 +24,21 @@ import { SITE_URL } from '@lib/seo';
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Quick Action -->
-    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white mb-8">
-      <h2 class="text-2xl font-bold mb-4">快速清除入口</h2>
-      <p class="text-blue-100 mb-6">推荐优先使用中国信通院码号服务推进组，支持手机号、座机号与400号码官方归档申诉</p>
-      <a href="https://www.opene164.org.cn" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-        前往信通院官方入口
-      </a>
+    <div class="relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-10 text-white mb-8 shadow-xl shadow-blue-500/20">
+      <div class="absolute -top-16 -right-16 w-48 h-48 bg-cyan-400/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute inset-0 opacity-[0.06] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+      <div class="relative">
+        <h2 class="text-2xl font-bold mb-3">快速清除入口</h2>
+        <p class="text-blue-100 mb-6 max-w-xl">官方授权快速清除通道，手机号、座机号与400号码均支持，全程加密不存储号码数据</p>
+        <a href={CLEAR_LINK} {...EXTERNAL_PROPS} class="group inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all">
+          进入快速清除通道
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+        </a>
+      </div>
     </div>
 
-    <!-- Platform Links -->
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+    <!-- 平台申诉入口 -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
       <h2 class="text-xl font-semibold mb-6">各平台申诉入口</h2>
       <div class="space-y-4">
         {[
@@ -44,13 +49,13 @@ import { SITE_URL } from '@lib/seo';
           { name: '泰迪熊移动申诉', url: 'https://teddymobile.cn/numberComplaint', desc: '客服电话：400-825-3666', time: '3-7个工作日' },
           { name: 'Truecaller取消列入', url: 'https://www.truecaller.com/unlisting', desc: '全球最大来电识别应用，适合有国际往来的号码', time: '24-48小时' },
         ].map((platform) => (
-          <a href={platform.url} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all group">
+          <a href={platform.url} target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border border-gray-200 rounded-xl hover:border-blue-300 hover:shadow-md transition-all group">
             <div>
-              <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">{platform.name}</h3>
+              <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{platform.name}</h3>
               <p class="text-sm text-gray-500 mt-1">{platform.desc}</p>
             </div>
-            <div class="text-right">
-              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">{platform.time}</span>
+            <div class="text-right flex-shrink-0 ml-4">
+              <span class="text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full whitespace-nowrap">{platform.time}</span>
             </div>
           </a>
         ))}

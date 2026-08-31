@@ -43,6 +43,7 @@ const {
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <Meta
       title={title}
       description={description}
@@ -58,8 +59,9 @@ const {
     <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col bg-gray-50">
+    <a href="#main-content" class="skip-link">跳到主要内容</a>
     <Header locale={locale} />
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
       <slot />
     </main>
     <Footer locale={locale} />
@@ -81,6 +83,32 @@ const {
         revealEls.forEach((el) => io.observe(el));
       } else {
         revealEls.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      // 回到顶部按钮
+      const backToTop = document.getElementById('back-to-top');
+      if (backToTop) {
+        const toggle = () => {
+          const show = window.scrollY > 480;
+          backToTop.classList.toggle('opacity-0', !show);
+          backToTop.classList.toggle('translate-y-4', !show);
+          backToTop.classList.toggle('pointer-events-none', !show);
+        };
+        window.addEventListener('scroll', toggle, { passive: true });
+        toggle();
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // 头部滚动加深阴影
+      const header = document.querySelector('.site-header');
+      if (header) {
+        const onScroll = () => {
+          header.classList.toggle('shadow-md', window.scrollY > 8);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
       }
     </script>
   </body>

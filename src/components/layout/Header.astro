@@ -1,62 +1,72 @@
 ---
+import { CLEAR_LINK, VERIFY_LINK, EXTERNAL_PROPS } from '@lib/links';
+
 interface Props {
   locale?: 'zh-CN' | 'en-US';
 }
 
 const { locale = 'zh-CN' } = Astro.props;
 
+// 站内内容导航（工具指南/百科），外链入口走 CTA
 const navLinks = [
-  { href: '/zh-CN/tools/marking-clear/', label: '标记清除', section: 'tools' },
-  { href: '/zh-CN/tools/marking-check/', label: '标记自查', section: 'tools' },
-  { href: '/zh-CN/tools/legal-number-verify/', label: '法人号码核验', section: 'tools' },
-  { href: '/zh-CN/tools/attribution/', label: '归属地', section: 'tools' },
-  { href: '/zh-CN/guide/what-is-number-marking/', label: '指南', section: 'content' },
-  { href: '/zh-CN/blog/', label: '号码百科', section: 'content' },
-  { href: '/zh-CN/faq/', label: '常见问题', section: 'content' },
-  { href: '/zh-CN/compare/marking-platforms/', label: '对比评测', section: 'content' },
+  { href: '/zh-CN/tools/marking-check/', label: '标记自查' },
+  { href: '/zh-CN/tools/attribution/', label: '归属地' },
+  { href: '/zh-CN/tools/number-auth/', label: '号码认证' },
+  { href: '/zh-CN/guide/what-is-number-marking/', label: '指南' },
+  { href: '/zh-CN/blog/', label: '号码百科' },
+  { href: '/zh-CN/faq/', label: '常见问题' },
+  { href: '/zh-CN/compare/marking-platforms/', label: '对比评测' },
 ];
-
-// 折叠成两组：工具 / 更多
-const primaryNav = navLinks.filter((n) => n.section === 'tools');
-const contentNav = navLinks.filter((n) => n.section === 'content');
 ---
 
-<header class="bg-white/80 backdrop-blur-xl border-b border-gray-200/60 sticky top-0 z-50 shadow-sm">
+<header class="site-header bg-white/80 backdrop-blur-xl border-b border-gray-200/60 sticky top-0 z-50 transition-shadow">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="主导航">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
-      <a href="/zh-CN/" class="flex items-center space-x-2 group" aria-label="号码标记清除网 首页">
-        <div class="w-9 h-9 bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+      <a href="/zh-CN/" class="flex items-center gap-2.5 group" aria-label="号码标记清除网 首页">
+        <div class="relative w-10 h-10 bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:scale-105 group-hover:shadow-blue-500/40 transition-all duration-300">
+          <svg class="w-5 h-5 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+          <span class="absolute inset-0 rounded-xl ring-1 ring-white/25"></span>
         </div>
-        <span class="text-lg font-bold text-gray-900 tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">号码标记清除网</span>
+        <span class="flex flex-col leading-none">
+          <span class="text-lg font-bold text-gray-900 tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">号码标记清除网</span>
+          <span class="text-[10px] text-gray-400 tracking-widest mt-1 font-medium hidden sm:block">NUMBER MARKING CLEAR</span>
+        </span>
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center space-x-1">
-        <div class="flex items-center bg-gray-50 rounded-full p-1">
-          {[...primaryNav, ...contentNav].map((n) => (
-            <a href={n.href} class="text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-white px-3 py-1.5 rounded-full transition-all">{n.label}</a>
+      <div class="hidden lg:flex items-center gap-2">
+        <div class="flex items-center bg-gray-50 border border-gray-100 rounded-full p-1">
+          {navLinks.map((n) => (
+            <a href={n.href} class="text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-white hover:shadow-sm px-3 py-1.5 rounded-full transition-all">{n.label}</a>
           ))}
         </div>
 
-        <a href="/zh-CN/tools/marking-clear/" class="ml-2 inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all">
+        <a href={VERIFY_LINK} {...EXTERNAL_PROPS} class="ml-1 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-800 px-4 py-2.5 rounded-full hover:bg-blue-50 transition-all">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          号码核验
+        </a>
+        <a href={CLEAR_LINK} {...EXTERNAL_PROPS} class="btn-primary text-sm">
           立即清除标记
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5-5 5M6 12h12"/></svg>
         </a>
       </div>
 
-      <!-- Mobile Menu Toggle -->
-      <details class="lg:hidden relative">
-        <summary class="p-2 cursor-pointer list-none" aria-label="打开菜单">
-          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <!-- Mobile Menu -->
+      <details class="lg:hidden relative group">
+        <summary class="p-2 cursor-pointer list-none rounded-lg hover:bg-gray-100 transition-colors" aria-label="打开菜单">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </summary>
-        <div class="absolute right-0 top-12 w-64 bg-white/95 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-3 space-y-1">
-          {[...primaryNav, ...contentNav].map((n) => (
-            <a href={n.href} class="block px-3 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">{n.label}</a>
-          ))}
-          <a href="/zh-CN/tools/marking-clear/" class="block px-3 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl mt-1">立即清除标记</a>
+        <div class="absolute right-0 top-12 w-72 bg-white/95 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl shadow-gray-900/10 p-3 space-y-1">
+          <a href={CLEAR_LINK} {...EXTERNAL_PROPS} class="block px-3 py-2.5 text-sm font-semibold text-white text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg shadow-blue-500/25">立即清除标记</a>
+          <a href={VERIFY_LINK} {...EXTERNAL_PROPS} class="block px-3 py-2.5 text-sm font-semibold text-blue-700 text-center bg-blue-50 border border-blue-100 rounded-xl">法人号码核验</a>
+          <div class="pt-2 border-t border-gray-100 mt-2 space-y-0.5">
+            {navLinks.map((n) => (
+              <a href={n.href} class="block px-3 py-2.5 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">{n.label}</a>
+            ))}
+          </div>
         </div>
       </details>
     </div>

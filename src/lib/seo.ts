@@ -73,16 +73,19 @@ export function buildOpenGraph(opts: {
 
 export function buildAlternates(path: string, locale?: Locale) {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  const normPath = cleanPath.endsWith('/') ? cleanPath : `${cleanPath}/`;
-  // 移除已经带上的 locale 前缀，避免重复
-  let p = normPath;
-  p = p.replace(/^\/(zh-CN|en-US)(?=\/)/, '');
+  let normPath = cleanPath.endsWith('/') ? cleanPath : `${cleanPath}/`;
+  // 站点实际为单语言（zh-CN），canonical 必须自引用真实存在的 URL
+  // （历史版本曾剥离 /zh-CN 前缀导致 canonical 指向 404，此处修正）
+  if (!/^\/zh-CN\//.test(normPath) && normPath !== '/') {
+    normPath = `/zh-CN${normPath}`;
+  }
+  if (normPath === '/') normPath = '/zh-CN/';
+  const self = `${SITE_URL}${normPath}`;
   return {
-    canonical: `${SITE_URL}${p === '/' && locale ? '' : p}`,
+    canonical: self,
     languages: {
-      'zh-CN': `${SITE_URL}/zh-CN${p}`,
-      'en-US': `${SITE_URL}/en-US${p}`,
-      'x-default': `${SITE_URL}/zh-CN${p}`,
-    },
+      'zh-CN': self,
+      'x-default': self,
+    } as Record<string, string>,
   };
 }

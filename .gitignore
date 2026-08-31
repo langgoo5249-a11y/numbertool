@@ -3,6 +3,9 @@ node_modules/
 /.astro
 /dist
 
+# 构建时生成的 OG 分享图（由 scripts/generate-og.mjs 产出）
+/public/og-default.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

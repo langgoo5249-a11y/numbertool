@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import { CLEAR_LINK, VERIFY_LINK } from '@lib/links';
 
 const tools = [
   {
@@ -10,8 +11,9 @@ const tools = [
   },
   {
     title: '号码标记清除',
-    desc: '聚合中国信通院、360、腾讯、Truecaller 等官方入口，一站式清除',
-    href: '/zh-CN/tools/marking-clear/',
+    desc: '官方授权快速清除入口，手机号与座机号标记一站式清除',
+    href: CLEAR_LINK,
+    external: true,
     icon: 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16',
   },
   {
@@ -23,7 +25,8 @@ const tools = [
   {
     title: '法人号码核验',
     desc: '姓名 + 身份证 + 手机号三要素一致性校验，提升标记申诉通过率',
-    href: '/zh-CN/tools/legal-number-verify/',
+    href: VERIFY_LINK,
+    external: true,
     icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
   },
   {
@@ -62,15 +65,26 @@ const tools = [
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {tools.map((t, i) => (
-        <a href={t.href} class="reveal group block p-6 bg-white neon-card shine rounded-2xl hover:shadow-2xl hover:shadow-blue-500/15 hover:-translate-y-1.5 transition-all duration-300" style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
+        <a
+          href={t.href}
+          target={t.external ? '_blank' : undefined}
+          rel={t.external ? 'noopener noreferrer' : undefined}
+          class="reveal group block p-6 bg-white neon-card shine rounded-2xl hover:shadow-2xl hover:shadow-blue-500/15 hover:-translate-y-1.5 transition-all duration-300"
+          style={{ transitionDelay: `${(i % 3) * 80}ms` }}
+        >
           <div class="flex items-start space-x-4">
             <div class="w-12 h-12 bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={t.icon}></path></svg>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={t.icon}></path></svg>
             </div>
             <div class="flex-1">
-              <h2 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1">{t.title}</h2>
+              <h2 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1 flex items-center gap-2">
+                {t.title}
+                {t.external && (
+                  <svg class="w-3.5 h-3.5 text-gray-300 group-hover:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                )}
+              </h2>
               <p class="text-gray-600 text-sm">{t.desc}</p>
-              <span class="inline-flex items-center gap-1 mt-3 text-sm text-blue-600 font-medium">立即使用 <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+              <span class="inline-flex items-center gap-1 mt-3 text-sm text-blue-600 font-medium">{t.external ? '立即进入' : '立即使用'} <span class="group-hover:translate-x-1 transition-transform">→</span></span>
             </div>
           </div>
         </a>

@@ -1,6 +1,7 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
-import { SITE_URL, buildOgImage } from '@lib/seo';
+import { SITE_URL } from '@lib/seo';
+import { CLEAR_LINK, VERIFY_LINK, EXTERNAL_PROPS } from '@lib/links';
 
 interface Tool {
   id: string;
@@ -10,9 +11,20 @@ interface Tool {
   href: string;
   tags: string[];
   free: boolean;
+  external?: boolean;
 }
 
 const tools: Tool[] = [
+  {
+    id: 'marking-clear',
+    title: '号码标记清除',
+    description: '官方授权快速清除入口，手机号与座机号标记一站式清除，支持360、腾讯、华为等平台。',
+    icon: 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16',
+    href: CLEAR_LINK,
+    tags: ['快速清除', '官方入口', '手机+座机'],
+    free: true,
+    external: true,
+  },
   {
     id: 'marking-check',
     title: '号码标记自查',
@@ -23,13 +35,14 @@ const tools: Tool[] = [
     free: true,
   },
   {
-    id: 'marking-clear',
-    title: '号码标记清除',
-    description: '聚合中国信通院、360、腾讯、Truecaller等官方入口，一站式清除号码标记。',
-    icon: 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16',
-    href: '/zh-CN/tools/marking-clear/',
-    tags: ['清除申诉', '官方入口', '授权合作'],
-    free: true,
+    id: 'legal-number-verify',
+    title: '法人号码核验',
+    description: '企业法人手机号实名认证，姓名+身份证+手机号三要素一致性校验，提升号码标记申诉通过率。',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    href: VERIFY_LINK,
+    tags: ['三要素核验', '实名认证', '在线核验'],
+    free: false,
+    external: true,
   },
   {
     id: 'attribution',
@@ -39,15 +52,6 @@ const tools: Tool[] = [
     href: '/zh-CN/tools/attribution/',
     tags: ['归属地', '运营商', '号段'],
     free: true,
-  },
-  {
-    id: 'legal-number-verify',
-    title: '法人号码核验',
-    description: '企业法人手机号实名认证，姓名+身份证+手机号三要素一致性校验，提升号码标记申诉通过率。',
-    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-    href: '/zh-CN/tools/legal-number-verify/',
-    tags: ['企业核验', '实名认证', '三要素'],
-    free: false,
   },
   {
     id: 'sim-cards',
@@ -124,12 +128,43 @@ const blogPosts = [
     tags: ['AI标记', '算法规则'],
   },
 ];
+
+const faqs = [
+  {
+    q: '号码被标记骚扰电话怎么解除？',
+    a: '号码被标记后，需到各标记平台逐一申诉清除。推荐优先使用中国信通院码号服务推进组（opene164.org.cn）进行跨平台查询与清除，也可使用本站快速清除入口一站式处理。',
+  },
+  {
+    q: '号码标记清除需要多长时间？',
+    a: '不同平台处理时间不同：360手机卫士约1-3个工作日，腾讯手机管家约2-5个工作日，华为手机约3-7个工作日。',
+  },
+  {
+    q: '清除标记会收费吗？',
+    a: '中国信通院和各官方平台申诉均免费。请谨防第三方付费加急清除骗局，我们提供的服务入口均为官方渠道。',
+  },
+  {
+    q: '座机号码也能清除标记吗？',
+    a: '支持。手机号、座机号（固话）以及400/95开头的号码均可在官方渠道提交标记清除申诉。',
+  },
+];
+
+// FAQPage 结构化数据（GEO/AI 摘要友好）
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
-<MainLayout 
+<MainLayout
   title="号码标记查询/清除/认证一站式服务站"
   description="号码标记清除网提供号码标记查询、号码标记清除与号码认证服务，聚合中国信通院码号服务推进组、360、腾讯、华为、Truecaller等官方入口。手机号与座机号均支持，查询免费，不存储号码数据。"
   keywords="号码标记清除,号码标记查询,号码标记清除网,手机号码标记查询,座机号码标记清除,号码认证,号码标记自查,骚扰电话标记清除,号码归属地查询免费"
+  extraSchema={[faqSchema]}
 >
   <!-- Hero Section -->
   <section class="relative overflow-hidden bg-gradient-to-br from-blue-700 via-indigo-700 to-violet-800 text-white">
@@ -140,64 +175,78 @@ const blogPosts = [
       <div class="absolute bottom-0 left-1/3 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl float-blob" style="animation-delay:-9s"></div>
       <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 32px 32px;"></div>
     </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-28">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <div class="text-center">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6 text-sm">
-          <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+          <span class="relative flex w-2 h-2">
+            <span class="absolute inline-flex w-full h-full bg-emerald-400 rounded-full animate-ping opacity-60"></span>
+            <span class="relative inline-flex w-2 h-2 bg-emerald-400 rounded-full"></span>
+          </span>
           <span>聚合中国信通院 · 360 · 腾讯 · Truecaller 官方入口</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
           号码标记查询与清除
           <span class="block mt-2 bg-gradient-to-r from-cyan-300 via-white to-indigo-200 bg-clip-text text-transparent">一站式服务平台</span>
         </h1>
-        <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+        <p class="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
           无论您的手机号、座机号被标记为骚扰电话还是推销电话，我们聚合官方渠道帮您快速查询与清除
-          <span class="block mt-3 text-blue-200 text-lg">手机号与座机号均支持 · 查询免费 · 不存储号码数据</span>
+          <span class="block mt-3 text-blue-200 md:text-lg">手机号与座机号均支持 · 查询免费 · 不存储号码数据</span>
         </p>
-        <div class="flex flex-wrap justify-center gap-5">
-          <a href="/zh-CN/tools/marking-clear/" class="group inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-2xl font-bold shadow-xl shadow-blue-900/30 hover:shadow-2xl hover:-translate-y-0.5 transition-all">
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href={CLEAR_LINK} {...EXTERNAL_PROPS} class="group inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-2xl font-bold shadow-xl shadow-blue-900/30 hover:shadow-2xl hover:-translate-y-0.5 transition-all">
             立即清除标记
-            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+          </a>
+          <a href={VERIFY_LINK} {...EXTERNAL_PROPS} class="inline-flex items-center gap-2 border-2 border-white/50 text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-white/10 hover:border-white/70 hover:-translate-y-0.5 transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            法人号码核验
           </a>
           <a href="/zh-CN/tools/marking-check/" class="inline-flex items-center gap-2 border-2 border-white/50 text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-white/10 hover:-translate-y-0.5 transition-all">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
             号码标记自查
           </a>
         </div>
-        <div class="flex flex-wrap justify-center gap-8 md:gap-12 mt-14 text-center">
+        <div class="grid grid-cols-3 gap-4 md:gap-12 mt-14 max-w-2xl mx-auto text-center divide-x divide-white/15">
           <div>
-            <div class="text-3xl md:text-4xl font-bold">3 大渠道</div>
-            <div class="text-blue-200 text-sm mt-1">合作方+信通院+Truecaller</div>
+            <div class="text-2xl md:text-4xl font-bold">3 <span class="text-base md:text-lg font-medium">大渠道</span></div>
+            <div class="text-blue-200 text-xs md:text-sm mt-1">合作方+信通院+Truecaller</div>
           </div>
           <div>
-            <div class="text-3xl md:text-4xl font-bold">1-3 工作日</div>
-            <div class="text-blue-200 text-sm mt-1">标记清除处理周期</div>
+            <div class="text-2xl md:text-4xl font-bold">1-3 <span class="text-base md:text-lg font-medium">工作日</span></div>
+            <div class="text-blue-200 text-xs md:text-sm mt-1">标记清除处理周期</div>
           </div>
           <div>
-            <div class="text-3xl md:text-4xl font-bold">100% 免费</div>
-            <div class="text-blue-200 text-sm mt-1">查询与官方申诉均免费</div>
+            <div class="text-2xl md:text-4xl font-bold">100% <span class="text-base md:text-lg font-medium">免费</span></div>
+            <div class="text-blue-200 text-xs md:text-sm mt-1">查询与官方申诉均免费</div>
           </div>
         </div>
       </div>
     </div>
+    <div class="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
   </section>
 
   <!-- Tools Grid -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 reveal">
         <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-4 py-1.5 mb-4">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
           号码工具箱
         </span>
         <h2 class="text-3xl md:text-4xl font-bold">核心工具</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {tools.map((tool, i) => (
-          <a href={tool.href} class="reveal group block p-6 bg-white neon-card shine rounded-2xl hover:shadow-2xl hover:shadow-blue-500/15 hover:-translate-y-1.5 transition-all duration-300" style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
+          <a
+            href={tool.href}
+            target={tool.external ? '_blank' : undefined}
+            rel={tool.external ? 'noopener noreferrer' : undefined}
+            class="reveal group block p-6 bg-white neon-card shine rounded-2xl hover:shadow-2xl hover:shadow-blue-500/15 hover:-translate-y-1.5 transition-all duration-300"
+            style={{ transitionDelay: `${(i % 3) * 80}ms` }}
+          >
             <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20 group-hover:scale-110 group-hover:rotate-3 group-hover:glow-pulse transition-transform">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={tool.icon}></path>
                 </svg>
               </div>
@@ -212,13 +261,22 @@ const blogPosts = [
                     <span class="text-[10px] font-bold text-violet-600 bg-violet-50 border border-violet-100 px-1.5 py-0.5 rounded">专业</span>
                   )}
                 </div>
-                <p class="text-gray-600 text-sm mt-1">{tool.description}</p>
-                <div class="flex flex-wrap gap-2 mt-3">
+                <p class="text-gray-600 text-sm mt-1 leading-relaxed">{tool.description}</p>
+                <div class="flex flex-wrap items-center gap-2 mt-3">
                   {tool.tags.map((tag) => (
                     <span class="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">{tag}</span>
                   ))}
                 </div>
               </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between text-sm">
+              <span class="text-blue-600 font-medium inline-flex items-center gap-1">
+                {tool.external ? '立即进入' : '立即使用'}
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+              </span>
+              {tool.external && (
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              )}
             </div>
           </a>
         ))}
@@ -227,7 +285,7 @@ const blogPosts = [
   </section>
 
   <!-- Features -->
-  <section class="py-20 bg-gray-50 relative overflow-hidden">
+  <section class="py-20 bg-white relative overflow-hidden">
     <div class="absolute inset-0 pointer-events-none tech-dots opacity-40"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 reveal">
@@ -237,13 +295,13 @@ const blogPosts = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((feature, i) => (
           <div class="reveal text-center p-6 bg-white neon-card rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style={{ transitionDelay: `${(i % 4) * 80}ms` }}>
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group hover:scale-110 transition-transform">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon}></path>
               </svg>
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-            <p class="text-gray-600 text-sm">{feature.description}</p>
+            <p class="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
           </div>
         ))}
       </div>
@@ -251,7 +309,7 @@ const blogPosts = [
   </section>
 
   <!-- How It Works -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-gray-50">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 reveal">
         <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-full px-4 py-1.5 mb-4">操作流程</span>
@@ -267,15 +325,21 @@ const blogPosts = [
               {item.step}
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
-            <p class="text-gray-600">{item.description}</p>
+            <p class="text-gray-600 leading-relaxed">{item.description}</p>
           </div>
         ))}
+      </div>
+      <div class="text-center mt-12 reveal">
+        <a href={CLEAR_LINK} {...EXTERNAL_PROPS} class="group inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3.5 rounded-2xl font-bold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/35 hover:-translate-y-0.5 transition-all">
+          开始第一步
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Blog Preview -->
-  <section class="py-20 bg-gray-50">
+  <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center mb-8 reveal">
         <div class="flex items-center gap-3">
@@ -296,7 +360,7 @@ const blogPosts = [
                 ))}
               </div>
               <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">{post.title}</h3>
-              <p class="text-gray-600 text-sm line-clamp-3">{post.excerpt}</p>
+              <p class="text-gray-600 text-sm line-clamp-3 leading-relaxed">{post.excerpt}</p>
             </div>
           </a>
         ))}
@@ -305,28 +369,30 @@ const blogPosts = [
   </section>
 
   <!-- FAQ Preview -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 reveal">
         <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-amber-600 bg-amber-50 border border-amber-100 rounded-full px-4 py-1.5 mb-4">常见问题</span>
         <h2 class="text-3xl md:text-4xl font-bold">您可能关心的问题</h2>
       </div>
       <div class="space-y-4">
-        <div class="reveal neon-card rounded-xl border border-gray-100 bg-white p-6 hover:border-blue-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
-          <h3 class="font-semibold text-gray-900 mb-2">号码被标记骚扰电话怎么解除？</h3>
-          <p class="text-gray-600 text-sm">号码被标记后，需到各标记平台逐一申诉清除。推荐优先使用中国信通院码号服务推进组（opene164.org.cn）进行跨平台查询与清除。</p>
-        </div>
-        <div class="reveal neon-card rounded-xl border border-gray-100 bg-white p-6 hover:border-blue-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
-          <h3 class="font-semibold text-gray-900 mb-2">号码标记清除需要多长时间？</h3>
-          <p class="text-gray-600 text-sm">不同平台处理时间不同：360手机卫士约1-3个工作日，腾讯手机管家约2-5个工作日，华为手机约3-7个工作日。</p>
-        </div>
-        <div class="reveal neon-card rounded-xl border border-gray-100 bg-white p-6 hover:border-blue-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
-          <h3 class="font-semibold text-gray-900 mb-2">清除标记会收费吗？</h3>
-          <p class="text-gray-600 text-sm">中国信通院和各官方平台申诉均免费。请谨防第三方付费加急清除骗局，我们提供的服务入口均为官方渠道。</p>
-        </div>
+        {faqs.map((faq, i) => (
+          <details class="reveal group neon-card rounded-xl border border-gray-100 bg-white overflow-hidden hover:border-blue-200 transition-all" style={{ transitionDelay: `${i * 60}ms` }}>
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none p-5 font-semibold text-gray-900 group-open:text-blue-600 hover:text-blue-600 transition-colors">
+              <span class="flex items-center gap-3">
+                <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold border border-blue-100">Q</span>
+                {faq.q}
+              </span>
+              <svg class="w-5 h-5 text-gray-400 flex-shrink-0 group-open:rotate-180 group-open:text-blue-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-5 pb-5 pl-15 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+              <p>{faq.a}</p>
+            </div>
+          </details>
+        ))}
       </div>
       <div class="text-center mt-8">
-        <a href="/zh-CN/faq/" class="text-blue-600 hover:text-blue-700 font-medium">查看全部常见问题 →</a>
+        <a href="/zh-CN/faq/" class="text-blue-600 hover:text-blue-700 font-medium group inline-flex items-center gap-1">查看全部常见问题 <span class="group-hover:translate-x-1 transition-transform">→</span></a>
       </div>
     </div>
   </section>
@@ -342,11 +408,11 @@ const blogPosts = [
       <h2 class="text-3xl md:text-4xl font-bold mb-4">号码被标记了？现在开始清除</h2>
       <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">聚合官方渠道，1-3个工作日内完成标记清除。查询免费、不存储数据、全程加密。</p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/zh-CN/tools/marking-clear/" class="group inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-2xl font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all">
+        <a href={CLEAR_LINK} {...EXTERNAL_PROPS} class="group inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3.5 rounded-2xl font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all">
           立即清除标记
-          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
         </a>
-        <a href="/zh-CN/tools/legal-number-verify/" class="inline-flex items-center gap-2 border-2 border-white/50 text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-white/10 hover:-translate-y-0.5 transition-all">法人号码核验</a>
+        <a href={VERIFY_LINK} {...EXTERNAL_PROPS} class="inline-flex items-center gap-2 border-2 border-white/50 text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-white/10 hover:border-white/70 hover:-translate-y-0.5 transition-all">法人号码核验</a>
       </div>
     </div>
   </section>

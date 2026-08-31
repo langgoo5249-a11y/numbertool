@@ -1,1 +1,7 @@
+# Cloudflare Pages 重定向规则
+# 根路径跳转到中文首页
 /  /zh-CN/  301
+# 旧版 sitemap.xml 已由 @astrojs/sitemap 生成的 sitemap-index.xml 取代
+/sitemap.xml  /sitemap-index.xml  301
+# 旧版英文目录（页面已下线，统一回首页）
+/en-US/*  /zh-CN/  301

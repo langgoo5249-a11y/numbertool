@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import { CLEAR_LINK, EXTERNAL_PROPS } from '@lib/links';
 ---
 <MainLayout
   title="号码认证服务 - 来电显示企业名称"
@@ -113,14 +114,17 @@ import MainLayout from '@layouts/MainLayout.astro';
     </div>
 
     <!-- 行动按钮 -->
-    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white text-center">
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white text-center shadow-xl shadow-blue-500/20 relative overflow-hidden">
+      <div class="absolute -top-16 -right-16 w-48 h-48 bg-cyan-400/25 rounded-full blur-3xl pointer-events-none"></div>
       <h2 class="text-2xl font-bold mb-3">需要办理企业号码认证？</h2>
       <p class="text-blue-100 mb-6">专业的号码认证团队为您对接，覆盖个人版与多号码企业版，助您从源头预防号码标记</p>
       <a
-        href="https://www.524900.xyz/zh-CN/tools/marking-clear/"
-        class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+        href={CLEAR_LINK}
+        {...EXTERNAL_PROPS}
+        class="group inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all"
       >
         先清除标记 → 再联系企业认证
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
       </a>
     </div>
   </div>

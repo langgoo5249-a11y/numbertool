@@ -1,6 +1,6 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
-import { SITE_URL } from '@lib/seo';
+import { CLEAR_LINK, EXTERNAL_PROPS } from '@lib/links';
 ---
 
 <MainLayout
@@ -10,10 +10,10 @@ import { SITE_URL } from '@lib/seo';
 >
   <div class="bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-        <a href="/" class="hover:text-gray-700">首页</a>
+      <nav class="flex items-center space-x-2 text-sm text-gray-500 mb-4" aria-label="面包屑导航">
+        <a href="/zh-CN/" class="hover:text-gray-700">首页</a>
         <span>/</span>
-        <a href="/tools/" class="hover:text-gray-700">核心工具</a>
+        <a href="/zh-CN/tools/" class="hover:text-gray-700">核心工具</a>
         <span>/</span>
         <span class="text-gray-900">号码标记自查</span>
       </nav>
@@ -24,51 +24,54 @@ import { SITE_URL } from '@lib/seo';
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Tool Section -->
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
-      <div class="flex items-center space-x-3 mb-6">
-        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </div>
-        <h2 class="text-xl font-semibold">输入号码进行查询</h2>
-      </div>
-      
-      <div class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">
-            选择号码类型
-          </label>
-          <div class="flex space-x-4">
-            <label class="flex items-center space-x-2 cursor-pointer">
-              <input type="radio" name="numberType" value="mobile" checked class="text-blue-600 focus:ring-blue-500" />
-              <span class="text-gray-700">手机号码</span>
-            </label>
-            <label class="flex items-center space-x-2 cursor-pointer">
-              <input type="radio" name="numberType" value="landline" class="text-blue-600 focus:ring-blue-500" />
-              <span class="text-gray-700">座机号码</span>
-            </label>
+    <div class="relative overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white mb-8 shadow-xl shadow-blue-500/20">
+      <div class="absolute -top-16 -right-16 w-48 h-48 bg-cyan-400/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative">
+        <div class="flex items-center space-x-3 mb-6">
+          <div class="w-10 h-10 bg-white/15 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
           </div>
+          <h2 class="text-xl font-semibold">输入号码进行查询</h2>
         </div>
 
-        <div>
-          <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-2">
-            输入号码
-          </label>
-          <input
-            type="text"
-            id="phoneNumber"
-            placeholder="请输入手机号码或座机号"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
-          <p class="mt-2 text-sm text-gray-500">
-            座机号码查询时请带区号，如：010-xxxxxxxx
-          </p>
-        </div>
+        <div class="space-y-4">
+          <div>
+            <span class="block text-sm font-medium text-blue-100 mb-2">选择号码类型</span>
+            <div class="flex flex-wrap gap-3">
+              <label class="flex items-center gap-2 cursor-pointer bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 hover:bg-white/15 transition-colors">
+                <input type="radio" name="numberType" value="mobile" checked class="text-blue-600 focus:ring-blue-500 accent-white" />
+                <span class="text-white text-sm">手机号码</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 hover:bg-white/15 transition-colors">
+                <input type="radio" name="numberType" value="landline" class="text-blue-600 focus:ring-blue-500 accent-white" />
+                <span class="text-white text-sm">座机号码</span>
+              </label>
+            </div>
+          </div>
 
-        <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-          开始查询
-        </button>
+          <div>
+            <label for="phoneNumber" class="block text-sm font-medium text-blue-100 mb-2">输入号码</label>
+            <input
+              type="text"
+              id="phoneNumber"
+              placeholder="请输入手机号码或座机号"
+              class="w-full px-4 py-3.5 rounded-xl bg-white/95 border border-white/30 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-white/60 focus:bg-white transition-all"
+            />
+            <p class="mt-2 text-sm text-blue-200">
+              座机号码查询时请带区号，如：010-xxxxxxxx
+            </p>
+          </div>
+
+          <a href={CLEAR_LINK} {...EXTERNAL_PROPS} class="group block w-full text-center bg-white text-blue-700 py-3.5 rounded-xl font-bold shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all">
+            <span class="inline-flex items-center gap-2">
+              开始查询并进入快速清除
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+            </span>
+          </a>
+          <p class="text-xs text-blue-200 text-center">点击后进入官方授权快速通道，可查询标记状态并直接提交清除申诉</p>
+        </div>
       </div>
     </div>
 
