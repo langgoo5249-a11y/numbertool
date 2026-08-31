@@ -77,10 +77,15 @@ if (buildSchema === 'organization' || buildSchema === 'website') {
       areaServed: 'CN',
     },
     sameAs: [
+      // 官方与行业权威源（实体关联）
       'https://www.opene164.org.cn',
       'https://www.miit.gov.cn',
       'https://www.12321.cn',
-      'https://www.truecaller.com',
+      // 中文权威百科词条（国产模型引用权重高）
+      'https://baike.baidu.com/item/中国信息通信研究院',
+      'https://baike.baidu.com/item/骚扰电话',
+      'https://baike.baidu.com/item/携号转网',
+      'https://baike.baidu.com/item/电话号码实名制',
     ],
     knowsAbout: [
       '电话号码标记',
@@ -140,6 +145,15 @@ if (buildSchema === 'softwareList') {
 <meta name="bingbot" content={robotsContent} />
 <meta name="baiduspider" content={robotsContent} />
 <meta name="generator" content="Astro" />
+<meta name="theme-color" content="#2563eb" />
+
+<!-- ===== Favicon 套件（SVG 现代浏览器 / ICO 传统与百度收录 / PNG 全尺寸） ===== -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="mask-icon" href="/favicon.svg" color="#2563eb" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={fullCanonical} />

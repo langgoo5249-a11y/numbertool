@@ -1,0 +1,47 @@
+# Cloudflare Pages 自定义响应头
+# 核心 SEO/GEO 策略: 任何响应都不阻止任何爬虫与 AI 索引
+
+/*
+  # X-Robots-Tag: 全站开放索引, 无限制摘要/预览 (与 HTML meta 一致)
+  X-Robots-Tag: index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1
+  # 跨域开放: 便于第三方工具/爬虫读取 llms.txt, ai.xml, rss.xml 等资源
+  Access-Control-Allow-Origin: *
+  # 明确声明允许 AI 爬虫训练与检索 (AI 检索工具读取的声明性头部)
+  AI-Crawler-Policy: allow-all
+  X-AI-Bots-Allowed: GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, Claude-Web, Claude-SearchBot, Claude-User, Google-Extended, GoogleOther, Grokbot, Bingbot, PerplexityBot, Perplexity-User, Applebot, Applebot-Extended, Meta-ExternalAgent, Meta-ExternalFetcher, CCBot, Amazonbot, DuckAssistBot, MistralAI-User, Bytespider, ByteDance, DoubaoBot, ToutiaoSpider, Baiduspider, ERNIEBot, ERNIE-Bot, TencentBot, HunyuanBot, YuanbaoBot, QQBot, QwenBot, TongyiBot, QuarkBot, 360Spider, HaosouSpider, Sogou web spider, DeepSeekBot, Kimibot, KimiCrawler, ChatGLM-Spider, ChatGLM-Bot, iFlytekSpider, Spark-Bot, PetalBot, BaichuanBot, MiniMax-Bot, MinimaxBot, YiBot, TiangongBot, ZhihuBot, Yisouspider
+
+# AI 内容发现文件: 允许所有客户端缓存 1 小时
+/llms.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8
+/llms-full.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8
+/ai.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+/brand-info.json
+  Cache-Control: public, max-age=3600
+  Access-Control-Allow-Origin: *
+/rss.xml
+  Cache-Control: public, max-age=3600
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+# sitemap 缓存
+/sitemap-index.xml
+  Cache-Control: public, max-age=86400
+/sitemap-0.xml
+  Cache-Control: public, max-age=86400
+
+# favicon 与 OG 图: 长缓存
+/favicon.ico
+  Cache-Control: public, max-age=604800
+/favicon.svg
+  Cache-Control: public, max-age=604800
+/favicon-*.png
+  Cache-Control: public, max-age=604800
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800
+/og-default.png
+  Cache-Control: public, max-age=604800

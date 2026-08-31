@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import CallPreview from '@components/CallPreview.astro';
 import { CLEAR_LINK, EXTERNAL_PROPS } from '@lib/links';
 ---
 
@@ -87,6 +88,31 @@ import { CLEAR_LINK, EXTERNAL_PROPS } from '@lib/links';
             <span class="text-sm text-gray-700">{platform}</span>
           </div>
         ))}
+      </div>
+    </div>
+
+    <!-- 来电标记状态示意（CSS 绘制示意，非真实截图） -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8 reveal">
+      <h2 class="text-xl font-semibold mb-2">被标记的来电长什么样？</h2>
+      <p class="text-sm text-gray-500 mb-8">两种典型来电界面示意（CSS 绘制示意图，非真实截图）：左为被误标号码，右为完成认证的企业号码。</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 items-start justify-items-center">
+        <div class="text-center">
+          <CallPreview number="138 0013 8000" label="骚扰电话（疑似营销）" variant="marked" />
+          <p class="mt-4 text-sm text-red-600 font-medium">❌ 被标记：接听率暴跌，客户流失</p>
+          <p class="mt-1 text-xs text-gray-500">红标提示 + 标记人数，用户直接拒接</p>
+        </div>
+        <div class="text-center">
+          <CallPreview number="138 0013 8000" label="××科技有限公司" variant="verified" />
+          <p class="mt-4 text-sm text-emerald-600 font-medium">✅ 已认证：显示企业名，接听率提升</p>
+          <p class="mt-1 text-xs text-gray-500">认证名片从源头降低误标概率</p>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <a href={CLEAR_LINK} {...EXTERNAL_PROPS} class="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:-translate-y-0.5 transition-all">
+          查询并清除我的标记
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+        </a>
+        <a href="/zh-CN/tools/number-auth/" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 border border-blue-200 rounded-xl font-semibold hover:border-blue-400 transition-all">了解号码认证</a>
       </div>
     </div>
 

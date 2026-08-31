@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/generate-og.mjs",
+    "prebuild": "node scripts/generate-og.mjs && node scripts/generate-favicon.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",

@@ -3,8 +3,13 @@ node_modules/
 /.astro
 /dist
 
-# 构建时生成的 OG 分享图（由 scripts/generate-og.mjs 产出）
+# 构建时生成的 OG 分享图与 favicon 套件（由 scripts/ 脚本产出）
 /public/og-default.png
+/public/favicon.svg
+/public/favicon.ico
+/public/favicon-*.png
+/public/apple-touch-icon.png
+/public/maskable-icon.png
 
 # Editor directories and files
 .vscode/*

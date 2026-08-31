@@ -16,16 +16,33 @@ export async function getStaticPaths() {
 
 interface Props {
   slug: string;
-  post: { title: string; date: string; excerpt: string; content: string; tags: string[] };
+  post: { title: string; date: string; updated?: string; excerpt: string; content: string; tags: string[] };
 }
 
 const { post } = Astro.props;
 
 // 兜底：即使 props 未注入，也从路径中解析 slug
-const resolvedPost = post ?? getPostBySlug(Astro.url.pathname.split('/').filter(Boolean).pop() ?? '');
+const slug = Astro.url.pathname.split('/').filter(Boolean).pop() ?? '';
+const resolvedPost = post ?? getPostBySlug(slug);
+
+// dateModified 真实化：内容级修订日期优先，否则等于发布日期
+const dateModified = resolvedPost?.updated ?? resolvedPost?.date ?? '';
 
 // 将 markdown 渲染为 HTML
 const contentHtml = resolvedPost ? marked.parse(resolvedPost.content) : '';
+
+// 相关阅读：按标签交集排序，取前 3 篇（内链编织）
+const relatedPosts = resolvedPost
+  ? Object.entries(ALL_POSTS)
+      .filter(([s]) => s !== slug)
+      .map(([s, p]) => {
+        const overlap = p.tags.filter((t) => resolvedPost.tags.includes(t)).length;
+        return { slug: s, ...p, overlap };
+      })
+      .sort((a, b) => b.date.localeCompare(a.date))
+      .sort((a, b) => b.overlap - a.overlap)
+      .slice(0, 3)
+  : [];
 
 // 文章 JSON-LD 结构化数据
 const articleSchema = resolvedPost
@@ -34,11 +51,13 @@ const articleSchema = resolvedPost
       '@type': 'Article',
       headline: resolvedPost.title,
       description: resolvedPost.excerpt,
-      author: { '@type': 'Organization', name: '号码标记清除网' },
+      author: { '@type': 'Organization', name: '号码标记清除网', url: SITE_URL },
       datePublished: resolvedPost.date,
-      dateModified: resolvedPost.date,
-      publisher: { '@type': 'Organization', name: '号码标记清除网' },
-      mainEntityOfPage: `${SITE_URL}/zh-CN/blog/${Astro.url.pathname.split('/').filter(Boolean).pop()}/`,
+      dateModified,
+      publisher: { '@type': 'Organization', name: '号码标记清除网', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/og-default.png` } },
+      mainEntityOfPage: `${SITE_URL}/zh-CN/blog/${slug}/`,
+      image: `${SITE_URL}/og-default.png`,
+      inLanguage: 'zh-CN',
     }
   : null;
 ---
@@ -51,19 +70,25 @@ const articleSchema = resolvedPost
     buildSchema="none"
     type="article"
     datePublished={resolvedPost.date}
-    dateModified={resolvedPost.date}
+    dateModified={dateModified}
     extraSchema={articleSchema ? [articleSchema] : []}
   >
     <div class="bg-white border-b border-gray-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <nav class="text-sm text-gray-500 mb-4 flex items-center gap-2">
+        <nav class="text-sm text-gray-500 mb-4 flex items-center gap-2" aria-label="面包屑导航">
           <a href="/zh-CN/" class="hover:text-gray-700">首页</a>
           <span>/</span>
           <a href="/zh-CN/blog/" class="hover:text-gray-700">号码百科</a>
         </nav>
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">{resolvedPost.title}</h1>
         <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500">
-          <time datetime={resolvedPost.date}>{resolvedPost.date}</time>
+          <time datetime={resolvedPost.date}>发布于 {resolvedPost.date}</time>
+          {resolvedPost.updated && (
+            <>
+              <span>·</span>
+              <time datetime={resolvedPost.updated} class="text-blue-600 font-medium">更新于 {resolvedPost.updated}</time>
+            </>
+          )}
           <span>·</span>
           <span>专业编辑 · 号码标记清除网</span>
           <div class="flex gap-2">
@@ -76,6 +101,34 @@ const articleSchema = resolvedPost
     </div>
     <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="prose prose-lg max-w-none bg-white rounded-xl border border-gray-200 p-6 md:p-10" set:html={contentHtml} />
+
+      {relatedPosts.length > 0 && (
+        <section class="mt-10 reveal" aria-label="相关阅读">
+          <h2 class="text-xl font-bold text-gray-900 mb-5 flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+            相关阅读
+          </h2>
+          <div class="grid gap-4 sm:grid-cols-3">
+            {relatedPosts.map((rp) => (
+              <a href={`/zh-CN/blog/${rp.slug}/`} class="group block bg-white rounded-xl border border-gray-200 p-5 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-100 transition-all">
+                <time class="text-xs text-gray-400" datetime={rp.date}>{rp.date}</time>
+                <h3 class="mt-2 font-semibold text-gray-900 text-sm leading-relaxed group-hover:text-blue-600 transition-colors">{rp.title}</h3>
+                <p class="mt-2 text-xs text-gray-500 leading-relaxed line-clamp-3">{rp.excerpt}</p>
+                {rp.tags.length > 0 && <span class="mt-3 inline-block px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full text-xs">{rp.tags[0]}</span>}
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <aside class="mt-10 bg-blue-50 border border-blue-200 rounded-xl p-6 reveal" aria-label="下一步">
+        <h2 class="font-bold text-gray-900 mb-3">下一步行动</h2>
+        <p class="text-sm text-gray-600 mb-4 leading-relaxed">先查清号码在各大平台的标记状态，再决定申诉策略。查询免费，不存储号码数据。</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/zh-CN/tools/marking-check/" class="px-5 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors">号码标记自查</a>
+          <a href="/zh-CN/faq/" class="px-5 py-2.5 bg-white text-blue-600 border border-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50 transition-colors">常见问题 FAQ</a>
+        </div>
+      </aside>
     </article>
   </MainLayout>
 ) : (
@@ -86,4 +139,4 @@ const articleSchema = resolvedPost
       <a href="/zh-CN/blog/" class="inline-block mt-6 text-blue-600 hover:text-blue-700">返回号码百科</a>
     </div>
   </MainLayout>
-)
+)}
