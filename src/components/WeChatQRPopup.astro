@@ -1,0 +1,177 @@
+---
+/**
+ * 微信服务号二维码弹窗
+ * - 新用户：进入网站 2 秒后弹出一次
+ * - 老用户：距上次弹出满 24 小时才再次弹出（localStorage 记录）
+ * - 关闭方式：右上角关闭 / 点击遮罩 / ESC 键
+ * - 无障碍：role=dialog + aria-modal + 焦点管理
+ */
+---
+
+<div
+  id="wechat-qr-popup"
+  class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="wechat-qr-popup-title"
+  aria-describedby="wechat-qr-popup-desc"
+>
+  <!-- 遮罩 -->
+  <div id="wechat-qr-overlay" class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+  <!-- 弹窗主体 -->
+  <div
+    id="wechat-qr-panel"
+    class="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl overflow-hidden opacity-0 scale-95 transition-all duration-300"
+  >
+    <!-- 顶部品牌区 -->
+    <div class="relative bg-gradient-to-br from-blue-600 to-indigo-600 px-6 pt-7 pb-12 text-center overflow-hidden">
+      <div class="absolute -top-12 -left-12 w-36 h-36 bg-cyan-400/20 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+      <button
+        id="wechat-qr-close"
+        type="button"
+        class="absolute top-2 right-2 w-10 h-10 flex items-center justify-center rounded-full bg-white/15 hover:bg-white/30 text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        aria-label="关闭微信服务号弹窗"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="relative">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-xs text-white/90 mb-3">
+          <svg class="w-3.5 h-3.5 text-[#95ec69]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.63 1.33 5.02 3.44 6.66l-.87 2.98a.4.4 0 0 0 .58.46l3.42-1.86c1.07.3 2.22.46 3.43.46 5.52 0 10-3.94 10-8.8S17.52 2 12 2zm-3.5 8.4a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zm7 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"/>
+          </svg>
+          官方微信服务号
+        </div>
+        <h2 id="wechat-qr-popup-title" class="text-lg font-bold text-white">扫码添加服务号</h2>
+        <p id="wechat-qr-popup-desc" class="mt-1 text-xs text-blue-100">手机扫码，微信里直接办理号码业务</p>
+      </div>
+    </div>
+
+    <!-- 二维码区域 -->
+    <div class="px-6 pb-6 -mt-7">
+      <div class="relative mx-auto w-44 h-44 rounded-xl bg-white shadow-lg ring-1 ring-gray-100 p-2">
+        <img
+          src="/images/wechat-service-qr.jpg"
+          alt="朗汇通讯微信服务号二维码"
+          width="344"
+          height="344"
+          class="w-full h-full object-contain rounded-lg"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+
+      <!-- 服务说明 -->
+      <div class="mt-5 grid gap-2">
+        <div class="flex items-center gap-2.5 text-sm text-gray-700">
+          <span class="w-5 h-5 shrink-0 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"/></svg>
+          </span>
+          号码标记查询与清除，微信里直接办
+        </div>
+        <div class="flex items-center gap-2.5 text-sm text-gray-700">
+          <span class="w-5 h-5 shrink-0 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.506 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.506 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.506 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.506 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.506 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.506 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.506-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.506-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </span>
+          号码认证、法人核验等增值服务
+        </div>
+        <div class="flex items-center gap-2.5 text-sm text-gray-700">
+          <span class="w-5 h-5 shrink-0 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </span>
+          申诉进度实时通知，不错过审核结果
+        </div>
+      </div>
+
+      <!-- 提示 -->
+      <p class="mt-5 text-center text-xs text-gray-400">
+        微信扫一扫 · 关注「朗汇通讯」服务号
+      </p>
+      <button
+        id="wechat-qr-close-bottom"
+        type="button"
+        class="mt-3 w-full py-2.5 rounded-lg border border-gray-200 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+      >
+        暂不需要，继续浏览网页
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const STORAGE_KEY = 'wechat_qr_popup_shown_at';
+    const INTERVAL_MS = 24 * 60 * 60 * 1000; // 24 小时
+    const NEW_USER_DELAY_MS = 2000; // 新用户 2 秒后弹出
+
+    const popup = document.getElementById('wechat-qr-popup');
+    if (!popup) return;
+
+    const overlay = document.getElementById('wechat-qr-overlay');
+    const panel = document.getElementById('wechat-qr-panel');
+    const closeBtn = document.getElementById('wechat-qr-close');
+    const closeBtnBottom = document.getElementById('wechat-qr-close-bottom');
+
+    /** 是否满足弹出条件：从未弹过（新用户）或距上次满 24 小时 */
+    function shouldShow(): boolean {
+      try {
+        const last = localStorage.getItem(STORAGE_KEY);
+        if (!last) return true; // 新用户
+        return Date.now() - Number(last) >= INTERVAL_MS;
+      } catch {
+        // localStorage 不可用（隐私模式等）时降级为弹出，保证触达
+        return true;
+      }
+    }
+
+    function markShown(): void {
+      try {
+        localStorage.setItem(STORAGE_KEY, String(Date.now()));
+      } catch {
+        /* 忽略写入失败 */
+      }
+    }
+
+    let lastFocused: HTMLElement | null = null;
+
+    function show(): void {
+      lastFocused = document.activeElement as HTMLElement | null;
+      popup.classList.remove('hidden');
+      popup.classList.add('flex');
+      // 触发过渡动画（下一帧再切换状态类）
+      requestAnimationFrame(() => {
+        overlay?.classList.remove('opacity-0');
+        panel?.classList.remove('opacity-0', 'scale-95');
+      });
+      document.body.style.overflow = 'hidden';
+      markShown();
+      (closeBtn as HTMLElement | null)?.focus();
+    }
+
+    function hide(): void {
+      overlay?.classList.add('opacity-0');
+      panel?.classList.add('opacity-0', 'scale-95');
+      window.setTimeout(() => {
+        popup.classList.add('hidden');
+        popup.classList.remove('flex');
+        document.body.style.overflow = '';
+        lastFocused?.focus();
+      }, 300);
+    }
+
+    // 关闭交互
+    closeBtn?.addEventListener('click', hide);
+    closeBtnBottom?.addEventListener('click', hide);
+    overlay?.addEventListener('click', hide);
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && !popup.classList.contains('hidden')) hide();
+    });
+
+    // 弹出时机
+    if (shouldShow()) {
+      window.setTimeout(show, NEW_USER_DELAY_MS);
+    }
+  })();
+</script>

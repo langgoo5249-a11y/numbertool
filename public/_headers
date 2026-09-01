@@ -45,3 +45,7 @@
   Cache-Control: public, max-age=604800
 /og-default.png
   Cache-Control: public, max-age=604800
+
+# 静态图片（微信二维码等）: 长缓存
+/images/*
+  Cache-Control: public, max-age=604800
