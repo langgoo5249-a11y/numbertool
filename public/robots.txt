@@ -294,12 +294,12 @@ Allow: /
 # ============================================================
 # Sitemap 与 AI 内容发现
 # ============================================================
-Sitemap: https://www.524900.xyz/sitemap-index.xml
-Sitemap: https://www.524900.xyz/sitemap-0.xml
+Sitemap: https://524900.xyz/sitemap-index.xml
+Sitemap: https://524900.xyz/sitemap-0.xml
 
 # AI 内容发现文件 (非 robots.txt 标准, 供 AI 爬虫工具主动读取):
-# - https://www.524900.xyz/llms.txt        全站页面目录 (llms.txt 规范)
-# - https://www.524900.xyz/llms-full.txt   全站页面完整内容摘要
-# - https://www.524900.xyz/ai.xml          AI 爬虫引导文件
-# - https://www.524900.xyz/brand-info.json 品牌实体信息
-# - https://www.524900.xyz/rss.xml         内容更新订阅
+# - https://524900.xyz/llms.txt        全站页面目录 (llms.txt 规范)
+# - https://524900.xyz/llms-full.txt   全站页面完整内容摘要
+# - https://524900.xyz/ai.xml          AI 爬虫引导文件
+# - https://524900.xyz/brand-info.json 品牌实体信息
+# - https://524900.xyz/rss.xml         内容更新订阅

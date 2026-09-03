@@ -22,8 +22,8 @@ export const GET: APIRoute = async () => {
     (p) => `    <item>
       <title>${p.title}</title>
       <description>${p.desc}</description>
-      <link>https://www.524900.xyz/zh-CN/blog/${p.slug}/</link>
-      <guid>https://www.524900.xyz/zh-CN/blog/${p.slug}/</guid>
+      <link>https://524900.xyz/zh-CN/blog/${p.slug}/</link>
+      <guid>https://524900.xyz/zh-CN/blog/${p.slug}/</guid>
       <pubDate>${new Date(p.date).toUTCString()}</pubDate>
     </item>`
   ).join('\n');
@@ -33,10 +33,10 @@ export const GET: APIRoute = async () => {
   <channel>
     <title>号码标记清除网 - 号码标记查询/清除/认证服务</title>
     <description>提供号码标记查询、号码标记清除与号码认证服务，聚合中国信通院码号服务推进组、360、腾讯、华为、Truecaller等官方入口。手机号与座机号均支持，查询免费，不存储号码数据。</description>
-    <link>https://www.524900.xyz/zh-CN/</link>
+    <link>https://524900.xyz/zh-CN/</link>
     <language>zh-CN</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="https://www.524900.xyz/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://524900.xyz/rss.xml" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
 </rss>`;

@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://www.524900.xyz';
+export const SITE_URL = 'https://524900.xyz';
 export const SITE_NAME = '号码标记清除网';
 export const SITE_ALT_NAME = ['号码标记清除', '号码标记查询清除平台', '号码标记清除服务站'];
 export const SITE_DESCRIPTION =

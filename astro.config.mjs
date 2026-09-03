@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
-  site: 'https://www.524900.xyz',
+  site: 'https://524900.xyz',
   trailingSlash: 'always',
   outDir: './dist',
   output: 'static',
