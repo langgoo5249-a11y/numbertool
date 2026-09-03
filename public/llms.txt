@@ -28,6 +28,7 @@
 - [号码认证服务商对比](https://www.524900.xyz/zh-CN/compare/auth-providers/)：网易易盾/秒验/极光等认证服务商对比
 
 ## 博客文章
+- [170/171号段被标记骚扰电话？虚商号码误标与消除全指南](https://www.524900.xyz/zh-CN/blog/2026-mvno-number-segment-marking-clear-guide/)：虚商号段连坐机制（39家虚拟运营商、外呼平台号码池滥用数据），三步消除流程与防复标建议，附FAQ
 - [没打过电话却被标成骚扰电话？号码误标真相与清除指南](https://www.524900.xyz/zh-CN/blog/2026-number-false-marking-guide/)
 - [手机厂商隐藏标记系统清除全攻略](https://www.524900.xyz/zh-CN/blog/2026-phone-manufacturer-local-marking-database-clear-guide/)
 - [号码为什么被AI自动标记？2026年标记算法规则](https://www.524900.xyz/zh-CN/blog/2026-ai-marking-algorithm-rules-guide/)

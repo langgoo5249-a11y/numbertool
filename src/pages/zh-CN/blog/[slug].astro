@@ -60,6 +60,20 @@ const articleSchema = resolvedPost
       inLanguage: 'zh-CN',
     }
   : null;
+
+// FAQ 结构化数据（文章配置 faq 字段时自动生成，国产 AI 引擎偏好一问一答式摘要提取）
+const faqSchema =
+  resolvedPost?.faq?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: resolvedPost.faq.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }
+    : null;
 ---
 
 {resolvedPost ? (
@@ -71,7 +85,7 @@ const articleSchema = resolvedPost
     type="article"
     datePublished={resolvedPost.date}
     dateModified={dateModified}
-    extraSchema={articleSchema ? [articleSchema] : []}
+    extraSchema={[...(articleSchema ? [articleSchema] : []), ...(faqSchema ? [faqSchema] : [])]}
   >
     <div class="bg-white border-b border-gray-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -101,6 +115,26 @@ const articleSchema = resolvedPost
     </div>
     <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="prose prose-lg max-w-none bg-white rounded-xl border border-gray-200 p-6 md:p-10" set:html={contentHtml} />
+
+      {resolvedPost.faq?.length ? (
+        <section class="mt-10 reveal" aria-label="常见问题">
+          <h2 class="text-xl font-bold text-gray-900 mb-5 flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            常见问题
+          </h2>
+          <div class="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100">
+            {resolvedPost.faq.map((f) => (
+              <details class="group px-6 py-4">
+                <summary class="flex items-center justify-between cursor-pointer list-none font-semibold text-gray-900 text-[15px] hover:text-blue-600 transition-colors">
+                  {f.q}
+                  <svg class="w-4 h-4 text-gray-400 shrink-0 ml-3 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {relatedPosts.length > 0 && (
         <section class="mt-10 reveal" aria-label="相关阅读">
