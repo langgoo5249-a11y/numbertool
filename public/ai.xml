@@ -11,7 +11,7 @@
     <name>号码标记清除网</name>
     <description>提供号码标记查询、号码标记清除与号码认证服务,聚合中国信通院码号服务推进组、360手机卫士、腾讯手机管家、华为、Truecaller等官方入口,手机号码与座机(固话)号码均支持,查询免费、不存储号码数据。</description>
     <language>zh-CN</language>
-    <updated>2026-09-07</updated>
+    <updated>2026-09-12</updated>
     <operator>号码标记清除网团队</operator>
   </metadata>
   <!-- 允许抓取的 AI 爬虫 (与 robots.txt 保持一致, 仅大平台) -->
@@ -71,6 +71,7 @@
     <priority url="https://524900.xyz/zh-CN/compare/marking-platforms/" type="comparison" keywords="号码标记平台对比,360腾讯比对" />
     <priority url="https://524900.xyz/zh-CN/compare/auth-providers/" type="comparison" keywords="号码认证服务商对比" />
     <!-- 博客文章 - 误标主题 -->
+    <priority url="https://524900.xyz/zh-CN/blog/2026-landline-marking-removal-guide/" type="article" keywords="座机号码被标记骚扰电话,固话标记怎么清除,010号码标记申诉,座机号码怎么去掉骚扰电话,固话被标记推销怎么消除,12321座机申诉,居委会电话被标骚扰" />
     <priority url="https://524900.xyz/zh-CN/blog/2026-number-false-marking-guide/" type="article" keywords="号码被误标骚扰电话,号码误标怎么清除,没打过电话被标记骚扰电话,YD/T 4980-2024" />
     <!-- 博客文章 - 虚商号段主题 -->
     <priority url="https://524900.xyz/zh-CN/blog/2026-mvno-number-segment-marking-clear-guide/" type="article" keywords="170号段被标记骚扰电话怎么消除,171号段号码被标记怎么解除,虚拟运营商号码被标记怎么办,162号段标记清除,虚商号码误标,号段连坐" />
