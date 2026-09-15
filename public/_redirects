@@ -6,13 +6,25 @@
 /zh-CN/                                     /                                        301
 /zh-CN                                      /                                        301
 
+# ---- 旧站博客（16 篇）→ 新站号码百科逐篇对应 ----
+# 用 :slug 占位符保留每一篇文章的独立地址，避免长尾收录被统一打到首页
+/zh-CN/blog/                                /blog/                                   301
+/zh-CN/blog                                 /blog/                                   301
+/zh-CN/blog/:slug/                          /blog/:slug.html                         301
+/zh-CN/blog/:slug                           /blog/:slug.html                         301
+
+# ---- 旧站 FAQ → 新站常见问题 ----
+/zh-CN/faq/                                 /faq.html                                301
+/zh-CN/faq                                  /faq.html                                301
+
 # ---- 旧站工具页 → 新站工具页 ----
 /zh-CN/tools/marking-check/                 /tools/marking-check.html                301
 /zh-CN/tools/marking-clear/                 /tools/marking-clear.html                301
 /zh-CN/tools/legal-number-verify/           /tools/legal-number-verify.html          301
 /zh-CN/tools/attribution/                   /tools/attribution.html                  301
 
-# ---- 旧站指南页 → 新站自查指南（内容最接近的一篇） ----
+# ---- 旧站指南页 → 内容最接近的新页面 ----
+/zh-CN/guide/landline-marking-clear/        /blog/2026-landline-marking-removal-guide.html   301
 /zh-CN/guide/how-to-check-marking/          /guide/how-to-check.html                 301
 /zh-CN/guide/how-to-clear-marking/          /guide/how-to-check.html                 301
 /zh-CN/guide/                               /guide/how-to-check.html                 301
@@ -27,4 +39,3 @@
 
 # ---- 历史文件 ----
 /sitemap-index.xml                          /sitemap.xml                             301
-/index.html                                 /                                        301

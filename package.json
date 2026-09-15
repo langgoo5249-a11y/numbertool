@@ -8,7 +8,9 @@
     "prebuild": "node scripts/generate-og.mjs && node scripts/generate-favicon.mjs",
     "build": "node build.mjs",
     "assets": "node scripts/generate-og.mjs && node scripts/generate-favicon.mjs",
-    "dev": "npm run build && node scripts/serve.mjs"
+    "dev": "npm run build && node scripts/serve.mjs",
+    "blog": "node scripts/build-blog.mjs",
+    "verify": "python scripts/verify-build.py"
   },
   "engines": {
     "node": ">=18"

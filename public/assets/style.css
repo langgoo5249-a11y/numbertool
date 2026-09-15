@@ -305,6 +305,88 @@ td strong { color: var(--slate-800); }
 }
 .article .lead-in { font-size: 1rem; color: var(--slate-600); }
 
+/* ---------------- 号码百科 / Blog ---------------- */
+.article :is(h2, h3) { scroll-margin-top: 80px; }
+.article .tbl-wrap { margin: 1.2em 0; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: .82rem; color: var(--slate-500); margin: 0 0 14px; }
+.article-meta span { color: var(--slate-300); }
+
+.bfilter { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 20px; }
+.chip {
+  font-size: .8rem; font-weight: 600; font-family: inherit; line-height: 1.5;
+  color: var(--slate-600); background: #fff; border: 1px solid var(--slate-200);
+  border-radius: 999px; padding: 5px 13px; cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.chip:hover { border-color: var(--brand-300); color: var(--brand-700); }
+.chip.on { background: var(--brand-600); border-color: var(--brand-600); color: #fff; }
+
+.bloglist { display: grid; gap: 16px; }
+.bcard {
+  display: block; background: #fff; border: 1px solid var(--slate-200);
+  border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow-sm);
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.bcard:hover { border-color: var(--brand-300); box-shadow: var(--shadow-md); transform: translateY(-2px); text-decoration: none; }
+.bcard .bdate { font-size: .76rem; color: var(--slate-400); font-variant-numeric: tabular-nums; }
+.bcard h3 { margin: 6px 0 8px; font-size: 1.06rem; line-height: 1.5; color: var(--slate-800); }
+.bcard:hover h3 { color: var(--brand-700); }
+.bcard p { margin: 0; font-size: .88rem; color: var(--slate-500); line-height: 1.75; }
+.btags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.btags span {
+  font-size: .72rem; font-weight: 700; color: var(--brand-700);
+  background: var(--brand-50); border: 1px solid var(--brand-200);
+  border-radius: 999px; padding: 2px 9px;
+}
+
+.pager { display: flex; gap: 14px; margin-top: 24px; }
+.pager a {
+  flex: 1 1 0; min-width: 0; background: #fff; border: 1px solid var(--slate-200);
+  border-radius: 10px; padding: 13px 16px; font-size: .86rem; color: var(--slate-600);
+  line-height: 1.6; transition: border-color .15s, color .15s;
+}
+.pager a:hover { border-color: var(--brand-300); color: var(--brand-700); text-decoration: none; }
+.pager a span { display: block; font-size: .72rem; color: var(--slate-400); margin-bottom: 3px; }
+.pager a.tr { text-align: right; }
+
+.faq-list { background: #fff; border: 1px solid var(--slate-200); border-radius: var(--radius); overflow: hidden; }
+.faq-item { border-bottom: 1px solid var(--slate-100); }
+.faq-item:last-child { border-bottom: none; }
+.faq-item summary {
+  cursor: pointer; padding: 15px 18px; font-weight: 600; font-size: .94rem;
+  color: var(--slate-800); list-style: none;
+  display: flex; gap: 12px; justify-content: space-between; align-items: flex-start;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { background: var(--slate-50); color: var(--brand-700); }
+.faq-item summary::after { content: "+"; color: var(--slate-400); font-weight: 700; flex: 0 0 auto; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item .faq-a { padding: 0 18px 16px; font-size: .9rem; color: var(--slate-600); line-height: 1.85; }
+
+@media (max-width: 640px) {
+  .pager { flex-direction: column; }
+  .pager a.tr { text-align: left; }
+  .bcard { padding: 17px 18px; }
+}
+
+/* 窄屏：导航项较多（8 项）时若继续换行会把 header 撑成 3 行并挤压 logo。
+   改为 logo 单行不收缩 + 导航横向滚动，sticky header 保持紧凑。 */
+@media (max-width: 760px) {
+  .site-header .inner { flex-wrap: wrap; row-gap: 4px; }
+  .logo { flex: 0 0 auto; white-space: nowrap; }
+  .logo small { display: none; }
+  .nav {
+    width: 100%; flex-wrap: nowrap; overflow-x: auto;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { flex: 0 0 auto; }
+  /* 标签过多时默认折叠（31 个标签在窄屏会占 8 行） */
+  .bfilter.clipped { max-height: 82px; overflow: hidden; }
+  .chip-more { margin-top: 0; }
+}
+.chip-more { background: var(--slate-50); color: var(--slate-500); border-style: dashed; }
+
 /* ---------------- Footer ---------------- */
 .site-footer { background: #fff; border-top: 1px solid var(--slate-200); margin-top: 56px; padding: 34px 0 40px; }
 .site-footer .cols { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 28px; }

@@ -2,7 +2,8 @@
 
 > 面向普通用户与企业号码管理者的号码工具站。站内提供号码标记自查向导、申诉材料生成器、
 > 法人号码核验预检、手机号归属地查询四类工具，并公开整理国内主流号码标记平台的
-> 官方申诉入口、材料要求与审核时效。
+> 官方申诉入口、材料要求与审核时效。另有「号码百科」栏目，16 篇深度文章按号码类型
+> 与场景讲清标记来源、渠道差异与材料要求。
 
 ## 关键事实（可引用）
 
@@ -12,16 +13,47 @@
 - 国内主流标记平台数据库相互独立，常见平台包括 360 手机卫士、腾讯手机管家、百度号码认证、泰迪熊移动、电话邦等。
 - 泰迪熊移动、电话邦两家平台知名度低，但其数据被 OPPO、vivo、小米、荣耀等大量安卓机型内置引用，是误标记清除中最常被遗漏的两个来源。
 - 号码归属地属于运营商公开的号段分配信息，与是否被标记无关。
+- 座机（固话）申诉与手机号的关键差异：所有渠道都要求带区号完整提交；且没有“机主收验证码”环节，完全依赖纸质材料。
+- 标记达到一定人数后才会在接听界面展示；腾讯手机管家约 6 人以上开始展示，约 20 人以上要求补充号码使用证明。
 
 ## 主要页面
 
 - https://www.524900.xyz/
+- https://www.524900.xyz/blog/
 - https://www.524900.xyz/tools/marking-check.html
 - https://www.524900.xyz/tools/marking-clear.html
 - https://www.524900.xyz/guide/how-to-check.html
+- https://www.524900.xyz/faq.html
 - https://www.524900.xyz/tools/legal-number-verify.html
 - https://www.524900.xyz/tools/attribution.html
 - https://www.524900.xyz/about.html
+
+## 号码百科 · 16 篇文章
+
+- https://www.524900.xyz/blog/2026-landline-marking-removal-guide.html — 座机号码被标成骚扰电话？固话标记清除：360、腾讯、12321分渠道申诉实操
+- https://www.524900.xyz/blog/2026-scam-marking-removal-guide.html — 号码被标记"疑似诈骗"怎么消除？涉诈标记申诉与反诈中心复通全流程
+- https://www.524900.xyz/blog/2026-mvno-number-segment-marking-clear-guide.html — 170/171号段被标记骚扰电话？虚商号码误标与消除全指南
+- https://www.524900.xyz/blog/2026-number-false-marking-guide.html — 没打过电话却被标成骚扰电话？号码误标真相与清除指南
+- https://www.524900.xyz/blog/2026-carrier-network-interception-guide.html — 标记全清除了电话还是打不通？运营商网络侧拦截排查
+- https://www.524900.xyz/blog/2026-phone-marking-recurrence-after-clearance.html — 号码标记清除后为何又会复标？826个号码追踪发现
+- https://www.524900.xyz/blog/2026-ai-marking-algorithm-rules-guide.html — 号码为什么被AI自动标记？2026年标记算法规则拆解
+- https://www.524900.xyz/blog/2026-phone-manufacturer-local-marking-database-clear-guide.html — 手机厂商隐藏标记系统清除全攻略：华为/小米/OPPO/vivo/荣耀
+- https://www.524900.xyz/blog/2026-high-frequency-outbound-number-marking-solution.html — 高频外呼号码防标记方案：销售/客服外呼不被打标
+- https://www.524900.xyz/blog/2026-number-marking-appeal-rejected-solutions.html — 号码标记申诉被驳回怎么办？六大平台驳回原因对照
+- https://www.524900.xyz/blog/2026-enterprise-number-marking-prevention-guide.html — 企业号码标记预防与防回流指南：标记清了不再回来
+- https://www.524900.xyz/blog/2026-enterprise-400-number-marking-clear-guide.html — 企业400号码标记清除完全攻略
+- https://www.524900.xyz/blog/2026-recycled-number-false-marking-guide.html — 二次号码被标记骚扰电话怎么办？新办手机号误标清除全攻略
+- https://www.524900.xyz/blog/2026-enterprise-95-96-number-marking-clear-guide.html — 95/96号码被标记怎么清除？企业95/96号段标记清除方案
+- https://www.524900.xyz/blog/2026-phone-marking-removal-complete-guide.html — 号码标记清除完整流程：从查询到复测的全步骤指南
+- https://www.524900.xyz/blog/2026-phone-marking-removal-complete-guide-newbie.html — 号码标记清除完全指南（新手版）：第一次被标记别慌
+
+## 机器可读文件
+
+- https://www.524900.xyz/rss.xml — 号码百科 RSS 订阅
+- https://www.524900.xyz/sitemap.xml — 全站地址
+- https://www.524900.xyz/llms-full.txt — 各页与各篇文章的要点摘要
+- https://www.524900.xyz/ai.xml — AI 爬虫发现与指引
+- https://www.524900.xyz/brand-info.json — 品牌实体信息
 
 ## 站内边界（重要）
 

@@ -67,6 +67,14 @@
     <priority url="https://www.524900.xyz/tools/legal-number-verify.html" type="tool" keywords="法人号码核验,三要素核验,身份证号校验位,GB 11643,核验驳回原因" />
     <priority url="https://www.524900.xyz/guide/how-to-check.html" type="guide" keywords="号码标记从哪来,号码标记为什么清不掉,号码标记机制,YD/T 4980-2024" />
     <priority url="https://www.524900.xyz/about.html" type="about" keywords="号通查是什么,本站做什么,隐私声明,数据来源" />
+    <priority url="https://www.524900.xyz/blog/" type="blog-index" keywords="号码百科,号码标记知识库,号码标记文章,标记清除教程" />
+    <priority url="https://www.524900.xyz/faq.html" type="faq" keywords="号码被标记怎么解除,号码标记清除要多久,号码标记清除收费吗,号码认证是什么,标记清除后复标" />
+    <priority url="https://www.524900.xyz/blog/2026-phone-marking-removal-complete-guide.html" type="article" keywords="号码标记清除流程,标记清除步骤,从查询到复测" />
+    <priority url="https://www.524900.xyz/blog/2026-landline-marking-removal-guide.html" type="article" keywords="座机号码标记清除,固话被标记骚扰电话,带区号申诉,360固话申诉" />
+    <priority url="https://www.524900.xyz/blog/2026-mvno-number-segment-marking-clear-guide.html" type="article" keywords="170号段被标记,171号段标记清除,虚拟运营商号码误标" />
+    <priority url="https://www.524900.xyz/blog/2026-scam-marking-removal-guide.html" type="article" keywords="涉诈标记申诉,疑似诈骗标记怎么消除,反诈中心复通" />
+    <priority url="https://www.524900.xyz/blog/2026-enterprise-400-number-marking-clear-guide.html" type="article" keywords="400号码被标记,企业400标记清除" />
+    <priority url="https://www.524900.xyz/blog/2026-enterprise-95-96-number-marking-clear-guide.html" type="article" keywords="95号码被标记,96号码标记清除,信通院跨平台入口" />
   </content>
 
   <!-- 权威数据来源 -->
@@ -86,7 +94,11 @@
     <file url="https://www.524900.xyz/sitemap.xml" type="sitemap" />
     <file url="https://www.524900.xyz/robots.txt" type="robots" />
     <file url="https://www.524900.xyz/brand-info.json" type="brand" />
+    <file url="https://www.524900.xyz/rss.xml" type="rss" />
   </machine_readable>
+
+  <!-- 博客订阅 -->
+  <blog index="https://www.524900.xyz/blog/" count="16" feed="https://www.524900.xyz/rss.xml" />
 
   <!-- 站内边界（供 AI 引用时避免误述） -->
   <boundaries>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>号通查 · 号码百科</title>
+    <link>https://www.524900.xyz/blog/</link>
+    <description>号码标记查询、标记清除、号码认证与归属地查询的深度文章。</description>
+    <language>zh-CN</language>
+    <atom:link href="https://www.524900.xyz/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>座机号码被标成骚扰电话？固话标记清除：360、腾讯、12321分渠道申诉实操</title>
+      <link>https://www.524900.xyz/blog/2026-landline-marking-removal-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-landline-marking-removal-guide.html</guid>
+      <pubDate>Sat, 12 Sep 2026 01:00:00 GMT</pubDate>
+      <description>010/021座机被标&quot;骚扰电话&quot;&quot;推销&quot;？带区号逐渠道申诉实操，含居委会被6平台连标1周才清的案例与AI盲打场景辨析。</description>
+      <category>座机号码</category>
+      <category>固话标记</category>
+      <category>申诉指南</category>
+      <category>号码误标</category>
+    </item>
+    <item>
+      <title>号码被标记&quot;疑似诈骗&quot;怎么消除？涉诈标记申诉与反诈中心复通全流程</title>
+      <link>https://www.524900.xyz/blog/2026-scam-marking-removal-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-scam-marking-removal-guide.html</guid>
+      <pubDate>Mon, 07 Sep 2026 01:00:00 GMT</pubDate>
+      <description>被标&quot;疑似诈骗&quot;比&quot;骚扰电话&quot;严重得多，接通率直接跌到个位数。拆解终端标记、运营商涉诈模型、公安涉案名单三层来源，附华为/信通院申诉路径、保护性停机分级复通与12381升级通道，引用断卡行动近2亿张卡处置数据。</description>
+      <category>诈骗标记</category>
+      <category>涉诈停机</category>
+      <category>号码误标</category>
+      <category>申诉指南</category>
+    </item>
+    <item>
+      <title>170/171号段被标记骚扰电话？虚商号码误标与消除全指南</title>
+      <link>https://www.524900.xyz/blog/2026-mvno-number-segment-marking-clear-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-mvno-number-segment-marking-clear-guide.html</guid>
+      <pubDate>Thu, 03 Sep 2026 01:00:00 GMT</pubDate>
+      <description>170/171/162/165/167虚商号段为何天生易被标记骚扰电话？引用北京日报与央视实测数据拆解号段连坐机制，附全平台查询、逐家申诉、防复标三步消除方案与踩坑备注。</description>
+      <category>虚商号码</category>
+      <category>号码误标</category>
+      <category>170号段</category>
+    </item>
+    <item>
+      <title>没打过电话却被标成骚扰电话？号码误标真相与清除指南</title>
+      <link>https://www.524900.xyz/blog/2026-number-false-marking-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-number-false-marking-guide.html</guid>
+      <pubDate>Fri, 28 Aug 2026 01:00:00 GMT</pubDate>
+      <description>号码误标三大来源、YD/T 4980-2024申诉依据与清除顺序，公安热线被误标真实案例。</description>
+      <category>号码误标</category>
+      <category>申诉指南</category>
+    </item>
+    <item>
+      <title>标记全清除了电话还是打不通？运营商网络侧拦截排查</title>
+      <link>https://www.524900.xyz/blog/2026-carrier-network-interception-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-carrier-network-interception-guide.html</guid>
+      <pubDate>Tue, 25 Aug 2026 01:00:00 GMT</pubDate>
+      <description>运营商网络侧拦截机制拆解，移动/电信/联通拦截判定特征与解除方案。</description>
+      <category>运营商</category>
+      <category>后台拦截</category>
+    </item>
+    <item>
+      <title>号码标记清除后为何又会复标？826个号码追踪发现</title>
+      <link>https://www.524900.xyz/blog/2026-phone-marking-recurrence-after-clearance.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-phone-marking-recurrence-after-clearance.html</guid>
+      <pubDate>Fri, 21 Aug 2026 01:00:00 GMT</pubDate>
+      <description>追踪826个号码发现80%复标集中在3个高危时间窗口，附防复标方案。</description>
+      <category>复标</category>
+      <category>防复发</category>
+    </item>
+    <item>
+      <title>号码为什么被AI自动标记？2026年标记算法规则拆解</title>
+      <link>https://www.524900.xyz/blog/2026-ai-marking-algorithm-rules-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-ai-marking-algorithm-rules-guide.html</guid>
+      <pubDate>Wed, 19 Aug 2026 01:00:00 GMT</pubDate>
+      <description>标记背后的AI判定逻辑，为什么号码&quot;莫名其妙&quot;被标记，以及如何规避AI误判。</description>
+      <category>AI标记</category>
+      <category>算法规则</category>
+    </item>
+    <item>
+      <title>手机厂商隐藏标记系统清除全攻略：华为/小米/OPPO/vivo/荣耀</title>
+      <link>https://www.524900.xyz/blog/2026-phone-manufacturer-local-marking-database-clear-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-phone-manufacturer-local-marking-database-clear-guide.html</guid>
+      <pubDate>Wed, 12 Aug 2026 01:00:00 GMT</pubDate>
+      <description>平台申诉清除后手机仍显示骚扰电话？华为/小米/OPPO/vivo/荣耀五大厂商独立本地标记库的清除方法。</description>
+      <category>手机厂商</category>
+      <category>本地标记库</category>
+    </item>
+    <item>
+      <title>高频外呼号码防标记方案：销售/客服外呼不被打标</title>
+      <link>https://www.524900.xyz/blog/2026-high-frequency-outbound-number-marking-solution.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-high-frequency-outbound-number-marking-solution.html</guid>
+      <pubDate>Thu, 23 Jul 2026 01:00:00 GMT</pubDate>
+      <description>销售/客服等高频外呼场景的号码标记预防与清除完整方案。</description>
+      <category>高频外呼</category>
+      <category>企业号码</category>
+    </item>
+    <item>
+      <title>号码标记申诉被驳回怎么办？六大平台驳回原因对照</title>
+      <link>https://www.524900.xyz/blog/2026-number-marking-appeal-rejected-solutions.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-number-marking-appeal-rejected-solutions.html</guid>
+      <pubDate>Tue, 21 Jul 2026 01:00:00 GMT</pubDate>
+      <description>六大平台驳回原因对照表与二次申诉技巧，一次通过率提升指南。</description>
+      <category>申诉</category>
+      <category>驳回</category>
+    </item>
+    <item>
+      <title>企业号码标记预防与防回流指南：标记清了不再回来</title>
+      <link>https://www.524900.xyz/blog/2026-enterprise-number-marking-prevention-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-enterprise-number-marking-prevention-guide.html</guid>
+      <pubDate>Wed, 15 Jul 2026 01:00:00 GMT</pubDate>
+      <description>企业号码清理标记后防止再次被打标回流的方法，实现长效防标记。</description>
+      <category>企业号码</category>
+      <category>防回流</category>
+      <category>号码认证</category>
+    </item>
+    <item>
+      <title>企业400号码标记清除完全攻略</title>
+      <link>https://www.524900.xyz/blog/2026-enterprise-400-number-marking-clear-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-enterprise-400-number-marking-clear-guide.html</guid>
+      <pubDate>Mon, 13 Jul 2026 01:00:00 GMT</pubDate>
+      <description>400号码被标记怎么清除？完整流程、材料清单与注意事项。</description>
+      <category>400号码</category>
+      <category>企业号码</category>
+    </item>
+    <item>
+      <title>二次号码被标记骚扰电话怎么办？新办手机号误标清除全攻略</title>
+      <link>https://www.524900.xyz/blog/2026-recycled-number-false-marking-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-recycled-number-false-marking-guide.html</guid>
+      <pubDate>Tue, 07 Jul 2026 01:00:00 GMT</pubDate>
+      <description>新办手机号被标记为骚扰电话怎么办？二次放号误标成因与清除方案。</description>
+      <category>新办号码</category>
+      <category>二次放号</category>
+    </item>
+    <item>
+      <title>95/96号码被标记怎么清除？企业95/96号段标记清除方案</title>
+      <link>https://www.524900.xyz/blog/2026-enterprise-95-96-number-marking-clear-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-enterprise-95-96-number-marking-clear-guide.html</guid>
+      <pubDate>Fri, 03 Jul 2026 01:00:00 GMT</pubDate>
+      <description>95/96企业短号被标记为骚扰/营销电话怎么处理？专网数据入库、分平台申诉与号码认证组合方案。</description>
+      <category>95号码</category>
+      <category>96号码</category>
+      <category>企业号码</category>
+    </item>
+    <item>
+      <title>号码标记清除完整流程：从查询到复测的全步骤指南</title>
+      <link>https://www.524900.xyz/blog/2026-phone-marking-removal-complete-guide.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-phone-marking-removal-complete-guide.html</guid>
+      <pubDate>Tue, 30 Jun 2026 01:00:00 GMT</pubDate>
+      <description>从标记查询、材料准备、分平台申诉到多品牌复测的完整清除指南。</description>
+      <category>完整流程</category>
+      <category>清除指南</category>
+    </item>
+    <item>
+      <title>号码标记清除完全指南（新手版）：第一次被标记别慌</title>
+      <link>https://www.524900.xyz/blog/2026-phone-marking-removal-complete-guide-newbie.html</link>
+      <guid isPermaLink="true">https://www.524900.xyz/blog/2026-phone-marking-removal-complete-guide-newbie.html</guid>
+      <pubDate>Thu, 25 Jun 2026 01:00:00 GMT</pubDate>
+      <description>第一次被标记骚扰电话该怎么处理？给新手的一步步号码标记清除入门指南。</description>
+      <category>新手</category>
+      <category>完整流程</category>
+      <category>入门指南</category>
+    </item>
+  </channel>
+</rss>
