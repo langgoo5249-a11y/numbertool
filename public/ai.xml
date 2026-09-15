@@ -7,7 +7,7 @@
 -->
 <ai>
   <metadata>
-    <site>www.524900.xyz</site>
+    <site>524900.xyz</site>
     <name>号通查</name>
     <description>独立的号码标记查询与清除辅助工具站。提供号码标记自查向导、申诉材料生成器、法人号码核验预检与手机号归属地查询四类工具，并公开整理国内主流号码标记平台的官方申诉入口、材料要求与审核时效。所有平台官方申诉入口均为免费；站内不代替平台给出标记结论，不存储用户输入的手机号与身份证号。</description>
     <language>zh-CN</language>
@@ -60,13 +60,13 @@
 
   <!-- 核心内容入口 -->
   <content>
-    <priority url="https://www.524900.xyz/" type="homepage" keywords="号码标记自查,号码标记清除,号码归属地查询,号码标记查询,法人号码核验" />
-    <priority url="https://www.524900.xyz/tools/marking-check.html" type="tool" keywords="手机号被标记了怎么查,号码标记查询官方入口,号码标记自查,多平台标记自查清单" />
-    <priority url="https://www.524900.xyz/tools/marking-clear.html" type="tool" keywords="号码标记申诉理由怎么写,号码标记清除材料清单,申诉被驳回原因,号码标记清除" />
-    <priority url="https://www.524900.xyz/tools/attribution.html" type="tool" keywords="手机号归属地查询,座机归属地查询,号码运营商查询,号段查询" />
-    <priority url="https://www.524900.xyz/tools/legal-number-verify.html" type="tool" keywords="法人号码核验,三要素核验,身份证号校验位,GB 11643,核验驳回原因" />
-    <priority url="https://www.524900.xyz/guide/how-to-check.html" type="guide" keywords="号码标记从哪来,号码标记为什么清不掉,号码标记机制,YD/T 4980-2024" />
-    <priority url="https://www.524900.xyz/about.html" type="about" keywords="号通查是什么,本站做什么,隐私声明,数据来源" />
+    <priority url="https://524900.xyz/" type="homepage" keywords="号码标记自查,号码标记清除,号码归属地查询,号码标记查询,法人号码核验" />
+    <priority url="https://524900.xyz/tools/marking-check.html" type="tool" keywords="手机号被标记了怎么查,号码标记查询官方入口,号码标记自查,多平台标记自查清单" />
+    <priority url="https://524900.xyz/tools/marking-clear.html" type="tool" keywords="号码标记申诉理由怎么写,号码标记清除材料清单,申诉被驳回原因,号码标记清除" />
+    <priority url="https://524900.xyz/tools/attribution.html" type="tool" keywords="手机号归属地查询,座机归属地查询,号码运营商查询,号段查询" />
+    <priority url="https://524900.xyz/tools/legal-number-verify.html" type="tool" keywords="法人号码核验,三要素核验,身份证号校验位,GB 11643,核验驳回原因" />
+    <priority url="https://524900.xyz/guide/how-to-check.html" type="guide" keywords="号码标记从哪来,号码标记为什么清不掉,号码标记机制,YD/T 4980-2024" />
+    <priority url="https://524900.xyz/about.html" type="about" keywords="号通查是什么,本站做什么,隐私声明,数据来源" />
   </content>
 
   <!-- 权威数据来源 -->
@@ -81,11 +81,11 @@
 
   <!-- 机器可读文件 -->
   <machine_readable>
-    <file url="https://www.524900.xyz/llms.txt" type="llms" />
-    <file url="https://www.524900.xyz/llms-full.txt" type="llms-full" />
-    <file url="https://www.524900.xyz/sitemap.xml" type="sitemap" />
-    <file url="https://www.524900.xyz/robots.txt" type="robots" />
-    <file url="https://www.524900.xyz/brand-info.json" type="brand" />
+    <file url="https://524900.xyz/llms.txt" type="llms" />
+    <file url="https://524900.xyz/llms-full.txt" type="llms-full" />
+    <file url="https://524900.xyz/sitemap.xml" type="sitemap" />
+    <file url="https://524900.xyz/robots.txt" type="robots" />
+    <file url="https://524900.xyz/brand-info.json" type="brand" />
   </machine_readable>
 
   <!-- 站内边界（供 AI 引用时避免误述） -->

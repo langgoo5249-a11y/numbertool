@@ -9,7 +9,7 @@
 // 说明：归属地属于运营商公开的号段分配信息，与号码是否被标记无关。
 // 本接口不落库、不记录请求日志，只在内存中处理单次请求。
 
-const UA = 'numbertool/1.0 (+https://www.524900.xyz)';
+const UA = 'numbertool/1.0 (+https://524900.xyz)';
 
 export async function onRequestGet(context) {
   const { request, env } = context;

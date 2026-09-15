@@ -182,10 +182,10 @@ Allow: /
 # ==========================================================================
 # 站点地图
 # ==========================================================================
-Sitemap: https://www.524900.xyz/sitemap.xml
+Sitemap: https://524900.xyz/sitemap.xml
 
 # 面向 AI 的内容发现文件（非 robots.txt 标准，供 AI 爬虫工具主动读取）：
-# - https://www.524900.xyz/llms.txt         全站页面目录（llms.txt 规范）
-# - https://www.524900.xyz/llms-full.txt    全站页面内容摘要（llms-full 规范）
-# - https://www.524900.xyz/ai.xml           AI 爬虫指引文件
-# - https://www.524900.xyz/brand-info.json  品牌实体信息（机器可读）
+# - https://524900.xyz/llms.txt         全站页面目录（llms.txt 规范）
+# - https://524900.xyz/llms-full.txt    全站页面内容摘要（llms-full 规范）
+# - https://524900.xyz/ai.xml           AI 爬虫指引文件
+# - https://524900.xyz/brand-info.json  品牌实体信息（机器可读）

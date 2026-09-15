@@ -1,9 +1,9 @@
-# 号通查 · www.524900.xyz
+# 号通查 · 524900.xyz
 
 独立的第三方号码工具站。把分散在各家官网的号码标记自查入口、申诉材料要求与归属地查询，
 做成站内可直接使用的工具。
 
-**线上地址**：https://www.524900.xyz
+**线上地址**：https://524900.xyz
 
 ## 站点内容
 
@@ -75,7 +75,7 @@ GitHub Actions + wrangler 部署（需要仓库 Secrets：`CLOUDFLARE_API_TOKEN`
 
 ## 注意事项
 
-**域名与 canonical**：站点的 canonical / og:url / sitemap 全部指向 `https://www.524900.xyz`。
+**域名与 canonical**：站点的 canonical / og:url / sitemap 全部指向 `https://524900.xyz`。
 裸域 `524900.xyz` 在 Cloudflare 边缘有 308 跳转到 www，所以带 www 的版本才是实际提供服务的地址，
 canonical 必须与之一致，否则会被搜索引擎忽略。若要改用裸域，需先在 Cloudflare 移除该跳转规则，
 再同步修改 `_build/gen_site_files.py` 与各页面的 canonical。

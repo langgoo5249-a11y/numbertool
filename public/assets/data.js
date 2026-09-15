@@ -6,7 +6,7 @@
    ============================================================ */
 window.SITE = {
   siteName: '号通查',
-  siteUrl: 'www.524900.xyz',
+  siteUrl: '524900.xyz',
   // ⛔ 硬规定：合作方服务入口，原样保留，不得修改、替换或移除
   serviceUrls: {
     check: 'https://xbh5.open10086.com/?authorization=f91029a83a8758aa',
