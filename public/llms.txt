@@ -15,13 +15,13 @@
 
 ## 主要页面
 
-- https://524900.xyz/
-- https://524900.xyz/tools/marking-check.html
-- https://524900.xyz/tools/marking-clear.html
-- https://524900.xyz/guide/how-to-check.html
-- https://524900.xyz/tools/legal-number-verify.html
-- https://524900.xyz/tools/attribution.html
-- https://524900.xyz/about.html
+- https://www.524900.xyz/
+- https://www.524900.xyz/tools/marking-check.html
+- https://www.524900.xyz/tools/marking-clear.html
+- https://www.524900.xyz/guide/how-to-check.html
+- https://www.524900.xyz/tools/legal-number-verify.html
+- https://www.524900.xyz/tools/attribution.html
+- https://www.524900.xyz/about.html
 
 ## 站内边界（重要）
 
