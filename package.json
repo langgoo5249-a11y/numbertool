@@ -1,24 +1,16 @@
 {
   "name": "numbertool",
-  "version": "2.0.0",
-  "description": "号码标记清除网提供号码标记查询、号码标记清除与号码认证服务，聚合中国信通院码号服务推进组、360、腾讯、华为等官方入口。",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
+  "description": "号通查 - 号码标记自查向导、申诉材料生成器、法人号码核验预检与手机号归属地查询工具站",
   "scripts": {
-    "dev": "astro dev",
     "prebuild": "node scripts/generate-og.mjs && node scripts/generate-favicon.mjs",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "og": "node scripts/generate-og.mjs"
+    "build": "node build.mjs",
+    "assets": "node scripts/generate-og.mjs && node scripts/generate-favicon.mjs",
+    "dev": "npm run build && node scripts/serve.mjs"
   },
-  "dependencies": {
-    "@astrojs/sitemap": "3.2.1",
-    "@astrojs/vue": "^4.0.0",
-    "@tailwindcss/vite": "^4.3.3",
-    "astro": "^4.16.0",
-    "marked": "^18.0.11",
-    "tailwindcss": "^4.3.3",
-    "vue": "^3.5.13"
+  "engines": {
+    "node": ">=18"
   }
 }

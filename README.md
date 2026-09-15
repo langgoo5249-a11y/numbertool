@@ -1,180 +1,87 @@
-# 号码通查 - 专业号码标记查询与清除服务平台
+# 号通查 · www.524900.xyz
 
-一个超越竞品的号码标记服务网站，采用 Astro 4 + Vue 3 技术栈，专注于 SEO/GEO/AI 搜索引擎优化。
+独立的第三方号码工具站。把分散在各家官网的号码标记自查入口、申诉材料要求与归属地查询，
+做成站内可直接使用的工具。
 
-## 项目特点
+**线上地址**：https://www.524900.xyz
 
-### 技术架构
-- **框架**: Astro 4.16 (SSG 零 JS，秒级加载)
-- **UI**: Tailwind CSS v4
-- **组件库**: Vue 3
-- **部署**: Cloudflare Pages (全球 CDN)
+## 站点内容
 
-### SEO/GEO 优化
-- ✅ 完整的 Schema.org 结构化数据 (Organization, Article, FAQ, HowTo)
-- ✅ 精细化的 robots.txt (AI 爬虫白名单机制)
-- ✅ llms.txt / llms-full.txt / ai.xml (AI 搜索引擎友好文件)
-- ✅ brand-info.json (品牌信息 JSON-LD)
-- ✅ 动态 sitemap.xml + rss.xml
-- ✅ hreflang 多语言支持 (zh-CN / en-US)
-- ✅ Open Graph + Twitter Cards 完整实现
-- ✅ Canonical URL 防重复内容
+| 页面 | 路径 | 说明 |
+|---|---|---|
+| 首页 | `/` | 站点定位、工具入口、做什么与不做什么 |
+| 号码标记自查向导 | `/tools/marking-check.html` | 按号码类型生成待查平台清单，记录结果后输出标记诊断卡 |
+| 申诉材料生成器 | `/tools/marking-clear.html` | 生成可复制的申诉说明文本 + 个人 4 项 / 企业 5 项材料清单 + 驳回自查 |
+| 法人号码核验预检 | `/tools/legal-number-verify.html` | 手机号号段、身份证号校验位（GB 11643）、姓名与企业全称格式预检 |
+| 归属地查询 | `/tools/attribution.html` | 运营商 / 省份 / 城市 / 区号 / 邮编，支持批量 20 个 |
+| 号码标记自查指南 | `/guide/how-to-check.html` | 标记从哪来、为什么清了又回来、查出来先处理哪一个 |
+| 关于本站 | `/about.html` | 数据来源、隐私边界与免责声明 |
 
-### 核心功能
-1. **号码标记自查** - 多平台标记状态聚合查询
-2. **号码标记清除** - 官方申诉入口导航
-3. **号码归属地查询** - 支持携号转网后查询
-4. **法人号码核验** - 三要素实名认证
-5. **手机卡选号比价** - 套餐对比与选号指南
+## 技术结构
 
-### 内容策略
-- 博客文章系统
-- 指南教程系统
-- 对比评测系统
-- 常见问题 (FAQ) 系统
-- 长尾关键词矩阵覆盖
-
-## 项目结构
+纯静态站点，**零运行时依赖**，不需要 npm install。
 
 ```
-numbertool-frontend/
-├── src/
-│   ├── components/
-│   │   ├── layout/        # 布局组件
-│   │   └── seo/           # SEO 组件
-│   ├── layouts/           # 布局模板
-│   ├── lib/               # 工具函数
-│   ├── pages/             # Astro 页面
-│   └── styles/            # 全局样式
-├── public/                # 静态资源
-│   ├── robots.txt         # 精细化爬虫规则
-│   ├── llms.txt           # AI 模型入口文件
-│   ├── llms-full.txt      # AI 完整内容摘要
-│   ├── ai.xml             # AI 爬虫引导文件
-│   └── brand-info.json    # 品牌结构化数据
-├── astro.config.mjs       # Astro 配置
-├── package.json           # 依赖配置
-└── wrangler.toml          # Cloudflare Pages 配置
+├── public/                    # 站点源文件（直接对应线上目录结构）
+│   ├── index.html  about.html  404.html
+│   ├── tools/                 # 4 个工具页
+│   ├── guide/                 # 内容页
+│   ├── assets/                # style.css / app.js / data.js / prefix-table.js
+│   ├── _headers               # Cloudflare Pages 响应头（含 AI 爬虫放行声明）
+│   ├── _redirects             # 旧站 URL → 新站 URL 的 301 规则
+│   ├── robots.txt  sitemap.xml  llms.txt
+│   └── og-default.png  favicon*  # 构建时生成，不入库
+├── functions/api/attribution.js   # 归属地查询 Pages Function
+├── scripts/
+│   ├── generate-og.mjs        # 构建时用 zlib 手写 PNG 编码，生成 1200×630 分享图
+│   ├── generate-favicon.mjs   # 构建时生成 favicon 套件（含多尺寸 ICO）
+│   └── serve.mjs              # 本地开发服务器（会把 /api/* 交给真实 Function）
+├── build.mjs                  # public/ → dist/
+├── wrangler.toml
+└── .github/workflows/deploy.yml
 ```
+
+图片资源用 Node 内置 `zlib` 手写 PNG 编码器生成，不引入 sharp / canvas 等原生依赖，
+因此在任何 Node ≥ 18 的构建环境里都能跑。
 
 ## 本地开发
 
 ```bash
-# 安装依赖
-npm install
-
-# 启动开发服务器
+# 构建 + 启动本地服务（默认 http://127.0.0.1:4321）
 npm run dev
 
-# 构建生产版本
+# 只构建
 npm run build
 
-# 预览构建结果
-npm run preview
+# 只重新生成图片资源
+npm run assets
 ```
 
-## 部署到 Cloudflare Pages
+`npm run dev` 会把 `/api/*` 交给 `functions/` 下的真实 Pages Function 处理，
+本地验证的就是线上要跑的那份代码，不是 mock。
 
-### 方式一：GitHub Actions (推荐)
+## 部署
 
-1. 在 Cloudflare Dashboard 创建 Pages 项目：
-   - 访问 https://dash.cloudflare.com/pages
-   - 点击 "Create a project" → "Connect to Git"
-   - 选择仓库 `langgoo5249-a11y/numbertool`
-   - 设置构建参数：
-     - Build command: `npm run build`
-     - Output directory: `dist`
-     - Build directory: 留空
-   - 点击 "Save and Deploy"
+Cloudflare Pages 项目 `numbertool`，构建配置：
 
-2. 添加环境变量（在 Cloudflare Dashboard → Project Settings → Environment Variables）：
-   - `NODE_ENV`: `production`
+- Build command：`npm run build`
+- Output directory：`dist`
 
-3. CI/CD 会自动在每次推送到 main 分支时触发部署
+推送到 `main` 分支即可自动部署。也可用 `.github/workflows/deploy.yml` 走
+GitHub Actions + wrangler 部署（需要仓库 Secrets：`CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`）。
 
-### 方式二：Wrangler CLI
+可选环境变量 `LOOKUP_API_KEY`（聚合数据）：配置后归属地接口会优先使用该数据源，
+返回信息更全；不配置则走 360 免费接口，再不行降级到本地号段库。
 
-```bash
-# 登录 Cloudflare
-npx wrangler login
+## 注意事项
 
-# 创建 Pages 项目
-npx wrangler pages project create numbertool
+**域名与 canonical**：站点的 canonical / og:url / sitemap 全部指向 `https://www.524900.xyz`。
+裸域 `524900.xyz` 在 Cloudflare 边缘有 308 跳转到 www，所以带 www 的版本才是实际提供服务的地址，
+canonical 必须与之一致，否则会被搜索引擎忽略。若要改用裸域，需先在 Cloudflare 移除该跳转规则，
+再同步修改 `_build/gen_site_files.py` 与各页面的 canonical。
 
-# 部署
-npx wrangler pages deploy ./dist --project-name=numbertool --branch=main
-```
+**旧 URL 跳转**：`public/_redirects` 把上一版站点（部署在 `/zh-CN/` 路径下）的地址 301 到新站对应页面。
+修改站点结构时请一并维护这份规则。
 
-### 方式三：手动上传
-
-```bash
-# 构建项目
-npm run build
-
-# 压缩 dist 目录
-cd dist && zip -r ../numbertool.zip . && cd ..
-
-# 在 Cloudflare Dashboard 上传
-# https://dash.cloudflare.com/pages → Manage Depot → Upload
-```
-
-## 绑定自定义域名
-
-1. 在 Cloudflare Dashboard → Pages 项目 → Custom Domains
-2. 添加域名 `www.524900.xyz`
-3. 按照提示配置 DNS CNAME 记录：
-   ```
-   www  CNAME  <project-name>.pages.dev
-   ```
-
-## 竞争对手分析
-
-相比 zangxixitech.cn 的升级点：
-
-| 维度 | 竞品现状 | 新站升级 |
-|------|---------|---------|
-| 框架 | Astro 5.18 | Astro 4.16 + 路径别名 |
-| UI | 基础 Tailwind | Tailwind CSS v4 |
-| SEO | 基础 meta | 完整 Schema.org + GEO 优化 |
-| AI 适配 | llms.txt | llms.txt + ai.xml + brand-info.json |
-| 多语言 | 基础中文 | zh-CN + en-US 双语 |
-| 工具 | 外链为主 | 内嵌查询 + 进度追踪 |
-| 内容 | 19 篇文章 | 10+ 深度文章 + 可扩展 |
-| 性能 | 未知 | Lighthouse 95+ 目标 |
-
-## 成功指标
-
-### SEO 指标
-- Google Search Console 收录率 > 90%
-- 核心关键词排名前 3 占比 > 60%
-- 自然搜索流量月增长 > 20%
-
-### 技术指标
-- Lighthouse 评分：SEO 100 / Performance 95+ / Accessibility 100
-- PageSpeed Insights 分数：移动 > 90，桌面 > 95
-- Core Web Vitals 达标率 > 95%
-
-### AI 搜索指标
-- 被 ChatGPT/Claude 引用次数月度追踪
-- 品牌词在 AI 回答中出现率
-- llms.txt 阅读量
-
-## 后续优化建议
-
-1. **增加更多博客文章**：达到 30+ 篇文章覆盖更多长尾关键词
-2. **添加英文页面**：完善 en-US 本地化内容
-3. **实现交互式工具**：添加真实的号码标记查询 API 集成
-4. **生成 OG 图片**：使用 sharp 或 similar 工具生成动态 OpenGraph 图片
-5. **添加 analytics**：集成 Google Analytics 或 Cloudflare Analytics
-6. **SEO 审计**：使用 Screaming Frog 进行全站 SEO 审计
-7. **性能优化**：运行 Lighthouse CI 确保性能达标
-
-## 许可证
-
-MIT License
-
-## 联系方式
-
-- 网站: https://www.524900.xyz
-- 邮箱: noreply@524900.xyz
-- GitHub: https://github.com/langgoo5249-a11y/numbertool
+**第三方合作入口**：三个工具页的 `xbh5.open10086.com` 入口为合作方指定链接，
+链接与参数不得修改、替换或移除。

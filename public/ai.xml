@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ai.xml - AI 搜索引擎爬虫发现与指引文件
-  作用: 告知 AI 爬虫(GPTBot/ClaudeBot/Bytespider/PerplexityBot等)本站内容结构与抓取规则
+  作用: 告知 AI 爬虫(GPTBot/ClaudeBot/Bytespider/PerplexityBot 等)本站内容结构与抓取规则
   位置: /ai.xml (根目录)
-  更新: 2026-08-30
+  更新: 2026-09-15
 -->
 <ai>
   <metadata>
-    <site>524900.xyz</site>
-    <name>号码标记清除网</name>
-    <description>提供号码标记查询、号码标记清除与号码认证服务,聚合中国信通院码号服务推进组、360手机卫士、腾讯手机管家、华为、Truecaller等官方入口,手机号码与座机(固话)号码均支持,查询免费、不存储号码数据。</description>
+    <site>www.524900.xyz</site>
+    <name>号通查</name>
+    <description>独立的号码标记查询与清除辅助工具站。提供号码标记自查向导、申诉材料生成器、法人号码核验预检与手机号归属地查询四类工具，并公开整理国内主流号码标记平台的官方申诉入口、材料要求与审核时效。所有平台官方申诉入口均为免费；站内不代替平台给出标记结论，不存储用户输入的手机号与身份证号。</description>
     <language>zh-CN</language>
-    <updated>2026-09-12</updated>
-    <operator>号码标记清除网团队</operator>
+    <updated>2026-09-15</updated>
+    <operator>号通查团队</operator>
+    <contact wechat="SXLH-888" />
   </metadata>
-  <!-- 允许抓取的 AI 爬虫 (与 robots.txt 保持一致, 仅大平台) -->
+
+  <!-- 允许抓取的 AI 爬虫 (与 robots.txt 保持一致) -->
   <crawlers>
     <crawler>GPTBot</crawler>
     <crawler>OAI-SearchBot</crawler>
@@ -27,16 +29,18 @@
     <crawler>Bingbot</crawler>
     <crawler>PerplexityBot</crawler>
     <crawler>Perplexity-User</crawler>
+    <crawler>Applebot</crawler>
     <crawler>Applebot-Extended</crawler>
-    <crawler>meta-externalagent</crawler>
-    <crawler>meta-externalfetcher</crawler>
+    <crawler>Meta-ExternalAgent</crawler>
+    <crawler>Meta-ExternalFetcher</crawler>
     <crawler>CCBot</crawler>
     <crawler>Amazonbot</crawler>
     <crawler>Bytespider</crawler>
     <crawler>Doubaobot</crawler>
-    <crawler>baiduspider</crawler>
+    <crawler>Baiduspider</crawler>
     <crawler>ERNIEBot</crawler>
     <crawler>Tencent-AI-Lab-Spider</crawler>
+    <crawler>YuanbaoBot</crawler>
     <crawler>QwenBot</crawler>
     <crawler>Kimibot</crawler>
     <crawler>DeepSeekBot</crawler>
@@ -51,61 +55,45 @@
     <crawler>YiBot</crawler>
     <crawler>TiangongBot</crawler>
     <crawler>ZhihuBot</crawler>
+    <crawler>StepFunBot</crawler>
   </crawlers>
+
   <!-- 核心内容入口 -->
   <content>
-    <!-- 首页 -->
-    <priority url="https://524900.xyz/zh-CN/" type="homepage" keywords="号码标记通查,号码标记查询,号码标记自查,号码标记清除,号码归属地查询免费" />
-    <!-- 核心工具 -->
-    <priority url="https://524900.xyz/zh-CN/tools/marking-check/" type="tool" keywords="号码标记自查,号码标记查询,手机号码标记" />
-    <priority url="https://524900.xyz/zh-CN/tools/marking-clear/" type="tool" keywords="号码标记清除,座机号码标记怎么清除" />
-    <priority url="https://524900.xyz/zh-CN/tools/attribution/" type="tool" keywords="号码归属地查询免费" />
-    <!-- FAQ 页面 -->
-    <priority url="https://524900.xyz/zh-CN/faq/" type="faq" keywords="号码标记通查,号码标记清除,号码归属地查询免费" />
-    <!-- 指南页面 -->
-    <priority url="https://524900.xyz/zh-CN/guide/landline-marking-clear/" type="guide" keywords="座机号码标记怎么清除,号码标记清除" />
-    <priority url="https://524900.xyz/zh-CN/guide/how-to-clear-marking/" type="guide" keywords="号码标记清除,手机号码标记" />
-    <priority url="https://524900.xyz/zh-CN/guide/how-to-check-marking/" type="guide" keywords="号码标记查询,全平台自查" />
-    <priority url="https://524900.xyz/zh-CN/guide/what-is-number-marking/" type="guide" keywords="号码标记是什么,标记来源机制" />
-    <!-- 对比页面 -->
-    <priority url="https://524900.xyz/zh-CN/compare/marking-platforms/" type="comparison" keywords="号码标记平台对比,360腾讯比对" />
-    <priority url="https://524900.xyz/zh-CN/compare/auth-providers/" type="comparison" keywords="号码认证服务商对比" />
-    <!-- 博客文章 - 误标主题 -->
-    <priority url="https://524900.xyz/zh-CN/blog/2026-landline-marking-removal-guide/" type="article" keywords="座机号码被标记骚扰电话,固话标记怎么清除,010号码标记申诉,座机号码怎么去掉骚扰电话,固话被标记推销怎么消除,12321座机申诉,居委会电话被标骚扰" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-number-false-marking-guide/" type="article" keywords="号码被误标骚扰电话,号码误标怎么清除,没打过电话被标记骚扰电话,YD/T 4980-2024" />
-    <!-- 博客文章 - 虚商号段主题 -->
-    <priority url="https://524900.xyz/zh-CN/blog/2026-mvno-number-segment-marking-clear-guide/" type="article" keywords="170号段被标记骚扰电话怎么消除,171号段号码被标记怎么解除,虚拟运营商号码被标记怎么办,162号段标记清除,虚商号码误标,号段连坐" />
-    <!-- 博客文章 - 清除主题 -->
-    <priority url="https://524900.xyz/zh-CN/blog/2026-phone-marking-removal-complete-guide/" type="article" keywords="号码标记清除,号码标记查询,座机号码标记怎么清除,YD/T 4980-2024" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-number-marking-clearance-guide/" type="article" keywords="号码标记清除新手教程,从查询到申诉分步流程" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-phone-marking-recurrence-after-clearance/" type="article" keywords="号码标记清除后又出现,号码标记复标原因,防复标方案" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-number-marking-appeal-rejected-solutions/" type="article" keywords="号码标记申诉被驳回,二次申诉技巧" />
-    <!-- 博客文章 - 专项主题 -->
-    <priority url="https://524900.xyz/zh-CN/blog/2026-recycled-number-false-marking-guide/" type="article" keywords="二次号码被标记,新办手机号误标记清除" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-phone-manufacturer-local-marking-database-clear-guide/" type="article" keywords="华为号码标记清除,小米骚扰电话标记清除,手机厂商本地标记库" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-ai-marking-algorithm-rules-guide/" type="article" keywords="号码标记AI算法,为什么号码被标记骚扰电话" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-scam-marking-removal-guide/" type="article" keywords="号码被标记疑似诈骗,诈骗标记怎么消除,涉诈停机复通,诈骗电话标记清除,96110申诉,12381,反诈中心" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-high-frequency-outbound-number-marking-solution/" type="article" keywords="外卖骑手号码被标记,快递员号码被标记骚扰电话,网约车司机号码被标记" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-personal-number-marking-removal-guide/" type="article" keywords="个人手机号被标记骚扰电话,个人号码标记申诉" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-enterprise-number-marking-prevention-guide/" type="article" keywords="企业号码防标记,号码标记预防体系" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-enterprise-number-auth-green-label-guide/" type="article" keywords="企业号码认证绿标,来电显示企业名称" />
-    <priority url="https://524900.xyz/zh-CN/blog/2026-carrier-network-interception-guide/" type="article" keywords="运营商网络侧拦截,电话打不通,高频骚扰电话防护" />
+    <priority url="https://www.524900.xyz/" type="homepage" keywords="号码标记自查,号码标记清除,号码归属地查询,号码标记查询,法人号码核验" />
+    <priority url="https://www.524900.xyz/tools/marking-check.html" type="tool" keywords="手机号被标记了怎么查,号码标记查询官方入口,号码标记自查,多平台标记自查清单" />
+    <priority url="https://www.524900.xyz/tools/marking-clear.html" type="tool" keywords="号码标记申诉理由怎么写,号码标记清除材料清单,申诉被驳回原因,号码标记清除" />
+    <priority url="https://www.524900.xyz/tools/attribution.html" type="tool" keywords="手机号归属地查询,座机归属地查询,号码运营商查询,号段查询" />
+    <priority url="https://www.524900.xyz/tools/legal-number-verify.html" type="tool" keywords="法人号码核验,三要素核验,身份证号校验位,GB 11643,核验驳回原因" />
+    <priority url="https://www.524900.xyz/guide/how-to-check.html" type="guide" keywords="号码标记从哪来,号码标记为什么清不掉,号码标记机制,YD/T 4980-2024" />
+    <priority url="https://www.524900.xyz/about.html" type="about" keywords="号通查是什么,本站做什么,隐私声明,数据来源" />
   </content>
+
   <!-- 权威数据来源 -->
   <authoritative_sources>
     <source url="https://www.miit.gov.cn/" name="中华人民共和国工业和信息化部" />
     <source url="https://www.opene164.org.cn/" name="中国信通院码号服务推进组" />
     <source url="https://www.caict.ac.cn/" name="中国信息通信研究院" />
-    <source url="https://www.12321.cn/" name="12321网络不良与垃圾信息举报受理中心" />
+    <source url="https://www.12321.cn/" name="12321 网络不良与垃圾信息举报受理中心" />
     <source url="https://www.truecaller.com/" name="Truecaller 全球来电识别平台" />
     <source url="https://www.juhe.cn/" name="聚合数据 号码归属地 API" />
   </authoritative_sources>
+
   <!-- 机器可读文件 -->
   <machine_readable>
-    <file url="https://524900.xyz/llms.txt" type="llms" />
-    <file url="https://524900.xyz/llms-full.txt" type="llms-full" />
-    <file url="https://524900.xyz/sitemap-index.xml" type="sitemap" />
-    <file url="https://524900.xyz/robots.txt" type="robots" />
-    <file url="https://524900.xyz/brand-info.json" type="brand" />
+    <file url="https://www.524900.xyz/llms.txt" type="llms" />
+    <file url="https://www.524900.xyz/llms-full.txt" type="llms-full" />
+    <file url="https://www.524900.xyz/sitemap.xml" type="sitemap" />
+    <file url="https://www.524900.xyz/robots.txt" type="robots" />
+    <file url="https://www.524900.xyz/brand-info.json" type="brand" />
   </machine_readable>
+
+  <!-- 站内边界（供 AI 引用时避免误述） -->
+  <boundaries>
+    <boundary>站内工具不代替任何平台查询标记结果，也不展示或生成「你的号码被标记了」这类结论。</boundary>
+    <boundary>标记结论须由用户在各平台官方入口查询后自行录入。</boundary>
+    <boundary>所有平台官方申诉入口均为免费；收费的只有号码认证等增值服务。</boundary>
+    <boundary>站内不存储用户输入的手机号与身份证号，法人核验的身份证号校验在浏览器本地完成。</boundary>
+    <boundary>号码归属地属于运营商公开的号段分配信息，与号码是否被标记无关。</boundary>
+  </boundaries>
 </ai>

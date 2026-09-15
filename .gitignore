@@ -1,9 +1,11 @@
-# Dependencies
+# 依赖
 node_modules/
-/.astro
-/dist
 
-# 构建时生成的 OG 分享图与 favicon 套件（由 scripts/ 脚本产出）
+# 构建产物
+/dist
+/.astro
+
+# 构建时生成的图片资源（由 scripts/ 在 prebuild 阶段产出，不入库）
 /public/og-default.png
 /public/favicon.svg
 /public/favicon.ico
@@ -11,27 +13,19 @@ node_modules/
 /public/apple-touch-icon.png
 /public/maskable-icon.png
 
-# Editor directories and files
+# 编辑器与系统文件
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
 
-# Logs
+# 日志与环境变量
 logs
 *.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-# Environment variables
 .env
 .env.local
-.env.*.local
+
+# 构建报告（由 build.mjs 生成）
+/build-report.txt

@@ -1,7 +1,30 @@
 # Cloudflare Pages 重定向规则
-# 根路径跳转到中文首页
-/  /zh-CN/  301
-# 旧版 sitemap.xml 已由 @astrojs/sitemap 生成的 sitemap-index.xml 取代
-/sitemap.xml  /sitemap-index.xml  301
-# 旧版英文目录（页面已下线，统一回首页）
-/en-US/*  /zh-CN/  301
+# 规则按顺序匹配，具体路径写在通配规则之前。
+# 目的：旧版 Astro 站（上线于 /zh-CN/ 路径下）的地址 301 到新站对应页面，保留已积累的收录与权重。
+
+# ---- 旧站首页 ----
+/zh-CN/                                     /                                        301
+/zh-CN                                      /                                        301
+
+# ---- 旧站工具页 → 新站工具页 ----
+/zh-CN/tools/marking-check/                 /tools/marking-check.html                301
+/zh-CN/tools/marking-clear/                 /tools/marking-clear.html                301
+/zh-CN/tools/legal-number-verify/           /tools/legal-number-verify.html          301
+/zh-CN/tools/attribution/                   /tools/attribution.html                  301
+
+# ---- 旧站指南页 → 新站自查指南（内容最接近的一篇） ----
+/zh-CN/guide/how-to-check-marking/          /guide/how-to-check.html                 301
+/zh-CN/guide/how-to-clear-marking/          /guide/how-to-check.html                 301
+/zh-CN/guide/                               /guide/how-to-check.html                 301
+
+# ---- 旧站其余页面 ----
+/zh-CN/about/                               /about.html                              301
+/zh-CN/tools/                               /                                        301
+/zh-CN/tools/*                              /                                        301
+/zh-CN/guide/*                              /guide/how-to-check.html                 301
+/zh-CN/*                                    /                                        301
+/en-US/*                                    /                                        301
+
+# ---- 历史文件 ----
+/sitemap-index.xml                          /sitemap.xml                             301
+/index.html                                 /                                        301

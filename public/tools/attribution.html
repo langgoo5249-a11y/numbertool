@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>手机号归属地查询 - 运营商/省份/城市/区号 - 号通查</title>
+<meta name="description" content="输入手机号或座机号，查询运营商、归属省份、城市、区号与邮编。接口不可用时自动降级到内置 798 条真实号段库，支持批量查询最多 20 个号码。">
+<!-- seo-head:begin (由 _build/inject_seo.py 生成，勿手改) -->
+<link rel="canonical" href="https://www.524900.xyz/tools/attribution.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="号通查">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="手机号归属地查询 - 运营商/省份/城市/区号 - 号通查">
+<meta property="og:description" content="输入手机号或座机号，查询运营商、归属省份、城市、区号与邮编。接口不可用时自动降级到内置 798 条真实号段库，支持批量查询最多 20 个号码。">
+<meta property="og:url" content="https://www.524900.xyz/tools/attribution.html">
+<meta property="og:image" content="https://www.524900.xyz/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="手机号归属地查询 - 运营商/省份/城市/区号 - 号通查">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="手机号归属地查询 - 运营商/省份/城市/区号 - 号通查">
+<meta name="twitter:description" content="输入手机号或座机号，查询运营商、归属省份、城市、区号与邮编。接口不可用时自动降级到内置 798 条真实号段库，支持批量查询最多 20 个号码。">
+<meta name="twitter:image" content="https://www.524900.xyz/og-default.png">
+<!-- seo-head:end -->
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "手机号归属地查询",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "description": "输入手机号或座机号，查询运营商、归属省份、城市、区号与邮编，支持批量查询。接口不可用时自动降级到本地号段库。",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "CNY"
+  },
+  "url": "https://www.524900.xyz/tools/attribution.html",
+  "datePublished": "2026-09-15",
+  "dateModified": "2026-09-15",
+  "inLanguage": "zh-CN",
+  "publisher": {
+    "@type": "Organization",
+    "name": "号通查",
+    "url": "https://www.524900.xyz/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.524900.xyz/favicon-512.png",
+      "width": 512,
+      "height": 512
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "座机号码查询归属地为什么要带区号？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "座机号码本身不含省份信息，必须依靠区号定位。不带区号的座机号码无法准确判断归属地，查询结果不可信。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "归属地正常的号码会被标记吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "会。归属地与号码标记是两件互不相关的事。号码标记来自第三方平台的用户标记数据，与号码归属地无关，归属地完全正常的号码同样可能被标记。"
+      }
+    }
+  ],
+  "datePublished": "2026-09-15",
+  "dateModified": "2026-09-15",
+  "inLanguage": "zh-CN"
+}
+</script>
+<!-- breadcrumb-ld:begin -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://www.524900.xyz/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "归属地查询",
+      "item": "https://www.524900.xyz/tools/attribution.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="logo" href="../index.html">
+      <span class="mark">号通</span>
+      <span>号通查<small>号码标记查询与清除</small></span>
+    </a>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="marking-check.html">标记自查</a>
+      <a href="marking-clear.html">标记清除</a>
+      <a href="legal-number-verify.html">法人核验</a>
+      <a href="attribution.html" class="on">归属地查询</a>
+      <a href="../guide/how-to-check.html">自查指南</a>
+      <a href="../about.html">关于本站</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" style="padding-top:32px">
+
+  
+<nav class="crumbs" aria-label="面包屑">
+  <a href="../index.html">首页</a><span class="sep">›</span><span class="cur">归属地查询</span>
+</nav>
+<h1>手机号归属地查询</h1>
+  <p style="color:var(--slate-600);max-width:760px">
+    返回运营商、归属省份、城市、区号与邮编。手机号与座机号都支持——
+    座机<strong>必须带区号</strong>（如 021-12345678），不带区号的结果不可信。
+  </p>
+
+  <div class="card">
+    <h3 class="card-title">单个查询</h3>
+    <div class="field-row">
+      <input id="at-phone" class="input-lg" type="tel" inputmode="numeric" autocomplete="off"
+             placeholder="手机号 13800138000　/　座机 021-12345678">
+      <button id="at-run" class="btn btn-primary btn-block" type="button">查询归属地</button>
+    </div>
+    <div id="at-err" class="alert alert-error hidden mt2"></div>
+  </div>
+
+  <div id="at-result" class="card card-accent hidden">
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center" class="mb2">
+      <h3 class="card-title mb0">查询结果</h3>
+      <span id="at-source" class="badge badge-blue">—</span>
+    </div>
+    <div id="at-grid" class="kv"></div>
+    <div class="mt3" style="padding-top:16px;border-top:1px solid var(--brand-200);display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+      <a class="btn btn-soft btn-sm" href="marking-check.html">这个号码被标记了吗？去做标记自查 →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">批量查询</h3>
+    <p class="card-sub">每行一个号码，最多 20 个。用他人手机拨打前，先批量确认一批号码的归属，比逐个查快得多。</p>
+    <textarea id="at-batch" rows="6" placeholder="13800138000&#10;021-12345678&#10;4001234567"></textarea>
+    <div class="mt2" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <button id="at-batch-run" class="btn btn-primary btn-sm" type="button">批量查询</button>
+      <button id="at-batch-copy" class="btn btn-ghost btn-sm" type="button">复制结果为表格</button>
+      <span class="xs muted" id="at-batch-stat"></span>
+    </div>
+    <div id="at-batch-out" class="mt2"></div>
+  </div>
+
+  <section class="sect">
+    <div class="sect-head">
+      <h2>归属地查询能查到什么，查不到什么</h2>
+    </div>
+    <p class="lead-in">
+      一句话概括：查得到的是<strong>号码在运营商侧的号段归属</strong>——运营商、省份、城市、区号、邮编；
+      查不到的是<strong>机主身份</strong>，也查不到<strong>号码当前实际所在地</strong>。
+      归属地只反映号段分配时的归属省份，与机主现在人在哪里、号码被谁使用，都没有关系。
+    </p>
+    <div class="tbl-wrap mb3">
+      <table>
+        <thead><tr><th>能查到</th><th>查不到</th></tr></thead>
+        <tbody>
+          <tr><td>运营商（移动 / 联通 / 电信 / 虚拟运营商）</td><td>机主姓名、身份证等实名信息</td></tr>
+          <tr><td>号码归属省份与城市（号段归属）</td><td>号码当前实际所在地</td></tr>
+          <tr><td>固定电话的区号与邮政编码</td><td>号码是否被标记、被标成了什么</td></tr>
+          <tr><td>号码类型（手机 / 座机 / 400 / 95 号码）</td><td>号码是否仍在正常使用</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-info mb0">
+      <strong>一句话记住：</strong>归属地是「这个号段当初分给了哪个省」，不是「这个号码现在在哪里用」。
+      号码资源由工信部统一规划分配，归属关系稳定，不会因为机主搬家而改变。
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="sect-head">
+      <h2>三个最常见的误判</h2>
+    </div>
+    <h3>一、把归属地当成「机主在哪」</h3>
+    <p class="small muted">
+      号段归属地与使用地无关。北京的号码在上海用、在境外漫游用，归属地照旧显示北京。
+      反过来也一样：显示异地归属，不代表号码有问题。拿归属地判断「这通电话可不可信」，
+      在方法上就是错的。
+    </p>
+    <h3>二、忽略携号转网，把运营商查错了</h3>
+    <p class="small muted">
+      工信部自 <strong>2019 年 11 月 27 日</strong>起在全国正式提供携号转网服务。
+      转网后，号码的运营商可能与号段最初分配的运营商不一致，但归属省份不变。
+      所以看到「运营商和号段对不上」，先想想是不是转网号，而不是先怀疑查询结果不准。
+    </p>
+    <h3>三、以为归属地正常就说明号码没问题</h3>
+    <p class="small muted mb0">
+      归属地与号码标记是两套完全无关的数据：归属地由运营商按号段分配，标记来自第三方 App 上的用户行为。
+      归属地百分之百正常的号码，照样可能被十几个人标成「广告推销」。
+      这两件事要分开查——归属地看这一页，标记去<a href="marking-check.html">号码标记自查</a>。
+    </p>
+  </section>
+
+  <section class="sect">
+    <div class="sect-head">
+      <h2>为什么座机查询必须带区号</h2>
+    </div>
+    <p class="lead-in">
+      手机号前 7 位自带归属信息，座机号没有。座机号码长度在各地并不统一（7 位、8 位都有），
+      离开区号就无法判断是哪个城市的号码。所以座机查询要写成 <code>021-12345678</code> 这样的完整形式，
+      不带区号得出的结果不可信。
+    </p>
+    <p class="small muted mb0">
+      顺带说明一点：区号与手机号段一样，都属于国家码号资源，由工信部统一规划分配，并非各城市自行决定。
+      这意味着区号与城市的对应关系是稳定、可核对的，不会因为运营商调整业务而改变。
+    </p>
+  </section>
+
+  <section class="sect">
+    <div class="sect-head">
+      <h2>数据从哪来</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card card-flat">
+        <h3 class="card-title">主查询：站内归属地接口</h3>
+        <p class="small muted mb0">
+          页面优先调用站内已有的归属地查询接口（<code>/api/attribution</code>），
+          返回运营商、省份、城市、区号、邮编。数据由站内归属地接口实时返回，不是本地写死的映射表。
+        </p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">降级：内置号段库</h3>
+        <p class="small muted mb0">
+          接口不可用（网络异常、超时、上游抖动）时，自动降级到本地号段库——
+          内置 <strong id="at-prefix-count">—</strong> 条真实号段记录，
+          由该接口采样生成，覆盖主流号段。此时结果会明确标注「本地号段库」，且不返回区号与邮编。
+        </p>
+      </div>
+    </div>
+    <div class="alert alert-warn">
+      <strong>关于号段库的边界：</strong>号段归属是运营商公开的分配信息，但完整号段表体量很大。
+      本站的本地号段库覆盖主流号段，<strong>仅在接口不可用时兜底</strong>，此时不返回区号与邮编；
+      未收录的号段会如实提示查不到，<strong>不做任何推测</strong>。实际归属以运营商登记信息为准。
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="fine" style="margin-top:0;border-top:none;padding-top:0">
+      归属地信息仅供参考，不作为任何证明用途。本站不存储用户输入的号码。
+      号码标记情况与归属地无关——归属地正常的号码同样可能被标记。
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/prefix-table.js"></script>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+(function () {
+  var $ = NK.$;
+  var COUNT = (window.PREFIX7_AREA || []).length;
+  var pcount = $('#at-prefix-count');
+  if (pcount) pcount.textContent = COUNT;
+
+  function renderGrid(det, info) {
+    var loc = '—';
+    if (info.province) loc = info.province + (info.city && info.city !== info.province ? ' ' + info.city : '');
+    var cells = [
+      ['查询号码', det.digits],
+      ['号码类型', NK.TYPE_LABEL[det.type]],
+      ['运营商', info.carrier || '—'],
+      ['归属地', loc],
+      ['区号', info.areacode || (det.areacode ? det.areacode : '—')],
+      ['邮编', info.zip || '—']
+    ];
+    $('#at-grid').innerHTML = cells.map(function (c) {
+      return '<div class="stat"><span class="k">' + NK.esc(c[0]) + '</span><span class="v sm">' + NK.esc(c[1]) + '</span></div>';
+    }).join('');
+    var src = $('#at-source');
+    src.textContent = info.source === 'local' ? '本地号段库（降级）' : '站内接口实时返回';
+    src.className = info.source === 'local' ? 'badge badge-amber' : 'badge badge-green';
+  }
+
+  function queryOne(raw, allowOnline) {
+    var det = NK.detectType(raw);
+    if (!det) return Promise.resolve(null);
+    if (!allowOnline) {
+      var l = NK.lookupLocal(det.digits, det.type);
+      return Promise.resolve({ source: 'local', carrier: l.carrier, province: l.province, city: l.city, areacode: l.areacode, zip: '' });
+    }
+    return NK.fetchAttribution(det.digits).then(function (info) {
+      if (!info.ok) {
+        var l = NK.lookupLocal(det.digits, det.type);
+        info = { source: 'local', carrier: l.carrier, province: l.province, city: l.city, areacode: l.areacode, zip: '' };
+      }
+      return info;
+    });
+  }
+
+  /* ---- 单查 ---- */
+  $('#at-run').addEventListener('click', function () {
+    var raw = $('#at-phone').value.trim();
+    var err = $('#at-err');
+    err.classList.add('hidden');
+    var det = NK.detectType(raw);
+    if (!det) {
+      err.textContent = '号码格式无法识别。手机号为 11 位；座机请带区号（如 021-12345678）；400 号码请去掉横线。';
+      err.classList.remove('hidden');
+      return;
+    }
+    var btn = $('#at-run');
+    btn.disabled = true; btn.textContent = '查询中…';
+    queryOne(raw, true).then(function (info) {
+      renderGrid(det, info);
+      $('#at-result').classList.remove('hidden');
+      btn.disabled = false; btn.textContent = '重新查询';
+    });
+  });
+  $('#at-phone').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('#at-run').click(); });
+
+  /* ---- 批量 ---- */
+  var lastBatch = [];
+  $('#at-batch-run').addEventListener('click', function () {
+    var lines = $('#at-batch').value.split(/\n+/).map(function (s) { return s.trim(); }).filter(Boolean);
+    if (!lines.length) { NK.toast('请先粘贴号码'); return; }
+    if (lines.length > 20) { lines = lines.slice(0, 20); NK.toast('已截取前 20 个号码'); }
+
+    var out = $('#at-batch-out');
+    out.innerHTML = '<div class="alert alert-info">正在查询 0 / ' + lines.length + ' …</div>';
+    var btn = $('#at-batch-run');
+    btn.disabled = true;
+
+    var results = [];
+    var i = 0;
+    (function next() {
+      if (i >= lines.length) { finish(); return; }
+      var raw = lines[i];
+      var det = NK.detectType(raw);
+      var p = det ? queryOne(raw, true) : Promise.resolve(null);
+      p.then(function (info) {
+        results.push({ raw: raw, det: det, info: info });
+        i++;
+        out.innerHTML = '<div class="alert alert-info">正在查询 ' + i + ' / ' + lines.length + ' …</div>';
+        setTimeout(next, 60);
+      });
+    })();
+
+    function finish() {
+      lastBatch = results;
+      btn.disabled = false;
+      var ok = results.filter(function (r) { return r.info; }).length;
+      $('#at-batch-stat').textContent = '完成：' + ok + ' / ' + results.length + ' 个号码有效';
+      out.innerHTML = '<div class="tbl-wrap"><table><thead><tr>' +
+        '<th>号码</th><th>类型</th><th>运营商</th><th>省份</th><th>城市</th><th>区号</th><th>数据源</th>' +
+        '</tr></thead><tbody>' +
+        results.map(function (r) {
+          if (!r.det) return '<tr><td>' + NK.esc(r.raw) + '</td><td colspan="6" class="muted">格式无法识别</td></tr>';
+          var i2 = r.info;
+          return '<tr>' +
+            '<td><strong>' + NK.esc(r.det.digits) + '</strong></td>' +
+            '<td>' + NK.esc(NK.TYPE_LABEL[r.det.type]) + '</td>' +
+            '<td>' + NK.esc(i2.carrier || '—') + '</td>' +
+            '<td>' + NK.esc(i2.province || '—') + '</td>' +
+            '<td>' + NK.esc(i2.city || '—') + '</td>' +
+            '<td>' + NK.esc(i2.areacode || (r.det.areacode || '—')) + '</td>' +
+            '<td>' + (i2.source === 'local' ? '<span class="badge badge-amber">本地</span>' : '<span class="badge badge-green">接口</span>') + '</td>' +
+            '</tr>';
+        }).join('') +
+        '</tbody></table></div>';
+    }
+  });
+
+  $('#at-batch-copy').addEventListener('click', function () {
+    if (!lastBatch.length) { NK.toast('请先执行批量查询'); return; }
+    var head = ['号码', '类型', '运营商', '省份', '城市', '区号', '数据源'];
+    var rows = lastBatch.map(function (r) {
+      if (!r.det) return [r.raw, '格式无法识别', '', '', '', '', ''];
+      var i2 = r.info;
+      return [r.det.digits, NK.TYPE_LABEL[r.det.type], i2.carrier || '', i2.province || '', i2.city || '', i2.areacode || '', i2.source === 'local' ? '本地' : '接口'];
+    });
+    var tsv = [head].concat(rows).map(function (r) { return r.join('\t'); }).join('\n');
+    NK.copy(tsv, '已复制（可直接粘贴进 Excel）');
+  });
+})();
+</script>
+</body>
+</html>

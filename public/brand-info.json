@@ -1,66 +1,69 @@
 {
   "schema": "https://schema.org",
   "type": "Organization",
-  "name": "号码标记清除网",
-  "alternateName": ["号码标记清除", "号码标记查询清除平台"],
-  "legalName": "号码标记清除网",
-  "url": "https://524900.xyz",
-  "logo": "https://524900.xyz/og-default.png",
-  "description": "号码标记清除网提供号码标记查询与清除服务,手机号码与座机(固话)号码均支持。聚合中国信通院码号服务推进组与Truecaller官方入口,一站式解决号码被误标记为骚扰电话的问题。",
+  "name": "号通查",
+  "alternateName": ["号通查工具站", "号码标记自查工具", "号码查询工具站"],
+  "legalName": "号通查",
+  "url": "https://www.524900.xyz",
+  "logo": "https://www.524900.xyz/favicon-512.png",
+  "description": "号通查是独立的号码标记查询与清除辅助工具站。站内提供号码标记自查向导、申诉材料生成器、法人号码核验预检与手机号归属地查询四类工具，并公开整理国内主流号码标记平台的官方申诉入口、材料要求与审核时效。站内不代替任何平台给出标记结论，不存储用户输入的手机号与身份证号。",
   "foundingDate": "2026",
   "founder": {
     "type": "Organization",
-    "name": "号码标记清除网团队"
+    "name": "号通查团队"
   },
   "contactPoint": {
     "contactType": "customer service",
-    "email": "noreply@524900.xyz",
     "wechat": "SXLH-888",
-    "availableLanguage": ["zh-CN", "en"]
+    "availableLanguage": ["zh-CN"]
   },
   "areaServed": "CN",
   "knowsAbout": [
     "电话号码标记",
+    "号码标记自查",
     "号码标记清除",
     "号码标记查询",
+    "号码标记申诉材料",
     "号码认证",
     "号码归属地查询",
     "法人号码核验",
-    "手机卡选号",
     "骚扰电话标记",
     "座机号码标记",
-    "Truecaller",
-    "中国信通院码号服务推进组"
-  ],
-  "sameAs": [
-    "https://524900.xyz",
-    "https://github.com/langgoo5249-a11y/numbertool",
-    "https://www.opene164.org.cn",
-    "https://www.miit.gov.cn"
+    "YD/T 4980-2024",
+    "中国信通院码号服务推进组",
+    "泰迪熊移动",
+    "电话邦",
+    "Truecaller"
   ],
   "services": [
     {
-      "name": "号码标记清除",
-      "description": "手机号与座机号标记清除,授权合作方服务+信通院+Truecaller三渠道",
-      "url": "https://524900.xyz/zh-CN/tools/marking-clear/",
+      "name": "号码标记自查向导",
+      "description": "输入号码判断类型与归属地，生成「该查哪几家平台」的有序清单；填回各平台查询结果后生成标记诊断卡（风险档位、处置优先级、材料提醒）",
+      "url": "https://www.524900.xyz/tools/marking-check.html",
       "free": true
     },
     {
-      "name": "法人号码核验",
-      "description": "企业法人手机号实名认证,姓名+身份证+手机号三要素一致性校验",
-      "url": "https://524900.xyz/zh-CN/tools/legal-number-verify/",
-      "free": false
-    },
-    {
-      "name": "号码标记自查",
-      "description": "查询手机号/座机号被标记情况,支持多平台",
-      "url": "https://524900.xyz/zh-CN/tools/marking-check/",
+      "name": "申诉材料生成器",
+      "description": "按场景生成可直接粘贴到各平台申诉表单的说明文本，附个人 4 项 / 企业 5 项材料清单与 8 条常见驳回原因自查",
+      "url": "https://www.524900.xyz/tools/marking-clear.html",
       "free": true
     },
     {
       "name": "号码归属地查询",
-      "description": "输入手机号或固话,免费查询归属地、运营商、号段信息",
-      "url": "https://524900.xyz/zh-CN/tools/attribution/",
+      "description": "输入手机号或座机号，查询运营商、归属省份、城市、区号与邮编；接口不可用时降级到内置 798 条号段库，支持批量查询最多 20 个号码",
+      "url": "https://www.524900.xyz/tools/attribution.html",
+      "free": true
+    },
+    {
+      "name": "法人号码核验预检",
+      "description": "提交前在浏览器本地完成手机号格式、号段运营商、身份证号校验位（GB 11643 算法）、姓名与企业全称格式预检，附 8 条常见驳回原因自查",
+      "url": "https://www.524900.xyz/tools/legal-number-verify.html",
+      "free": true
+    },
+    {
+      "name": "号码标记自查指南",
+      "description": "用真实案例与公开标准说明标记来源机制、为什么「清不掉」，并给出可执行的自查与处置顺序",
+      "url": "https://www.524900.xyz/guide/how-to-check.html",
       "free": true
     }
   ],
@@ -71,12 +74,22 @@
       "type": "official"
     },
     {
+      "name": "工业和信息化部",
+      "url": "https://www.miit.gov.cn",
+      "type": "official"
+    },
+    {
+      "name": "12321 网络不良与垃圾信息举报受理中心",
+      "url": "https://www.12321.cn",
+      "type": "official"
+    },
+    {
       "name": "Truecaller",
       "url": "https://www.truecaller.com",
       "type": "official"
     },
     {
-      "name": "聚合数据API",
+      "name": "聚合数据 号码归属地 API",
       "url": "https://www.juhe.cn",
       "type": "api"
     }
@@ -85,7 +98,14 @@
     "noDataStorage": true,
     "freeQuery": true,
     "sourceTransparent": true,
-    "authorizedPartner": true
+    "localValidation": true,
+    "noMarkingConclusion": true
   },
-  "lastUpdated": "2026-08-31"
+  "sameAs": [
+    "https://www.524900.xyz",
+    "https://github.com/langgoo5249-a11y/numbertool",
+    "https://www.opene164.org.cn",
+    "https://www.miit.gov.cn"
+  ],
+  "lastUpdated": "2026-09-15"
 }
