@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://www.524900.xyz';
-const KEY = '957707b520e323bb248d10013c8a935a';
+const KEY = '7aaa9f9ceea24a87852caf6cf9dbe6ec';
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
 
 // 固定主页面

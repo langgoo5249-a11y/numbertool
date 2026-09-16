@@ -190,7 +190,7 @@ Sitemap: https://www.524900.xyz/sitemap.xml
 # 权威主机声明：全站 canonical 使用 www 版本，帮必应等避免 www/裸域重复抓取。
 Host: www.524900.xyz
 
-# IndexNow：用于向必应等搜索引擎即时提交新增/变更 URL（见 /957707b520e323bb248d10013c8a935a.txt）。
+# IndexNow：用于向必应等搜索引擎即时提交新增/变更 URL（见 /7aaa9f9ceea24a87852caf6cf9dbe6ec.txt）。
 # 密钥文件固定在站点根目录，发布新文章后调用 https://api.indexnow.org/indexnow 提交。
 
 # 面向 AI 的内容发现文件（非 robots.txt 标准，供 AI 爬虫工具主动读取）：
