@@ -186,7 +186,7 @@ for f in SITE_FILES:
 # sitemap 里每个 URL 都要能落到文件
 sm = read(os.path.join(PUB, 'sitemap.xml'))
 locs = re.findall(r'<loc>([^<]+)</loc>', sm)
-check(len(locs) == 25, f'sitemap URL 数 = 25（实际 {len(locs)}）')
+check(len(locs) == 26, f'sitemap URL 数 = 26（实际 {len(locs)}）')
 for u in locs:
     path = u[len(ORIGIN):]
     if path.endswith('/') or path == '':
@@ -199,7 +199,7 @@ for u in locs:
 rss = read(os.path.join(PUB, 'rss.xml'))
 items_xml = re.findall(r'<item>(.*?)</item>', rss, re.S)
 blog_items = [re.search(r'<link>([^<]+)</link>', it).group(1) for it in items_xml]
-check(len(blog_items) == 16, f'rss 文章条数 = 16（实际 {len(blog_items)}）')
+check(len(blog_items) == 17, f'rss 文章条数 = 17（实际 {len(blog_items)}）')
 for u in blog_items:
     fp = os.path.join(PUB, u[len(ORIGIN):].lstrip('/').replace('/', os.sep))
     check(os.path.isfile(fp), f'rss 目标存在: {u[len(ORIGIN):]}')

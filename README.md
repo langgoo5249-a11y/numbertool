@@ -15,7 +15,7 @@
 | 法人号码核验预检 | `/tools/legal-number-verify.html` | 手机号号段、身份证号校验位（GB 11643）、姓名与企业全称格式预检 |
 | 归属地查询 | `/tools/attribution.html` | 运营商 / 省份 / 城市 / 区号 / 邮编，支持批量 20 个 |
 | 号码标记自查指南 | `/guide/how-to-check.html` | 标记从哪来、为什么清了又回来、查出来先处理哪一个 |
-| 号码百科（文章列表） | `/blog/` | 16 篇文章的索引，支持按标签筛选 |
+| 号码百科（文章列表） | `/blog/` | 17 篇文章的索引，支持按标签筛选 |
 | 号码百科（文章页） | `/blog/<slug>.html` | 按号码类型与场景的深度文章，多数附问答区块 |
 | 常见问题 FAQ | `/faq.html` | 10 个高频问题的问答，含 FAQPage 结构化数据 |
 | 关于本站 | `/about.html` | 数据来源、隐私边界与免责声明 |
@@ -26,7 +26,7 @@
 
 文章不是手写 HTML，而是从数据生成后**把产物提交进仓库**——这样线上构建保持零依赖。
 
-- 文章正文与元数据：`blog-src/posts.json`（16 篇；`content` 字段为 Markdown）
+- 文章正文与元数据：`blog-src/posts.json`（17 篇；`content` 字段为 Markdown）
 - 常见问题：`blog-src/faqs.json`
 - 生成器：`scripts/build-blog.mjs`（本地一次性运行，不参与线上构建）
 
@@ -50,7 +50,7 @@ npm run blog          # 重新生成文章页 / FAQ / RSS / sitemap
 │   ├── index.html  about.html  faq.html  404.html
 │   ├── tools/                 # 4 个工具页
 │   ├── guide/                 # 内容页
-│   ├── blog/                  # 号码百科列表页 + 16 篇文章页（由 blog-src 生成）
+│   ├── blog/                  # 号码百科列表页 + 17 篇文章页（由 blog-src 生成）
 │   ├── assets/                # style.css / app.js / data.js / prefix-table.js
 │   ├── _headers               # Cloudflare Pages 响应头（含 AI 爬虫放行声明）
 │   ├── _redirects             # 旧站 URL → 新站 URL 的 301 规则
@@ -58,7 +58,7 @@ npm run blog          # 重新生成文章页 / FAQ / RSS / sitemap
 │   ├── rss.xml                # 号码百科订阅（由 blog-src 生成）
 │   └── og-default.png  favicon*  # 构建时生成，不入库
 ├── blog-src/                  # 文章与问答的数据源（唯一真源）
-│   ├── posts.json             # 16 篇文章（Markdown 正文 + 元数据）
+│   ├── posts.json             # 17 篇文章（Markdown 正文 + 元数据）
 │   └── faqs.json              # 常见问题问答
 ├── functions/api/attribution.js   # 归属地查询 Pages Function
 ├── scripts/

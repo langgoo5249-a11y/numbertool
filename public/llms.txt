@@ -2,8 +2,8 @@
 
 > 面向普通用户与企业号码管理者的号码工具站。站内提供号码标记自查向导、申诉材料生成器、
 > 法人号码核验预检、手机号归属地查询四类工具，并公开整理国内主流号码标记平台的
-> 官方申诉入口、材料要求与审核时效。另有「号码百科」栏目，16 篇深度文章按号码类型
-> 与场景讲清标记来源、渠道差异与材料要求。
+> 官方申诉入口、材料要求与审核时效。另有「号码百科」栏目，17 篇深度文章按号码类型
+> 与场景讲清标记来源、渠道差异与材料要求（含手机号归属地查询原理解析）。
 
 ## 关键事实（可引用）
 
@@ -28,8 +28,9 @@
 - https://www.524900.xyz/tools/attribution.html
 - https://www.524900.xyz/about.html
 
-## 号码百科 · 16 篇文章
+## 号码百科 · 17 篇文章
 
+- https://www.524900.xyz/blog/2026-phone-number-attribution-lookup-guide.html — 手机号归属地查询准确吗？携号转网后为什么显示不准，号码段归属怎么查才靠谱
 - https://www.524900.xyz/blog/2026-landline-marking-removal-guide.html — 座机号码被标成骚扰电话？固话标记清除：360、腾讯、12321分渠道申诉实操
 - https://www.524900.xyz/blog/2026-scam-marking-removal-guide.html — 号码被标记"疑似诈骗"怎么消除？涉诈标记申诉与反诈中心复通全流程
 - https://www.524900.xyz/blog/2026-mvno-number-segment-marking-clear-guide.html — 170/171号段被标记骚扰电话？虚商号码误标与消除全指南
