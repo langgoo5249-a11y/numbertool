@@ -58,6 +58,8 @@ const LINK_TABLE = [
   [/^\/zh-CN\/tools\/marking-clear\/?/, '{p}tools/marking-clear.html'],
   [/^\/zh-CN\/tools\/attribution\/?/, '{p}tools/attribution.html'],
   [/^\/zh-CN\/tools\/legal-number-verify\/?/, '{p}tools/legal-number-verify.html'],
+  [/^\/zh-CN\/tools\/two-factor-verify\/?/, '{p}tools/two-factor-verify.html'],
+  [/^\/zh-CN\/tools\/name-mobile-check\/?/, '{p}tools/name-mobile-check.html'],
   [/^\/zh-CN\/tools\/number-auth\/?/, '{p}tools/marking-clear.html'],
   [/^\/zh-CN\/guide\/how-to-check-marking\/?/, '{p}guide/how-to-check.html'],
   [/^\/zh-CN\/guide\/how-to-clear-marking\/?/, '{p}guide/how-to-check.html'],
@@ -136,6 +138,7 @@ const NAV_ITEMS = [
   ['首页', 'index.html'],
   ['标记自查', 'tools/marking-check.html'],
   ['标记清除', 'tools/marking-clear.html'],
+  ['二要素验证', 'tools/two-factor-verify.html'],
   ['法人核验', 'tools/legal-number-verify.html'],
   ['归属地查询', 'tools/attribution.html'],
   ['自查指南', 'guide/how-to-check.html'],
@@ -177,6 +180,8 @@ function footer(p) {
         <ul>
           <li><a href="${p}tools/marking-check.html">号码标记自查</a></li>
           <li><a href="${p}tools/marking-clear.html">申诉材料生成器</a></li>
+          <li><a href="${p}tools/two-factor-verify.html">号码二要素验证预检</a></li>
+          <li><a href="${p}tools/name-mobile-check.html">号码名字核验预检</a></li>
           <li><a href="${p}tools/legal-number-verify.html">法人号码核验预检</a></li>
           <li><a href="${p}tools/attribution.html">归属地查询</a></li>
         </ul>
@@ -688,14 +693,16 @@ written.push('rss.xml');
    5. sitemap.xml（含 blog 与 faq，lastmod 用真实日期）
    ============================================================ */
 const staticPages = [
-  ['/', '2026-09-15', '1.0', 'daily'],
-  ['/blog/', '2026-09-15', '0.9', 'daily'],
+  ['/', '2026-09-19', '1.0', 'daily'],
+  ['/blog/', '2026-09-19', '0.9', 'daily'],
   ['/tools/marking-check.html', '2026-09-15', '0.9', 'monthly'],
   ['/tools/marking-clear.html', '2026-09-15', '0.9', 'monthly'],
-  ['/tools/legal-number-verify.html', '2026-09-15', '0.8', 'monthly'],
+  ['/tools/two-factor-verify.html', '2026-09-19', '0.9', 'monthly'],
+  ['/tools/name-mobile-check.html', '2026-09-19', '0.9', 'monthly'],
+  ['/tools/legal-number-verify.html', '2026-09-19', '0.8', 'monthly'],
   ['/tools/attribution.html', '2026-09-15', '0.8', 'monthly'],
   ['/guide/how-to-check.html', '2026-09-15', '0.8', 'monthly'],
-  ['/faq.html', '2026-09-15', '0.8', 'monthly'],
+  ['/faq.html', '2026-09-19', '0.8', 'monthly'],
   ['/about.html', '2026-09-15', '0.5', 'yearly'],
 ];
 
