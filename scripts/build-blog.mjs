@@ -41,6 +41,9 @@ const SRC = path.join(ROOT, 'blog-src');
 
 const ORIGIN = 'https://www.524900.xyz';
 const BRAND = '号通查';
+const BRAND_ALT = '号码通查';
+const ORG_ID = `${ORIGIN}/#organization`;
+const ORG_SAMEAS = ['https://github.com/langgoo5249-a11y', 'https://zangxixitech.cn/#organization'];
 
 marked.setOptions({ gfm: true, breaks: true });
 
@@ -314,11 +317,14 @@ for (const slug of slugs) {
       datePublished: post.date,
       dateModified,
       keywords: post.tags.join(','),
-      author: { '@type': 'Organization', name: BRAND, url: `${ORIGIN}/` },
+      author: { '@type': 'Organization', '@id': ORG_ID, name: BRAND, alternateName: BRAND_ALT, url: `${ORIGIN}/`, sameAs: ORG_SAMEAS },
       publisher: {
         '@type': 'Organization',
+        '@id': ORG_ID,
         name: BRAND,
+        alternateName: BRAND_ALT,
         url: `${ORIGIN}/`,
+        sameAs: ORG_SAMEAS,
         logo: { '@type': 'ImageObject', url: `${ORIGIN}/favicon-512.png`, width: 512, height: 512 },
       },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
@@ -490,7 +496,7 @@ const listLd = [
     description: '号码标记查询与清除相关的深度文章合集。',
     inLanguage: 'zh-CN',
     url: `${ORIGIN}/blog/`,
-    publisher: { '@type': 'Organization', name: BRAND, url: `${ORIGIN}/` },
+    publisher: { '@type': 'Organization', '@id': ORG_ID, name: BRAND, alternateName: BRAND_ALT, url: `${ORIGIN}/`, sameAs: ORG_SAMEAS },
     blogPost: byDateDesc.map((s) => ({
       '@type': 'BlogPosting',
       headline: posts[s].title,

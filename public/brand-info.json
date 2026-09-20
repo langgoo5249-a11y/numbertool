@@ -2,7 +2,12 @@
   "schema": "https://schema.org",
   "type": "Organization",
   "name": "号通查",
-  "alternateName": ["号通查工具站", "号码标记自查工具", "号码查询工具站"],
+  "alternateName": [
+    "号通查工具站",
+    "号码标记自查工具",
+    "号码查询工具站",
+    "号码通查"
+  ],
   "legalName": "号通查",
   "url": "https://www.524900.xyz",
   "logo": "https://www.524900.xyz/favicon-512.png",
@@ -15,7 +20,9 @@
   "contactPoint": {
     "contactType": "customer service",
     "wechat": "SXLH-888",
-    "availableLanguage": ["zh-CN"]
+    "availableLanguage": [
+      "zh-CN"
+    ]
   },
   "areaServed": "CN",
   "knowsAbout": [
@@ -105,7 +112,10 @@
     "https://www.524900.xyz",
     "https://github.com/langgoo5249-a11y/numbertool",
     "https://www.opene164.org.cn",
-    "https://www.miit.gov.cn"
+    "https://www.miit.gov.cn",
+    "https://github.com/langgoo5249-a11y",
+    "https://zangxixitech.cn/#organization"
   ],
-  "lastUpdated": "2026-09-15"
+  "lastUpdated": "2026-09-15",
+  "@id": "https://www.524900.xyz/#organization"
 }
