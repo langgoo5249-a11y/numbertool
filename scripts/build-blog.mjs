@@ -101,7 +101,8 @@ function rewriteMarkdownLinks(md, p = '../') {
 function rebrand(text) {
   return text
     .replace(/号码标记清除网/g, BRAND)
-    .replace(/zangxixitech\.cn/g, 'www.524900.xyz')
+    // 保护指向姊妹站 zangxixitech.cn 的显式跨站链接，避免被站点自指替换改写
+    .replace(/(?<!\/\/)zangxixitech\.cn/g, 'www.524900.xyz')
     .replace(/https:\/\/www\.524900\.xyz\/zh-CN\//g, ORIGIN + '/');
 }
 
