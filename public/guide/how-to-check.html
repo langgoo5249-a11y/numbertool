@@ -258,5 +258,18 @@ var _hmt = _hmt || [];
 
 <script src="../assets/data.js"></script>
 <script src="../assets/app.js"></script>
+<style>
+#wx-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;padding:10px 14px;background:#0f172a;color:#fff;font-size:14px;box-shadow:0 -2px 12px rgba(0,0,0,.18)}
+#wx-cta-bar b{color:#fbbf24}
+#wx-cta-bar .wx-cta-copy{background:#fbbf24;color:#0f172a;border:0;border-radius:6px;padding:6px 12px;font-weight:600;cursor:pointer}
+#wx-cta-bar .wx-cta-close{background:transparent;color:#fff;border:0;font-size:20px;line-height:1;cursor:pointer;padding:0 4px}
+@media(max-width:600px){#wx-cta-bar{font-size:12px;padding:8px 10px;gap:6px}}
+</style>
+<div id="wx-cta-bar">
+  <span class="wx-cta-txt">号码问题搞不定？加微信 <b>SXLH-888</b> 一对一帮你看</span>
+  <button type="button" class="wx-cta-copy" data-wechat-copy="SXLH-888">复制微信号</button>
+  <button type="button" class="wx-cta-close" data-wx-close aria-label="关闭">×</button>
+</div>
+<script src="/assets/track.js" defer></script>
 </body>
 </html>
