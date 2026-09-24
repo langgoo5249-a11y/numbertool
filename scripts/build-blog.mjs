@@ -240,6 +240,8 @@ function page({ p, title, desc, canonical, ogType = 'website', navOn = '', keywo
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="${p}assets/style.css">
 ${ld.map(ldScript).join('\n')}
+<link rel="llms" type="text/plain" href="/llms.txt">
+<link rel="llms-full" type="text/plain" href="/llms-full.txt">
 </head>
 <body>
 
