@@ -23,6 +23,7 @@ const ENDPOINT = 'https://api.indexnow.org/indexnow';
 const core = [
   '/', '/blog/', '/tools/marking-check.html', '/tools/marking-clear.html',
   '/tools/legal-number-verify.html', '/tools/attribution.html',
+  '/tools/two-factor-verify.html', '/tools/name-mobile-check.html',
   '/guide/how-to-check.html', '/faq.html', '/about.html',
 ];
 
