@@ -68,6 +68,18 @@
       "free": true
     },
     {
+      "name": "号码二要素验证预检",
+      "description": "提交前在浏览器本地免费完成手机号格式、号段运营商（含虚商识别）与姓名格式预检；讲清二要素 / 三要素 / 法人核验的边界，输入不上传不存储",
+      "url": "https://www.524900.xyz/tools/two-factor-verify.html",
+      "free": true
+    },
+    {
+      "name": "号码+名字核验预检",
+      "description": "核实对方留下的「号码+名字」是否本人：合规边界、正规核验路径与提交前免费本地预检（浏览器本地校验，不上传不存储）",
+      "url": "https://www.524900.xyz/tools/name-mobile-check.html",
+      "free": true
+    },
+    {
       "name": "号码标记自查指南",
       "description": "用真实案例与公开标准说明标记来源机制、为什么「清不掉」，并给出可执行的自查与处置顺序",
       "url": "https://www.524900.xyz/guide/how-to-check.html",

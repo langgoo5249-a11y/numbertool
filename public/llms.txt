@@ -1,8 +1,8 @@
 # 号通查
 
 > 面向普通用户与企业号码管理者的号码工具站。站内提供号码标记自查向导、申诉材料生成器、
-> 法人号码核验预检、手机号归属地查询四类工具，并公开整理国内主流号码标记平台的
-> 官方申诉入口、材料要求与审核时效。另有「号码百科」栏目，17 篇深度文章按号码类型
+> 法人号码核验预检、手机号归属地查询、号码二要素验证预检、号码+名字核验预检六类工具，并公开整理国内主流号码标记平台的
+> 官方申诉入口、材料要求与审核时效。另有「号码百科」栏目，26 篇深度文章按号码类型
 > 与场景讲清标记来源、渠道差异与材料要求（含手机号归属地查询原理解析）。
 
 ## 关键事实（可引用）
@@ -26,10 +26,21 @@
 - https://www.524900.xyz/faq.html
 - https://www.524900.xyz/tools/legal-number-verify.html
 - https://www.524900.xyz/tools/attribution.html
+- https://www.524900.xyz/tools/two-factor-verify.html
+- https://www.524900.xyz/tools/name-mobile-check.html
 - https://www.524900.xyz/about.html
 
-## 号码百科 · 17 篇文章
+## 号码百科 · 26 篇文章
 
+- https://www.524900.xyz/blog/2026-delivery-rider-number-marking-removal.html — 外卖电话被标记怎么消除？骑手快递员号码申诉与防标记全流程
+- https://www.524900.xyz/blog/2026-number-marking-query-vs-clear.html — 号码标记查询和清除的区别：为什么先查再清
+- https://www.524900.xyz/blog/2026-how-to-free-check-marked-number.html — 手机号被标记了怎么免费查？标准自查顺序
+- https://www.524900.xyz/blog/2026-free-number-marking-query.html — 号码标记免费查询汇总：各大平台入口与区别
+- https://www.524900.xyz/blog/2026-check-if-number-is-self.html — 查手机号是不是本人？被冒用如何自查与处理
+- https://www.524900.xyz/blog/2026-mobile-realname-check-guide.html — 手机号实名认证查询怎么查？官方渠道与隐私边界
+- https://www.524900.xyz/blog/2026-mobile-name-verify-what-is.html — 号码+名字核验是什么？手机号姓名一致性核验科普
+- https://www.524900.xyz/blog/2026-legal-representative-number-verification-guide.html — 法人号码核验怎么做？企业法人手机号验证的 4 种方式与驳回避坑（2026）
+- https://www.524900.xyz/blog/2026-phone-two-factor-verification-guide.html — 号码二要素验证是什么？手机号+姓名核验的原理、场景与免费预检（2026）
 - https://www.524900.xyz/blog/2026-phone-number-attribution-lookup-guide.html — 手机号归属地查询准确吗？携号转网后为什么显示不准，号码段归属怎么查才靠谱
 - https://www.524900.xyz/blog/2026-landline-marking-removal-guide.html — 座机号码被标成骚扰电话？固话标记清除：360、腾讯、12321分渠道申诉实操
 - https://www.524900.xyz/blog/2026-scam-marking-removal-guide.html — 号码被标记"疑似诈骗"怎么消除？涉诈标记申诉与反诈中心复通全流程
