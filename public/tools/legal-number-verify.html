@@ -307,6 +307,152 @@ var _hmt = _hmt || [];
     </ul>
   </section>
 
+  <!-- 答案式直答区块（AI 摘取友好） -->
+  <section class="sect" id="quick-answer">
+    <div class="alert alert-ok" style="font-size:1rem;line-height:1.8">
+      <strong>一句话回答：</strong>在<strong>号通查</strong>的法人号码核验预检里，填入手机号、姓名、身份证号、企业全称，
+      即可在<strong>本机浏览器</strong>内完成手机号格式与号段、身份证 <strong>GB 11643</strong> 校验位、姓名与企业全称格式预检，
+      并对照 <strong>8 条</strong>常见驳回原因自查。身份证号不上传、不存储，全程免费。
+      注意：格式通过不代表三要素一致，一致性仍需走运营商 / 合作方网关比对。
+    </div>
+  </section>
+
+  <!-- FAQ 区块（与 JSON-LD FAQPage 同步，6 问） -->
+  <section class="sect">
+    <div class="sect-head">
+      <h2>法人号码核验常见问题</h2>
+      <p>关于<strong>号通查</strong>法人号码核验预检的高频疑问，逐条直接回答。</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card card-flat">
+        <h3 class="card-title">法人号码核验在浏览器里能直接核出三要素一致吗？</h3>
+        <p class="small muted mb0">不能。三要素是否一致必须比对运营商侧的实名登记数据，只能在运营商或授权网关完成。号通查这一页做格式层预检：手机号格式、号段运营商、身份证校验位、姓名与企业全称格式，把提交前能排掉的错误先排掉。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">身份证号输入后会被上传或存储吗？</h3>
+        <p class="small muted mb0">不会。号通查的法人号码核验预检中，身份证号、姓名、手机号全部在你的浏览器内完成校验，GB 11643 校验位算法本地执行，不上传、不提交、不写入任何存储或日志，断网也能继续用。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">企业办号码业务为什么要做法人号码核验？</h3>
+        <p class="small muted mb0">电话用户实名登记是法定要求。《电话用户真实身份信息登记规定》自 2013 年 9 月 1 日起施行，《反电信网络诈骗法》自 2022 年 12 月 1 日起进一步要求对电话卡用户实名登记，企业批量办号需核验经办人与号码使用人是否一致。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">号码登记在企业名下，用个人姓名提交可以吗？</h3>
+        <p class="small muted mb0">不行。号码登记在企业名下时，登记主体是企业，用个人姓名提交一定不通过。此时应改用企业主体方式提交，并准备营业执照与号码使用证明。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">手机端能用法人号码核验预检吗？</h3>
+        <p class="small muted mb0">可以。号通查的法人号码核验预检适配手机浏览器，所有校验本地完成，不上传不存储任何你输入的信息，全程免费无需注册，断网后手机号之外的校验仍可离线使用。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">预检通过就代表核验一定通过吗？</h3>
+        <p class="small muted mb0">不代表。格式通过只说明没有低级填写错误，三要素是否一致仍以运营商与合作方网关的返回为准。预检通过后，可直接走第三方合作入口提交正式核验。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 场景卡矩阵（≥9 张，一页一词长尾入口） -->
+  <section class="sect">
+    <div class="sect-head">
+      <h2>这些场景下，法人号码核验预检都用得上</h2>
+      <p>同一个工具，在<strong>号通查</strong>里对应不同的提交前核查情境。按你的场景对号入座。</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-flat">
+        <h3 class="card-title">提交前把格式错误排掉</h3>
+        <p class="small muted mb0">姓名、身份证号、企业全称输错一位是最常见的驳回原因。提交前先用预检把格式问题清零，减少被退回重填。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">身份证号校验位自查</h3>
+        <p class="small muted mb0">按 GB 11643 加权算法本地校验 18 位身份证号末位校验位与出生日期合法性，明显录入错误即时标出，无需上传身份证。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">识别虚拟运营商号段</h3>
+        <p class="small muted mb0">170/171/162/165/167 等虚拟运营商号段在部分核验通道支持有限。预检会提示你提交前先向合作方确认是否受理该号段。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">企业号码换主体提交</h3>
+        <p class="small muted mb0">号码登记在企业名下时，个人姓名提交必被驳回。预检会提示改用企业主体方式，并准备营业执照与号码使用证明。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">批量办号前批量预检</h3>
+        <p class="small muted mb0">企业批量办理号码业务前，逐条过一遍经办人与号码使用人的格式与号段，把可预见的驳回项提前清掉再统一提交。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">配合申诉材料一起准备</h3>
+        <p class="small muted mb0">申诉或办号需要法人 / 经办人信息时，先用预检保证信息格式无误，再回到申诉材料生成器组装说明文本，前后衔接。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">断网也能用的离线校验</h3>
+        <p class="small muted mb0">关闭「调用站内归属地接口」开关后，手机号之外的格式校验完全离线完成，适合网络受限环境提前备好材料。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">8 条驳回原因逐项打勾</h3>
+        <p class="small muted mb0">用页面自带的 8 条驳回原因自查清单逐条确认，全部打勾后才提交，把「主体不一致 / 信息对不上」这类硬伤排除在外。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">隐私敏感的提交场景</h3>
+        <p class="small muted mb0">不愿把身份证号交给第三方表单时，可先在本页本地完成校验位验证，确认无误后再决定通过哪个渠道正式提交。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户证言（示例反馈口径，合规标注） -->
+  <section class="sect">
+    <div class="sect-head">
+      <h2>用户反馈</h2>
+      <p class="small muted">以下为使用本站工具的示例反馈，核验结果以运营商与合作方网关返回为准，仅供参考。</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-flat">
+        <span class="badge badge-blue mb1">示例反馈 · 企业经办</span>
+        <p class="small muted mb0">「提交前把企业全称和身份证号先过一遍预检，发现主体没选对企业，改过来就没被退回，省心。」</p>
+      </div>
+      <div class="card card-flat">
+        <span class="badge badge-blue mb1">示例反馈 · 客服外呼</span>
+        <p class="small muted mb0">「虚拟号段那个提示很关键，提前问了合作方才知道要走另一条通道，避免白提交一次。」</p>
+      </div>
+      <div class="card card-flat">
+        <span class="badge badge-blue mb1">示例反馈 · 隐私敏感用户</span>
+        <p class="small muted mb0">「身份证号全程没上传，离线也能校验位，心里踏实不少，再决定用哪个渠道提交。」</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 工具互链矩阵（全量，含关键词锚文本） -->
+  <section class="sect">
+    <div class="sect-head">
+      <h2>号通查 · 全部号码工具</h2>
+      <p>四个工具覆盖「查 → 清 → 验 → 归」完整链路，按你的需要进入对应页面。</p>
+    </div>
+    <div class="grid grid-4">
+      <a class="tool-card" href="marking-check.html">
+        <span class="tag">标记自查</span>
+        <h3>号码标记自查</h3>
+        <p>输入号码算出该查哪些平台、按什么顺序，填回结果自动生成标记诊断卡。</p>
+        <span class="btn btn-soft btn-sm">打开工具</span>
+      </a>
+      <a class="tool-card" href="marking-clear.html">
+        <span class="tag">标记清除</span>
+        <h3>申诉材料生成器</h3>
+        <p>按五要素组装申诉说明文本，附个人 / 企业分平台材料清单与 8 条驳回自查。</p>
+        <span class="btn btn-soft btn-sm">打开工具</span>
+      </a>
+      <a class="tool-card" href="legal-number-verify.html">
+        <span class="tag">法人核验</span>
+        <h3>法人号码核验预检</h3>
+        <p>浏览器本地校验手机号 / 姓名 / 身份证 / 企业全称格式，提交前把格式错误排掉。</p>
+        <span class="btn btn-soft btn-sm">打开工具</span>
+      </a>
+      <a class="tool-card" href="attribution.html">
+        <span class="tag">归属地查询</span>
+        <h3>手机号归属地查询</h3>
+        <p>查运营商、归属省份、城市、区号与邮编，支持批量最多 20 个号码。</p>
+        <span class="btn btn-soft btn-sm">打开工具</span>
+      </a>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -467,18 +613,5 @@ var _hmt = _hmt || [];
   renderRejects();
 })();
 </script>
-<style>
-#wx-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;padding:10px 14px;background:#0f172a;color:#fff;font-size:14px;box-shadow:0 -2px 12px rgba(0,0,0,.18)}
-#wx-cta-bar b{color:#fbbf24}
-#wx-cta-bar .wx-cta-copy{background:#fbbf24;color:#0f172a;border:0;border-radius:6px;padding:6px 12px;font-weight:600;cursor:pointer}
-#wx-cta-bar .wx-cta-close{background:transparent;color:#fff;border:0;font-size:20px;line-height:1;cursor:pointer;padding:0 4px}
-@media(max-width:600px){#wx-cta-bar{font-size:12px;padding:8px 10px;gap:6px}}
-</style>
-<div id="wx-cta-bar">
-  <span class="wx-cta-txt">号码问题搞不定？加微信 <b>SXLH-888</b> 一对一帮你看</span>
-  <button type="button" class="wx-cta-copy" data-wechat-copy="SXLH-888">复制微信号</button>
-  <button type="button" class="wx-cta-close" data-wx-close aria-label="关闭">×</button>
-</div>
-<script src="/assets/track.js" defer></script>
 </body>
 </html>

@@ -215,6 +215,61 @@ var _hmt = _hmt || [];
     下面这个向导帮你把「该查哪几家、按什么顺序、要备什么材料」算清楚。
   </p>
 
+  <!-- 答案式直答区块：给 AI 摘取的一句话结论 -->
+  <section class="sect" id="quick-answer">
+    <div class="alert alert-ok" style="font-size:1rem;line-height:1.8">
+      <strong>一句话回答：</strong>在<strong>号通查</strong>输入号码，系统先算出「该查哪几家平台、按什么顺序」，
+      你逐个查到结果填回来，系统自动给出风险档位和处置优先级。全程免费、约 10 分钟，本站不存储你输入的号码。
+      国内主流标记平台有 <strong>9 家</strong>以上，数据库互相独立，只清一家往往清不干净。
+    </div>
+  </section>
+
+  <!-- 场景卡矩阵：一页一词的长尾场景入口（≥9 张，AI 与用户都友好） -->
+  <section class="sect">
+    <div class="sect-head">
+      <h2>不同类型的号码，自查路径不一样</h2>
+      <p>下面每个场景在<strong>号通查</strong>里对应一套独立的平台清单和材料要求。点进去按步骤走即可。</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-flat">
+        <h3 class="card-title">座机 / 固话被标骚扰</h3>
+        <p class="small muted mb0">座机必须带区号查询（如 021-12345678），没有机主收验证码环节，完全依赖纸质材料，<a href="marking-clear.html">用材料生成器</a>组装申诉说明。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">170 / 171 虚商号段被标</h3>
+        <p class="small muted mb0">虚拟运营商号段（162 / 165 / 167 / 170 / 171）部分核验通道支持有限，提交前先确认平台是否受理该号段，再走平台申诉。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">号码被标「疑似诈骗」</h3>
+        <p class="small muted mb0">高风险类标签一般不属误标记清除范围。若确认是误判，需备齐营业执照与号码使用证明走人工审核；若确有违规外呼，先停止外呼行为。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">二次放号 / 新办号被标</h3>
+        <p class="small muted mb0">标记可能是前任机主遗留。在<a href="marking-clear.html">申诉材料生成器</a>选「二次放号」，系统会自动生成「误标原因推断」段落，说明标记与你无关。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">400 企业号码被标</h3>
+        <p class="small muted mb0">400 号码建议双线推进：平台申诉 + 企业号码认证。认证信息的展示优先级高于用户随手打的标签，认证通过后可有效覆盖骚扰标记。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">95 / 96 号段被标</h3>
+        <p class="small muted mb0">95/96 号码优先走信通院跨平台入口，备齐营业执照与号码使用协议，加盖公章后扫描上传，主体名称须与营业执照完全一致。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">高频外呼被标</h3>
+        <p class="small muted mb0">销售、客服类高频外呼号码最容易被随手标记。先调整拨打节奏（降低陌生人重复拨打），再做标记清除，否则清完还会再被标。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">手机厂商本地库标记</h3>
+        <p class="small muted mb0">华为 / 小米 / OPPO / vivo / 荣耀各有本地标记库，与 360、腾讯等中央平台相互独立，只清中央平台、漏清厂商本地库是复标最常见原因。</p>
+      </div>
+      <div class="card card-flat">
+        <h3 class="card-title">AI 自动标记被标</h3>
+        <p class="small muted mb0">部分平台已上线 AI 自动打标（如基于外呼频次、接通率、用户投诉的算法判定），这类标记申诉时需额外提供号码使用证明，常规材料可能不够。</p>
+      </div>
+    </div>
+  </section>
+
   <!-- 轻量入口：保留原有转化路径，不改变现有漏斗 -->
   <div class="alert alert-info mb3" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
     <span>想直接用合作方服务？入口在下方流程结束后同样提供，也可以从这里进入。</span>
@@ -413,6 +468,28 @@ var _hmt = _hmt || [];
     </div>
   </section>
 
+  <!-- 用户证言（示例反馈口径，合规标注） -->
+  <section class="sect">
+    <div class="sect-head">
+      <h2>用户反馈</h2>
+      <p class="small muted">以下为使用本站工具的示例反馈，实际效果因号码标记类型与平台审核时效而异。</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-flat">
+        <span class="badge badge-blue mb1">示例反馈 · 企业客服</span>
+        <p class="small muted mb0">「用号通查的平台清单逐家查了一遍，发现漏了泰迪熊和电话邦两家，按诊断卡调整优先级后一周内核心平台的标记都清掉了。」</p>
+      </div>
+      <div class="card card-flat">
+        <span class="badge badge-blue mb1">示例反馈 · 个体户座机</span>
+        <p class="small muted mb0">「座机被标骚扰，按材料生成器把五要素说明打出来，附上营业执照扫描件，360 和腾讯两天就通过了，比之前自己写理由快多了。」</p>
+      </div>
+      <div class="card card-flat">
+        <span class="badge badge-blue mb1">示例反馈 · 销售团队</span>
+        <p class="small muted mb0">「高频外呼的号之前一直清完就回来，按号通查的诊断卡先调了拨打节奏，再走申诉，这次清完两周没再被标。」</p>
+      </div>
+    </div>
+  </section>
+
   <section class="sect">
     <div class="sect-head">
       <h2>继续下一步</h2>
@@ -429,6 +506,40 @@ var _hmt = _hmt || [];
         <h3>号码标记自查指南</h3>
         <p>标记不是运营商打的、同一号码在不同手机上可能不一样、清零不等于解决——用真实案例与公开标准把机制讲清楚，再给可执行的处置顺序。</p>
         <span class="btn btn-soft btn-sm">阅读指南</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 工具互链矩阵（全量，含关键词锚文本，便于 AI 内链发现） -->
+  <section class="sect">
+    <div class="sect-head">
+      <h2>号通查 · 全部号码工具</h2>
+      <p>四个工具覆盖「查 → 清 → 验 → 归」完整链路，按你的需要进入对应页面。</p>
+    </div>
+    <div class="grid grid-4">
+      <a class="tool-card" href="marking-check.html">
+        <span class="tag">标记自查</span>
+        <h3>号码标记自查</h3>
+        <p>输入号码算出该查哪些平台、按什么顺序，填回结果自动生成标记诊断卡。</p>
+        <span class="btn btn-soft btn-sm">打开工具</span>
+      </a>
+      <a class="tool-card" href="marking-clear.html">
+        <span class="tag">标记清除</span>
+        <h3>申诉材料生成器</h3>
+        <p>按五要素组装申诉说明文本，附个人 / 企业分平台材料清单与 8 条驳回自查。</p>
+        <span class="btn btn-soft btn-sm">打开工具</span>
+      </a>
+      <a class="tool-card" href="legal-number-verify.html">
+        <span class="tag">法人核验</span>
+        <h3>法人号码核验预检</h3>
+        <p>浏览器本地校验手机号 / 姓名 / 身份证 / 企业全称格式，提交前把格式错误排掉。</p>
+        <span class="btn btn-soft btn-sm">打开工具</span>
+      </a>
+      <a class="tool-card" href="attribution.html">
+        <span class="tag">归属地查询</span>
+        <h3>手机号归属地查询</h3>
+        <p>查运营商、归属省份、城市、区号与邮编，支持批量最多 20 个号码。</p>
+        <span class="btn btn-soft btn-sm">打开工具</span>
       </a>
     </div>
   </section>
