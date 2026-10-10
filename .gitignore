@@ -29,3 +29,7 @@ npm-debug.log*
 
 # 构建报告（由 build.mjs 生成）
 /build-report.txt
+
+# Python 缓存（verify-build.py 运行产物）
+__pycache__/
+*.pyc
