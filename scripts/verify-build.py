@@ -203,6 +203,16 @@ for u in blog_items:
     fp = os.path.join(PUB, u[len(ORIGIN):].lstrip('/').replace('/', os.sep))
     check(os.path.isfile(fp), f'rss 目标存在: {u[len(ORIGIN):]}')
 
+# ---------------------------------------------------------------- 7b. Pages 钩子
+try:
+    import subprocess
+    r = subprocess.run(['node', 'scripts/verify-redirects.mjs'], cwd=ROOT, capture_output=True, text=True, timeout=30)
+    check(r.returncode == 0, 'Pages 钩子 308 归一验证通过 (functions/_redirects.js)')
+    if r.returncode != 0:
+        fail.append('    ' + r.stdout.strip().splitlines()[-1] if r.stdout.strip() else '    (node 钩子验证无输出)')
+except Exception as e:
+    fail.append(f'    Pages 钩子验证异常: {e}')
+
 # ---------------------------------------------------------------- 汇总
 print('=' * 62)
 print(f'通过 {len(ok)} 项')
