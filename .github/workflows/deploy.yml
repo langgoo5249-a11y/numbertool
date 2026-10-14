@@ -10,13 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 脚本用 git diff 算本次真正变更的页面, 需要 HEAD~1。
+          # 浅克隆(默认 depth:1)下取不到, 会退化成全量提交。
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # 本项目零依赖，无需 npm install；build 由 package.json 的 prebuild 钩子先生成图片资源
+      # 本项目零依赖，无需 npm install；build 由 package.json 的 prebuild 钩子先生成图片资产
       - name: Build
         run: npm run build
 
@@ -26,3 +30,30 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           npx --yes wrangler@4 pages deploy ./dist --project-name=numbertool --branch=main --commit-dirty=true
+
+      # ── 通知搜索引擎: 本次发布的 URL 新增 / 修改 / 删除 ──
+      # 本站页面源码就在 public/ 下(build 只做拷贝), 所以直接用 git diff
+      # 把变更文件映射成 URL, 比 diff sitemap 更精确, 且天然覆盖删除。
+      #
+      # 2026-10-14 新增: 此前 scripts/indexnow-submit.mjs 从未被 CI 调用,
+      # 只能手动跑; 且它固定提交「所有主页面 + 全部博客」, 每次全量重发。
+      #
+      # 注意: 本站与 free-api-hub 共用域名 www.524900.xyz, IndexNow 的 key
+      # 按 host 验证, 两个仓库必须用同一个 key(见 .indexnow.json)。
+      - name: Notify IndexNow (incremental: added + modified + removed)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+            mapfile -t CHANGED < <(git diff --name-only --diff-filter=ACMRT HEAD~1 HEAD)
+          else
+            echo "首次提交(无 HEAD~1), 提交全部页面"
+            mapfile -t CHANGED < <(git ls-files 'public/*.html' 'public/**/*.html' 'public/robots.txt' 'public/sitemap.xml')
+          fi
+          if [ ${#CHANGED[@]} -eq 0 ]; then
+            echo "无变更文件, 跳过 IndexNow 提交"
+            exit 0
+          fi
+          echo "变更文件 ${#CHANGED[@]} 个:"
+          printf '  %s\n' "${CHANGED[@]}"
+          node scripts/indexnow-submit.mjs --changed-files "${CHANGED[@]}"
+        continue-on-error: true

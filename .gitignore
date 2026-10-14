@@ -33,3 +33,7 @@ npm-debug.log*
 # Python 缓存（verify-build.py 运行产物）
 __pycache__/
 *.pyc
+
+# IndexNow 增量 diff 的运行期基线, 不入库
+scripts/.indexnow-snapshot/
+out/.indexnow-snapshot/
