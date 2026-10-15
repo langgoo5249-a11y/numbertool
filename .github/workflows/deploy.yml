@@ -40,7 +40,7 @@ jobs:
       #
       # 注意: 本站与 free-api-hub 共用域名 www.524900.xyz, IndexNow 的 key
       # 按 host 验证, 两个仓库必须用同一个 key(见 .indexnow.json)。
-      - name: Notify IndexNow (incremental: added + modified + removed)
+      - name: Notify IndexNow (incremental added modified removed)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
           if git rev-parse HEAD~1 >/dev/null 2>&1; then
