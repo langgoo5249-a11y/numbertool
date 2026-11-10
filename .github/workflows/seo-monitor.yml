@@ -1,0 +1,169 @@
+name: SEO Daily Monitor
+
+on:
+  schedule:
+    # 每天北京时间 09:30 执行（UTC 01:30）
+    - cron: '30 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write # 自动开/关 SEO 告警 Issue 需要
+
+jobs:
+  seo-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run SEO Monitor
+        id: monitor
+        run: |
+          SITE="https://www.524900.xyz"
+          ALERT_COUNT=0
+          REPORT=""
+          # 预期值基线（2026-11-10 实测，站点升级时同步改这里并注明日期）
+          # 纯中文站：无 hreflang（不设此项）；单 sitemap 45+ URL；无 sitemap-index
+
+          # 检查1: canonical URL
+          HOME_HTML=$(curl -s "$SITE/")
+          CANONICAL=$(echo "$HOME_HTML" | grep -o 'rel="canonical" href="[^"]*"' | head -1)
+          if echo "$CANONICAL" | grep -q '524900.xyz'; then
+            REPORT+="✅ 检查1 Canonical: ${CANONICAL}\n"
+          else
+            REPORT+="❌ 检查1 Canonical异常: ${CANONICAL}\n"
+            ALERT_COUNT=$((ALERT_COUNT + 1))
+          fi
+
+          # 检查2: example.com 残留
+          EMAIL_BAD=$(echo "$HOME_HTML" | grep -c 'example.com' || true)
+          if [ "$EMAIL_BAD" = "0" ]; then
+            REPORT+="✅ 检查2 无example.com残留\n"
+          else
+            REPORT+="❌ 检查2 发现${EMAIL_BAD}处example.com残留\n"
+            ALERT_COUNT=$((ALERT_COUNT + 1))
+          fi
+
+          # 检查3: JSON-LD 结构化数据（首页预期 >=2 块）
+          LD_COUNT=$(echo "$HOME_HTML" | grep -c 'application/ld+json' || true)
+          if [ "$LD_COUNT" -ge 2 ]; then
+            REPORT+="✅ 检查3 JSON-LD: ${LD_COUNT}块\n"
+          else
+            REPORT+="❌ 检查3 JSON-LD不足: 预期>=2, 实际${LD_COUNT}\n"
+            ALERT_COUNT=$((ALERT_COUNT + 1))
+          fi
+
+          # 检查4: llms.txt 可达（AI 引擎可见度）
+          LLMS_STATUS=$(curl -s -o /dev/null -w '%{http_code}' "$SITE/llms.txt")
+          if [ "$LLMS_STATUS" = "200" ]; then
+            REPORT+="✅ 检查4 llms.txt: 200\n"
+          else
+            REPORT+="❌ 检查4 llms.txt异常: ${LLMS_STATUS}\n"
+            ALERT_COUNT=$((ALERT_COUNT + 1))
+          fi
+
+          # 检查5: sitemap.xml（预期 40+ URL）
+          SITEMAP_STATUS=$(curl -s -o /dev/null -w '%{http_code}' "$SITE/sitemap.xml")
+          SITEMAP_COUNT=$(curl -s "$SITE/sitemap.xml" | grep -c '<loc>' || true)
+          if [ "$SITEMAP_STATUS" = "200" ] && [ "$SITEMAP_COUNT" -gt 40 ]; then
+            REPORT+="✅ 检查5 Sitemap: ${SITEMAP_COUNT}个URL\n"
+          else
+            REPORT+="❌ 检查5 Sitemap异常: 状态${SITEMAP_STATUS}, ${SITEMAP_COUNT}个URL（预期>40）\n"
+            ALERT_COUNT=$((ALERT_COUNT + 1))
+          fi
+
+          # 检查6: robots.txt
+          ROBOTS_STATUS=$(curl -s -o /dev/null -w '%{http_code}' "$SITE/robots.txt")
+          if [ "$ROBOTS_STATUS" = "200" ]; then
+            REPORT+="✅ 检查6 robots.txt: 200\n"
+          else
+            REPORT+="❌ 检查6 robots.txt异常: ${ROBOTS_STATUS}\n"
+            ALERT_COUNT=$((ALERT_COUNT + 1))
+          fi
+
+          # 检查7: HTTP安全头
+          HEADERS=$(curl -sI "$SITE/")
+          HSTS=$(echo "$HEADERS" | grep -ic 'strict-transport-security' || true)
+          XFRAME=$(echo "$HEADERS" | grep -ic 'x-frame-options' || true)
+          XCTO=$(echo "$HEADERS" | grep -ic 'x-content-type-options' || true)
+          if [ "$HSTS" -ge 1 ] && [ "$XFRAME" -ge 1 ] && [ "$XCTO" -ge 1 ]; then
+            REPORT+="✅ 检查7 安全头: HSTS/XFO/XCTO 全部存在\n"
+          else
+            REPORT+="⚠️ 检查7 安全头缺失: HSTS=${HSTS} XFO=${XFRAME} XCTO=${XCTO}\n"
+          fi
+
+          # 检查8: 关键页面状态码（首页+博客列表必须200）
+          KEY_PAGES=("/" "/blog/")
+          PAGE_FAIL=0
+          for page in "${KEY_PAGES[@]}"; do
+            status=$(curl -s -o /dev/null -w '%{http_code}' "$SITE$page")
+            if [ "$status" != "200" ]; then
+              REPORT+="❌ 检查8 ${page} → ${status}\n"
+              PAGE_FAIL=$((PAGE_FAIL + 1))
+            fi
+          done
+          if [ "$PAGE_FAIL" = "0" ]; then
+            REPORT+="✅ 检查8 关键页面全部200(2页)\n"
+          else
+            ALERT_COUNT=$((ALERT_COUNT + 1))
+          fi
+
+          # 检查9: sitemap URL 随机抽样（45 URL，抽 5 个）
+          SITEMAP_URLS=$(curl -s "$SITE/sitemap.xml" | grep -o 'https://www.524900.xyz[^<]*</loc>' | sed 's/<\/loc>//' | shuf | head -5)
+          SITEMAP_FAIL=0
+          for url in $SITEMAP_URLS; do
+            status=$(curl -s -o /dev/null -w '%{http_code}' "$url")
+            if [ "$status" != "200" ]; then
+              REPORT+="❌ 检查9 Sitemap URL异常: ${url} → ${status}\n"
+              SITEMAP_FAIL=$((SITEMAP_FAIL + 1))
+            fi
+          done
+          if [ "$SITEMAP_FAIL" = "0" ]; then
+            REPORT+="✅ 检查9 Sitemap抽样5个URL全部200\n"
+          else
+            ALERT_COUNT=$((ALERT_COUNT + 1))
+          fi
+
+          echo "alert_count=$ALERT_COUNT" >> $GITHUB_OUTPUT
+          echo "report<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$REPORT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Issue on Failure
+        if: steps.monitor.outputs.alert_count != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const report = `${{ steps.monitor.outputs.report }}`;
+            const alertCount = `${{ steps.monitor.outputs.alert_count }}`;
+            const date = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 SEO 监控告警 - ${date} (${alertCount}个异常)`,
+              body: `## SEO 监控报告（www.524900.xyz）\n\n执行时间: ${date}\n异常数量: ${alertCount}\n\n### 检查结果\n\n${report}`,
+              labels: ['seo-monitor', 'alert']
+            });
+
+      - name: Close Old Issues on Success
+        if: steps.monitor.outputs.alert_count == '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'seo-monitor',
+              state: 'open'
+            });
+            for (const issue of issues.data) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: '✅ SEO 检查已恢复正常，自动关闭此 Issue。'
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed'
+              });
+            }
